@@ -1,0 +1,480 @@
+Este sistema WEB permite la creacion de productos, marcas, clientes y proveedores, con su ABM de datos
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+USUARIOS
+
+---------------------------------------
+Caso de uso: Login de usuario
+
+Actores: Usuario
+
+Proposito: Login de usuario
+
+Resumen: El usuario se logea
+
+Precondiciones: 
+	El usuario debe estar registrado
+
+Escenario ideal: 
+1- El usuario ingresa su nombre de usuario y contraseña
+2- Si los datos son correctos, accede al sistema
+
+ Escenario alternativo 1: El usuario ingresa datos incorrectos
+2- Mensaje de alerta al usuario, debe verificar los datos
+
+---------------------------------------
+
+Caso de uso: Creacion de un nuevo usuario
+
+Actores: Usuario registrado
+
+Proposito: Registrar un nuevo usuario
+
+Resumen: El usuario registra un nuevo usuario 
+
+Precondiciones: 
+	El usuario creador debe estar logueado y ser administrador
+
+Escenario ideal: 
+1- El usuario ingresa los datos requeridos para crear un nuevo usuario:
+	NombreUsuario
+	Nombre
+	Apellido
+	DNI
+	Correo
+	FechaNacimiento
+	Clave
+	Administrador
+2- Si los datos no existen, se agrega el registro a la tabla Usuarios de la base de datos
+3- Mensaje de alerta al usuario creador "Usuario creado correctamente"
+
+ Escenario alternativo 1: El usuario ingresa datos existentes
+2- Mensaje de alerta al usuario, debe verificar los datos
+
+ Escenario alternativo 2: El usuario no completa todos los campos
+2- Mensaje de alerta al usuario, debe verificar los datos
+
+---------------------------------------
+
+Caso de uso: Modificacion de un usuario
+
+Actores: Usuario administrador
+
+Proposito: Modificar un registro de Usuarios
+
+Resumen: El usuario modifica un registro de Usuarios de la base de datos
+
+Precondiciones: 
+	El usuario modificador debe ser Administrador
+	El usuario modificado debe estar registrado
+
+Escenario ideal: 
+1- El usuario selecciona el registro a modificar, pudiendo modificar los campos:	
+	NombreUsuario
+	Nombre
+	Apellido
+	DNI
+	Correo
+	FechaNacimiento
+	Clave
+	Administrador
+	Activo
+2- Los datos se almacenan en la tabla Usuarios, sobreescribiendo el registro seleccinado
+3- Mensaje de alerta al usuario "Usuario modificado correctamente"
+
+Escenario alternativo 1: El usuario ingresa datos existentes
+2- mensaje de alerta al usuario, debe verificar los datos
+
+ Escenario alternativo 2: El usuario no completa todos los campos
+2- Mensaje de alerta al usuario, debe verificar los datos
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+MARCAS
+---------------------------------------
+
+Caso de uso: Creacion de una marca
+
+Actores: Usuario
+
+Proposito: Registrar una nueva marca de productos disponibles
+
+Resumen: El usuario registra una nueva marca de productos que va a comercializar, con la finalidad de asociarla a nuevos productos
+
+Precondiciones: El usuario debe estar logueado y ser administrador
+
+Escenario ideal: 
+1- El usuario ingresa el nombre comercial de la nueva marca
+2- Si los datos no existen, se agrega el registro a la base de datos
+3- Mensaje de alerta al usuario "Marca creada correctamente"
+
+ Escenario alternativo 1: El usuario ingresa datos existentes
+2- Mensaje de alerta al usuario, debe verificar los datos
+
+ Escenario alternativo 2: El usuario no completa todos los campos
+2- Mensaje de alerta al usuario, debe verificar los datos
+
+---------------------------------------
+
+Caso de uso: Modificacion de una marca
+
+Actores: Usuario
+
+Proposito: Modificar una marca de productos disponibles
+
+Resumen: El usuario modifica un registro de Marcas de la base de datos
+
+Precondiciones: 
+	La marca debe estar registrada 
+	El usuario debe ser administrador
+
+Escenario ideal: 
+1- El usuario selecciona el registro a modificar, pudiendo modificar los campos :
+	1. Nombre
+	2. Activo
+2- Los datos se almacenan en la tabla Marcas, sobreescribiendo el registro seleccinado
+3- Mensaje de alerta al usuario "Marca modificada correctamente"
+
+Escenario alternativo 1: El usuario ingresa datos existentes
+2- mensaje de alerta al usuario, debe verificar los datos
+
+ Escenario alternativo 2: El usuario no completa todos los campos
+2- Mensaje de alerta al usuario, debe verificar los datos
+
+---------------------------------------------------------------------------------------------------------------------
+
+CATEGORIAS
+
+Caso de uso: Creacion de una categoria
+
+Actores: Usuario administrador
+
+Proposito: Registrar una nueva categoria de productos disponibles
+
+Resumen: El usuario registra una nueva categoria de productos que va a comercializar, con la finalidad de asociarla a nuevos productos
+
+Precondiciones: El usuario debe estar logueado y ser administrador
+
+Escenario ideal: 
+1- El usuario ingresa el nombre de la nueva categoria
+2- Si los datos no existen, se agrega el registro a la tabla Categorias de la base de datos
+3- Mensaje de alerta al usuario "Categoria creada correctamente"
+
+ Escenario alternativo 1: El usuario ingresa datos existentes
+2- Mensaje de alerta al usuario, debe verificar los datos
+
+ Escenario alternativo 2: El usuario no completa todos los campos
+2- Mensaje de alerta al usuario, debe verificar los datos
+
+---------------------------------------
+
+Caso de uso: Modificacion de una categoria
+
+Actores: Usuario administrador
+
+Proposito: Modificar una categoria de productos disponibles
+
+Resumen: El usuario modifica un registro de Categorias de la base de datos
+
+Precondiciones: 
+	El usuario debe estar logueado y ser administrador
+	La categoria debe estar registrada
+
+Escenario ideal: 
+1- El usuario selecciona el registro a modificar, pudiendo modificar los campos :
+	1. Nombre
+	2. Activo
+2- Los datos se almacenan en la tabla Marcas, sobreescribiendo el registro seleccinado
+3- Mensaje de alerta al usuario "Marca modificada correctamente"
+
+Escenario alternativo 1: El usuario ingresa datos existentes
+2- mensaje de alerta al usuario, debe verificar los datos
+
+ Escenario alternativo 2: El usuario no completa todos los campos
+2- Mensaje de alerta al usuario, debe verificar los datos
+
+---------------------------------------------------------------------------------------------------------------------
+
+PROVEEDORES
+
+---------------------------------------
+
+Caso de uso: Creacion de un proveedor
+
+Actores: Usuario administrador
+
+Proposito: Registrar un nuevo proveedor de productos
+
+Resumen: El usuario registra un nuevo proveedor de productos que va a comercializar, con la finalidad de asociarla a nuevos productos
+
+Precondiciones: El usuario debe estar logueado y ser administrador
+
+Escenario ideal: 
+1- El usuario ingresa los datos del nuevo proveedor:
+	CodigoTributario
+	Direccion
+	Localidad
+	Telefono 
+	Mail
+	Denominacion
+2- Si los datos no existen, se agrega el registro a la base de datos
+3- Mensaje de alerta al usuario "Proveedor creado correctamente"
+
+ Escenario alternativo 1: El usuario ingresa datos existentes
+2- Mensaje de alerta al usuario, debe verificar los datos
+
+ Escenario alternativo 2: El usuario no completa todos los campos
+2- Mensaje de alerta al usuario, debe verificar los datos
+
+---------------------------------------
+
+Caso de uso: Modificacion de un proveedor
+
+Actores: Usuario
+
+Proposito: Modificar una marca de productos disponibles
+
+Resumen: El usuario modifica un registro de Proveedores de la base de datos
+
+Precondiciones: 
+	El usuario debe estar logueado y ser administrador
+	La marca debe estar registrada
+
+Escenario ideal: 
+1- El usuario selecciona el registro a modificar, pudiendo modificar los campos :
+	CodigoTributario
+	Direccion
+	Localidad
+	Telefono 
+	Mail
+	Denominacion
+	Activo
+2- Los datos se almacenan en la tabla Marcas, sobreescribiendo el registro seleccinado
+3- Mensaje de alerta al usuario "Proveedor modificado correctamente"
+
+Escenario alternativo 1: El usuario ingresa datos existentes
+2- mensaje de alerta al usuario, debe verificar los datos
+
+ Escenario alternativo 2: El usuario no completa todos los campos
+2- Mensaje de alerta al usuario, debe verificar los datos
+
+---------------------------------------------------------------------------------------------------------------------
+
+
+CLIENTES
+
+---------------------------------------
+
+Caso de uso: Creacion de un cliente
+
+Actores: Usuario administrador
+
+Proposito: Registrar un nuevo cliente
+
+Resumen: El usuario registra un nuevo cliente a quien le va a vender sus productos
+
+Precondiciones: El usuario debe estar logueado y ser administrador
+
+Escenario ideal: 
+1- El usuario ingresa los datos del nuevo cliente:
+	CodigoTributario
+	Denominacion
+	Direccion
+	Localidad
+	Telefono
+	Mail
+
+2- Si los datos no existen, se agrega el registro a la base de datos
+3- Mensaje de alerta al usuario "Cliente creado correctamente"
+
+ Escenario alternativo 1: El usuario ingresa datos existentes
+2- Mensaje de alerta al usuario, debe verificar los datos
+
+ Escenario alternativo 2: El usuario no completa todos los campos
+2- Mensaje de alerta al usuario, debe verificar los datos
+
+---------------------------------------
+
+Caso de uso: Modificacion de un cliente
+
+Actores: Usuario
+
+Proposito: Modificar un cliente
+
+Resumen: El usuario modifica un registro de Clientes de la base de datos
+
+Precondiciones: 
+	El usuario debe estar logueado y ser administrador
+	El cliente debe estar registrado
+
+Escenario ideal: 
+1- El usuario selecciona el registro a modificar, pudiendo modificar los campos :
+	CodigoTributario
+	Direccion
+	Localidad
+	Telefono, 
+	Mail
+	Nombre
+	Apellido
+	Fecha de nacimiento
+	Documento
+	Denominacion
+	Activo
+2- Los datos se almacenan en la tabla Clientes, sobreescribiendo el registro seleccinado
+3- Mensaje de alerta al usuario "Cliente modificado correctamente"
+
+Escenario alternativo 1: El usuario ingresa datos existentes
+2- mensaje de alerta al usuario, debe verificar los datos
+
+ Escenario alternativo 2: El usuario no completa todos los campos
+2- Mensaje de alerta al usuario, debe verificar los datos
+
+---------------------------------------------------------------------------------------------------------------------
+
+
+PRODUCTOS
+
+---------------------------------------
+
+Caso de uso: Creacion de un producto
+
+Actores: Usuario administrador
+
+Proposito: Registrar un nuevo producto
+
+Resumen: El usuario registra un nuevo producto a su catalogo
+
+Precondiciones: 
+	El usuario debe estar logueado y ser administrador
+	La marca del producto debe estar registra
+	La categoria del producto debe estar registrada
+
+Escenario ideal: 
+1- El usuario ingresa los datos del nuevo producto:
+	Nombre
+	Descripcion
+	CodigoBarras 
+	Categoria
+	Marca
+	Stock minimo
+
+2- Si los datos no existen, se agrega el registro a la base de datos
+3- Mensaje de alerta al usuario "Producto creado correctamente"
+
+ Escenario alternativo 1: El usuario ingresa datos existentes
+2- Mensaje de alerta al usuario, debe verificar los datos
+
+ Escenario alternativo 2: El usuario no completa todos los campos
+2- Mensaje de alerta al usuario, debe verificar los datos
+
+---------------------------------------
+
+Caso de uso: Modificacion de un producto
+
+Actores: Usuario
+
+Proposito: Modificar un producto
+
+Resumen: El usuario modifica un registro de Clientes de la base de datos
+
+Precondiciones: 
+	El usuario debe estar logueado y ser administrador
+	El producto debe estar creado
+
+Escenario ideal: 
+1- El usuario selecciona el registro a modificar, pudiendo modificar los campos :
+	Nombre
+	Descripcion
+	CodigoBarras 
+	Categoria
+	Marca
+	Precio de compra
+	Porcentaje de ganacia
+	Precio de venta
+	PuntoPedido
+	Activo 
+	
+2- Los datos se almacenan en la tabla Productos, sobreescribiendo el registro seleccinado
+3- Mensaje de alerta al usuario "Producto modificado correctamente"
+
+Escenario alternativo 1: El usuario ingresa datos existentes
+2- mensaje de alerta al usuario, debe verificar los datos
+
+ Escenario alternativo 2: El usuario no completa todos los campos
+2- Mensaje de alerta al usuario, debe verificar los datos
+
+---------------------------------------------------------------------------------------------------------------------
+
+COMPRAS
+
+---------------------------------------
+
+Caso de uso: Incorporacion de stock a Productos
+
+Actores: Usuario
+
+Proposito: Registrar compra de productos 
+
+Resumen: El usuario registra una nueva compra de productos, y aumenta su stock
+
+Precondiciones: 
+	El usuario debe estar logueado
+	El proveedor debe estar registrado
+	Cada producto que se agregue debe estar registrado
+	
+Escenario ideal: 
+1- El usuario selecciona el proveedor de la compra
+2- El usuario selecciona la marca del producto a agregar
+3- El usuario selecciona la categoria del producto a agregar
+4- El usuario ingresa la cantidad del producto a agregar, su precio de compra y su precio de venta
+5- Repite el paso 2, 3 y 4 hasta que no se agreguen mas productos
+6- El sistema actualiza la cantidad comprada de cada producto a su stock, el precio de compra, el precio sugerido de venta
+y el precio de venta
+
+ Escenario alternativo 1: El usuario no completa todos los campos
+2- Mensaje de alerta al usuario, debe verificar los datos
+
+ Escenario alternativo 2: El usuario agrega un producto con cantidad 0 a al carrito
+2- Mensaje de alerta al usuario, debe verificar los datos
+ 
+
+---------------------------------------
+
+VENTAS
+
+---------------------------------------
+
+Caso de uso: reduccion de stock a Productos
+
+Actores: Usuario
+
+Proposito: Registrar venta de productos 
+
+Resumen: El usuario registra una nueva venta de productos, y reduce su stock
+
+Precondiciones: 
+	El usuario debe estar logueado
+	El cliente debe estar registrado
+	Cada producto que se agregue debe estar registrado
+	
+Escenario ideal: 
+1- El usuario selecciona el cliente de la venta
+2- El usuario selecciona la marca del producto a agregar
+3- El usuario selecciona la categoria del producto a agregar
+4- El usuario ingresa la cantidad del cada producto vendido
+5- Repite el paso 2, 3 y 4 hasta que no se agreguen mas productos
+6- El sistema actualiza la cantidad vendida de cada producto a su stock
+
+ Escenario alternativo 1: El usuario no completa todos los campos
+2- Mensaje de alerta al usuario, debe verificar los datos
+ 
+ Escenario alternativo 2: El usuario agrega un producto con cantidad 0 al carrito
+2- Mensaje de alerta al usuario, debe verificar los datos
+
+ Escenario alternativo 3: El usuario agrega un producto con cantidad mayor al stock disponible al carrito
+2- Mensaje de alerta al usuario, stock insuficiente
+
+---------------------------------------

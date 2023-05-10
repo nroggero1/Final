@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proveedor</title>
+</head>
+<body>
+
+    <h1>Pantalla para crear un proveedor</h1>
+
+    <label for="CodigoTributario">Ingrese el codigo tributario:</label>
+    <input type="text" id="codigoTributario" name="CodigoTributario" placeholder="CodigoTributario">
+    <br>
+    <label for="Nombre">Ingrese el nombre:</label>
+    <input type="text" id="combre" name="Nombre" placeholder="Nombre">
+    <br>
+    <label for="Apellido">Ingrese el apellido:</label>
+    <input type="text" id="apellido" name="Apellido" placeholder="Apellido">
+    <br>
+    <label for="Documento">Ingrese el documento:</label>
+    <input type="text" id="documento" name="Documento" placeholder="Documento">
+    <br>
+    <label for="Denominacion">Ingrese la Denominacion:</label>
+    <input type="text" id="denominacion" name="Denominacion" placeholder="Denominacion">
+    <br>
+
+
+
+    <label for="Provincia">Seleccione la provincia:</label>
+    <select id="provincia" name="Provincia">
+      <% 
+        // Conexión a la base de datos
+        string connectionString = "Data Source=nombre_servidor;Initial Catalog=nombre_base_de_datos;User ID=nombre_usuario;Password=contraseña";
+
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            // Verificar la conexión
+            try
+            {
+                connection.Open();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al conectar a la base de datos: " + ex.Message);
+                return;
+            }
+
+            // Consulta para obtener las provincias desde la base de datos
+            string query = "SELECT ID, Nombre FROM Provincias";
+            SqlCommand command = new SqlCommand(query, connection);
+            SqlDataReader reader = command.ExecuteReader();
+
+            // Generar las opciones de la lista desplegable
+            while (reader.Read())
+            {
+                int id = Convert.ToInt32(reader["ID"]);
+                string nombre = reader["Nombre"].ToString();
+                Response.Write("<option value='" + id + "'>" + nombre + "</option>");
+            }
+
+            reader.Close();
+        }
+      %>
+    </select>
+    <br>
+
+
+    <label for="Localidad">Seleccione la localidad:</label>
+    <select id="localidad" name="Localidad">
+        <% 
+        // Conexión a la base de datos
+        string connectionString = "Data Source=nombre_servidor;Initial Catalog=nombre_base_de_datos;User ID=nombre_usuario;Password=contraseña";
+
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            // Verificar la conexión
+            try
+            {
+                connection.Open();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al conectar a la base de datos: " + ex.Message);
+                return;
+            }
+
+            // Consulta para obtener las provincias desde la base de datos
+            string query = 
+                            "SELECT ID, Nombre 
+                            FROM Localidades 
+                            WHERE (Localidades.IdProvincia = Provincias.Id)";
+            SqlCommand command = new SqlCommand(query, connection);
+            SqlDataReader reader = command.ExecuteReader();
+
+            // Generar las opciones de la lista desplegable
+            while (reader.Read())
+            {
+                int id = Convert.ToInt32(reader["ID"]);
+                string nombre = reader["Nombre"].ToString();
+                Response.Write("<option value='" + id + "'>" + nombre + "</option>");
+            }
+
+            reader.Close();
+        }
+      %>
+    </select>
+
+    <br>
+    <label for="Direccion">Ingrese la direccion:</label>
+    <input type="text" id="direccion" name="Direccion" placeholder="Direccion">
+    <br>
+    <label for="Mail">Ingrese el mail:</label>
+    <input type="email" id="mail" name="Mail" id="Mail">
+    <br>
+    <label for="Telefono">Ingrese el Telefono:</label>
+    <input type="tel" id="telefono" name="Telefono" placeholder="Telefono" >
+    <br>
+    <label for="FechaNacimiento">Seleccione la fecha de nacimiento:</label>
+    <input type="date" id="fechaNacimiento" name="FechaNacimiento" id="FechaNacimiento">
+    <br>
+    <label for="Activo">Activo</label>
+    <input type="checkbox" id="activo" name="Activo" id="Activo">
+    <br>
+    <br>
+    <input type="button" value="Guardar" onclick="CrearProveedor()">
+
+</body>
+</html>

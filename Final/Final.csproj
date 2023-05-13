@@ -7,6 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Categorias\CrearCategoria.cshtml" />
+    <Content Remove="Views\Marcas\CrearMarca.cshtml" />
+    <Content Remove="Views\Usuarios\CrearUsuario.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Categorias\CrearCategoria.cshtml" />
+    <None Include="Views\Marcas\CrearMarca.cshtml" />
+    <None Include="Views\Usuarios\CrearUsuario.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.4.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.5" />

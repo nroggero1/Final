@@ -1,5 +1,5 @@
 Este sistema WEB permite la creacion de productos, marcas, clientes y proveedores, con su ABM de datos
-
+Ademas mediante compras y ventas tendria ajustes de stock 
 
 ---------------------------------------------------------------------------------------------------------------------
 
@@ -326,7 +326,7 @@ Escenario ideal:
 2- Los datos se almacenan en la tabla Clientes, sobreescribiendo el registro seleccinado
 3- Mensaje de alerta al usuario "Cliente modificado correctamente"
 
-Escenario alternativo 1: El usuario ingresa datos existentes
+ Escenario alternativo 1: El usuario ingresa datos existentes
 2- mensaje de alerta al usuario, debe verificar los datos
 
  Escenario alternativo 2: El usuario no completa todos los campos

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Final.Models;
 using Final.Data;
+using System.Data.Entity;
 
 namespace Final.Controllers
 {
@@ -12,9 +13,32 @@ namespace Final.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+
+
+
+
+
+
+
+
+
+
+        // URL: /Marca/CrearMarca
+        public IActionResult CrearMarca()
         {
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CrearMarca(Marca marca)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(marca);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(marca);
         }
     }
 }

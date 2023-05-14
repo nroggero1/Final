@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Final.Models;
 using Final.Data;
-using System.Data.Entity;
 
 namespace Final.Controllers
 {

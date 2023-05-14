@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Producto</title>
+</head>
+<body>
+
+    <h1>Pantalla para crear un producto</h1>
+    
+    <label for="Nombre">Ingrese el nombre del producto:</label>
+    <input type="text" id="Nombre" name="Nombre" placeholder="Nombre del producto">
+    <br>
+    <label for="Descripcion">Descripcion:</label>
+    <input type="text" id="Descripcion" name="Descripcion" placeholder="Descripcion">
+    <br>
+    <label for="CodigoBarras">Codigo de barras:</label>
+    <input type="number" id="CodigoBarras" name="CodigoBarras" placeholder="Codigo de barras">
+    <br>
+
+    <label for="Categoria">Seleccione la categoria:</label>
+    <select id="categoria" name="Categoria">
+      <% 
+        // Conexión a la base de datos
+        string connectionString = "Data Source=nombre_servidor;Initial Catalog=nombre_base_de_datos;User ID=nombre_usuario;Password=contraseña";
+
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            // Verificar la conexión
+            try
+            {
+                connection.Open();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al conectar a la base de datos: " + ex.Message);
+                return;
+            }
+
+            // Consulta para obtener las categorias desde la base de datos
+            string query = "SELECT ID, Nombre FROM Categorias";
+            SqlCommand command = new SqlCommand(query, connection);
+            SqlDataReader reader = command.ExecuteReader();
+
+            // Generar las opciones de la lista desplegable
+            while (reader.Read())
+            {
+                int id = Convert.ToInt32(reader["ID"]);
+                string nombre = reader["Nombre"].ToString();
+                Response.Write("<option value='" + id + "'>" + nombre + "</option>");
+            }
+
+            reader.Close();
+        }
+      %>
+    </select>
+    <br>
+
+    <label for="Marca">Seleccione la marca:</label>
+    <select id="marca" name="Marcas">
+      <% 
+        // Conexión a la base de datos
+        string connectionString = "Data Source=nombre_servidor;Initial Catalog=nombre_base_de_datos;User ID=nombre_usuario;Password=contraseña";
+
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            // Verificar la conexión
+            try
+            {
+                connection.Open();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al conectar a la base de datos: " + ex.Message);
+                return;
+            }
+
+            // Consulta para obtener las marcas desde la base de datos
+            string query = "SELECT ID, Nombre FROM Marcas";
+            SqlCommand command = new SqlCommand(query, connection);
+            SqlDataReader reader = command.ExecuteReader();
+
+            // Generar las opciones de la lista desplegable
+            while (reader.Read())
+            {
+                int id = Convert.ToInt32(reader["ID"]);
+                string nombre = reader["Nombre"].ToString();
+                Response.Write("<option value='" + id + "'>" + nombre + "</option>");
+            }
+
+            reader.Close();
+        }
+      %>
+    </select>
+    <br>
+    <label for="StockMinimo">Stock minimo:</label>
+    <input type="number" id="StockMinimo" name="StockMinimo" placeholder="Stock minimo">
+    <br>
+
+    <input type="button" value="Guardar" onclick="CrearProducto()">
+
+</body>
+</html>

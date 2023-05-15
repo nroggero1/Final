@@ -1,4 +1,10 @@
+using Final.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<FinalWebContext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("FinalWebContext")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

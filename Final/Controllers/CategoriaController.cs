@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Final.Models;
 using Final.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Final.Controllers
 {
@@ -12,10 +13,7 @@ namespace Final.Controllers
             _context = context;
         }
 
-
-
-
-
+      
 
 
         // URL: /Categoria/CrearCategoria
@@ -29,7 +27,9 @@ namespace Final.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(categoria);
+                categoria.FechaAlta = System.DateTime.Now;
+                categoria.Activo = true;
+                _context.Categoria.Add(categoria);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }

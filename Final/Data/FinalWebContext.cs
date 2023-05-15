@@ -20,7 +20,6 @@ namespace Final.Data
         public DbSet<Final.Models.Provincia> Provincia { get; set; } = default!;
         public DbSet<Final.Models.Usuario> Usuario { get; set; } = default!;
         public DbSet<Final.Models.Venta> Venta { get; set; } = default!;
-
     }
 
 }

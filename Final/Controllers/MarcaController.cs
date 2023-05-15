@@ -33,7 +33,7 @@ namespace Final.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(marca);
+                _context.Marca.Add(marca);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }

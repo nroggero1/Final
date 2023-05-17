@@ -1,15 +1,17 @@
-﻿@model Final.Models.Categoria
+﻿@model Final.Models.Producto
 @{
-    ViewData["Title"] = "Crear categoria";
+    ViewData["Title"] = "Crear producto";
 }
 
 <div class="container-lg col-4">
-    <h1>Registrar Categoria</h1>
-    <form asp-action="CrearCategoria" method="POST">
+    <h1>Registrar Producto</h1>
+    <form asp-action="CrearProducto" method="POST">
         <!-- Nombre -->
         <div class="input-group mb-3">
+            <!--
             <label asp-for="Nombre" class="input-group-text">Nombre</label>
             <input asp-for="Nombre" type="text" class="form-control" placeholder="Ingresar Nombre" id="nombre">
+            -->
         </div>
         <button type="submit" class="btn btn-primary">Guardar</button>
     </form>

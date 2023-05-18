@@ -16,5 +16,32 @@ namespace Final.Controllers
         {
             return View();
         }
+
+
+
+
+
+
+
+
+
+
+        // URL: /Usuario/CrearUsuario
+        public IActionResult CrearUsuario()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CrearUsuarior(Usuario usuario)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Usuario.Add(usuario);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(usuario);
+        }
     }
 }

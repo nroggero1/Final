@@ -23,7 +23,7 @@ namespace Final.Controllers
 
 
 
-            // URL: /Cliente/CrearProveedor
+            // URL: /Proveedor/CrearProveedor
             public IActionResult CrearProveedor()
             {
                 return View();

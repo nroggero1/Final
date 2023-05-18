@@ -35,11 +35,11 @@
         </div>
         <div class="input-group mb-3">
             <label asp-for="FechaAlta" class="input-group-text">Fecha de alta</label>
-            <input asp-for="FechaAlta" type="datetime" class="form-control" id="fechaAlta" readonly value="@DateTime.Now">
+            <input asp-for="FechaAlta" type="datetime" class="form-control" id="fechaAlta" value="@DateTime.Now" readonly>
         </div>
         <div class="input-group mb-3">
             <label asp-for="Activo" class="input-group-text">Activo</label>
-            <input asp-for="Activo" type="checkbox" class="form-control" id="activo" readonly value="true">
+            <input asp-for="Activo" type="checkbox" class="form-control" id="activo" value="true" readonly>
         </div>
 
         <button type="submit" class="btn btn-primary">Guardar</button>

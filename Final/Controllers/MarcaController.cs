@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Final.Models;
 using Final.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Final.Controllers
 {
@@ -12,7 +13,32 @@ namespace Final.Controllers
             _context = context;
         }
 
+        // URL: /Marca
+        [HttpGet]
+        public async Task<IActionResult> Index()
+        {
+            var marcas = await _context.Marca.ToListAsync();
+            return View(marcas);
+        }
 
+        [HttpGet]
+        public async Task<IActionResult>
+            ConsultarCategoria(int? id)
+        {
+            if (id == null || _context.Marca == null)
+            {
+                return NotFound();
+            }
+
+            var marca = await _context.Marca
+            .FirstOrDefaultAsync(m => m.Id == id);
+            if (marca == null)
+            {
+                return NotFound();
+            }
+
+            return View(marca);
+        }
 
 
 

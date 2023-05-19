@@ -13,7 +13,32 @@ namespace Final.Controllers
             _context = context;
         }
 
-      
+        // URL: /Categoria
+        [HttpGet]
+        public async Task<IActionResult> Index()
+        {
+            var categorias = await _context.Categoria.ToListAsync();
+            return View(categorias);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult>
+            ConsultarCategoria(int? id)
+        {
+            if (id == null || _context.Categoria == null)
+            {
+                return NotFound();
+            }
+
+            var categoria = await _context.Categoria
+            .FirstOrDefaultAsync(m => m.Id == id);
+            if (categoria == null)
+            {
+                return NotFound();
+            }
+
+            return View(categoria);
+        }
 
 
         // URL: /Categoria/CrearCategoria

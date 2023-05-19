@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Final.Models;
 using Final.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Final.Controllers
 {
@@ -12,12 +13,32 @@ namespace Final.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+        // URL: /Usuario
+        [HttpGet]
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var usuarios = await _context.Usuario.ToListAsync();
+            return View(usuarios);
         }
 
+        [HttpGet]
+        public async Task<IActionResult>
+            ConsultarUsuario(int? id)
+        {
+            if (id == null || _context.Usuario == null)
+            {
+                return NotFound();
+            }
 
+            var usuario = await _context.Usuario
+            .FirstOrDefaultAsync(m => m.Id == id);
+            if (usuario == null)
+            {
+                return NotFound();
+            }
+
+            return View(usuario);
+        }
 
 
 

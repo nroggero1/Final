@@ -5,6 +5,6 @@
         public int Id { get; set; }
         public string? Nombre { get; set; }
         public string? Provincia { get; set; }
-        public string? CodigoPostal { get; set; }
+        public int? CodigoPostal { get; set; }
     }
 }

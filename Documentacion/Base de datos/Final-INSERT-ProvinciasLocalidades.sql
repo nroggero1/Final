@@ -1,4 +1,4 @@
-INSERT INTO Localidad (Provincia, localidad, CodigoPostal) VALUES
+INSERT INTO Localidad (Provincia, Nombre, CodigoPostal) VALUES
 ('SANTA FE','CABEZA DE CHANCHO','3061'),
 ('SANTA FE','CAMPO GARAY','3066'),
 ('SANTA FE','CAMPO SAN JOSE','3060'),
@@ -998,7 +998,7 @@ INSERT INTO Localidad (Provincia, localidad, CodigoPostal) VALUES
 ('BUENOS AIRES','VILLA SAURI','6430'),
 ('BUENOS AIRES','YUTUYACO','6443'),
 ('BUENOS AIRES','ADOLFO GONZALES CHAVES','7513')
-INSERT INTO Localidad (Provincia, localidad, CodigoPostal) VALUES
+INSERT INTO Localidad (Provincia, Nombre, CodigoPostal) VALUES
 ('BUENOS AIRES','ALZAGA','7021'),
 ('BUENOS AIRES','DE LA GARMA','7515'),
 ('BUENOS AIRES','JUAN E BARRA','7517'),
@@ -1044,7 +1044,7 @@ INSERT INTO Localidad (Provincia, localidad, CodigoPostal) VALUES
 ('BUENOS AIRES','LAS LOMAS','7603'),
 ('BUENOS AIRES','LAS PIEDRITAS','7605'),
 ('BUENOS AIRES','LOS PATOS','7603')
-INSERT INTO Localidad (Provincia, Localidad, CodigoPostal) VALUES
+INSERT INTO Localidad (Provincia, Nombre, CodigoPostal) VALUES
 ('BUENOS AIRES','MAR DEL SUD','7607'),
 ('BUENOS AIRES','MECHONGUE','7605'),
 ('BUENOS AIRES','MIRAMAR','7607'),
@@ -1908,7 +1908,7 @@ INSERT INTO Localidad (Provincia, Localidad, CodigoPostal) VALUES
 ('BUENOS AIRES','VIGELENCIA','6070'),
 ('BUENOS AIRES','CAMPO PELAEZ','7623'),
 ('BUENOS AIRES','COSTA BONITA BALNEARIO','7631');
-INSERT INTO Localidad (Provincia, localidad, CodigoPostal) VALUES
+INSERT INTO Localidad (Provincia, Nombre, CodigoPostal) VALUES
 ('BUENOS AIRES','DOS NACIONES','7007'),
 ('BUENOS AIRES','EL CHEIQUE','7007'),
 ('BUENOS AIRES','EL LENGUARAZ','7635'),
@@ -2002,7 +2002,7 @@ INSERT INTO Localidad (Provincia, localidad, CodigoPostal) VALUES
 ('BUENOS AIRES','HOGAR MARIANO ORTIZ BASUALDO','7172'),
 ('BUENOS AIRES','LA AMORILLA','7119'),
 ('BUENOS AIRES','LA COLORADA','7119')
-INSERT INTO Localidad (Provincia, localidad, CodigoPostal) VALUES
+INSERT INTO Localidad (Provincia, Nombre, CodigoPostal) VALUES
 ('BUENOS AIRES','LAS ARMAS','7172'),
 ('BUENOS AIRES','MAIPU','7160'),
 ('BUENOS AIRES','MONSALVO','7119'),
@@ -3003,7 +3003,7 @@ INSERT INTO Localidad (Provincia, localidad, CodigoPostal) VALUES
 ('RIO NEGRO','PADRE ALEJANDRO STEFANELLI','8332'),
 ('RIO NEGRO','PASO CORDOVA','8333'),
 ('RIO NEGRO','PE','8307')
-INSERT INTO Localidad (Provincia, localidad, CodigoPostal) VALUES
+INSERT INTO Localidad (Provincia, Nombre, CodigoPostal) VALUES
 ('RIO NEGRO','SAN JORGE','8324'),
 ('RIO NEGRO','SARGENTO VIDAL','8305'),
 ('RIO NEGRO','TERCERA ZONA','8336'),
@@ -4004,7 +4004,7 @@ INSERT INTO Localidad (Provincia, localidad, CodigoPostal) VALUES
 ('LA PAMPA','CAIMI','6361'),
 ('LA PAMPA','CARLOS BERG','6360'),
 ('LA PAMPA','COLONIA LA CARLOTA','6315')
-INSERT INTO Localidad (Provincia, localidad, CodigoPostal) VALUES
+INSERT INTO Localidad (Provincia, Nombre, CodigoPostal) VALUES
 ('LA PAMPA','EL BELGICA','6331'),
 ('LA PAMPA','EL PARQUE','6331'),
 ('LA PAMPA','GENERAL PICO','6360'),
@@ -5005,7 +5005,7 @@ INSERT INTO Localidad (Provincia, localidad, CodigoPostal) VALUES
 ('SANTA CRUZ','LAGUNA COLORADA','9400'),
 ('SANTA CRUZ','LAS HORQUETAS','9400'),
 ('SANTA CRUZ','MINA 3','9407')
-INSERT INTO Localidad (Provincia, localidad, CodigoPostal) VALUES
+INSERT INTO Localidad (Provincia, Nombre, CodigoPostal) VALUES
 ('SANTA CRUZ','MORRO CHICO','9407'),
 ('SANTA CRUZ','PALERMO AIKE','9400'),
 ('SANTA CRUZ','PALI AIKE','9400'),
@@ -6006,7 +6006,7 @@ INSERT INTO Localidad (Provincia, localidad, CodigoPostal) VALUES
 ('MISIONES','PUERTO AURORA','3363'),
 ('MISIONES','PUERTO INSUA','3363'),
 ('MISIONES','PUERTO LONDERO','3363')
-INSERT INTO Localidad (Provincia, localidad, CodigoPostal) VALUES
+INSERT INTO Localidad (Provincia, Nombre, CodigoPostal) VALUES
 ('MISIONES','PUERTO SAN MARTIN','3363'),
 ('MISIONES','SAN CARLOS','3363'),
 ('MISIONES','SAN FRANCISCO DE ASIS','3363'),
@@ -7007,7 +7007,7 @@ INSERT INTO Localidad (Provincia, localidad, CodigoPostal) VALUES
 ('CATAMARCA','LA PIEDRA','4715'),
 ('CATAMARCA','LA PUERTA','4711'),
 ('CATAMARCA','LAS AGUITAS','4715')
-INSERT INTO Localidad (Provincia, localidad, CodigoPostal) VALUES
+INSERT INTO Localidad (Provincia, Nombre, CodigoPostal) VALUES
 ('CATAMARCA','LAS BURRAS','4715'),
 ('CATAMARCA','LAS CHACRITAS','4711'),
 ('CATAMARCA','LAS CUCHILLAS','4715'),
@@ -8008,7 +8008,7 @@ INSERT INTO Localidad (Provincia, localidad, CodigoPostal) VALUES
 ('CHACO','VILLA ANGELA','3540'),
 ('CHACO','LA TIGRA','3701'),
 ('CHACO','LA CLOTILDE','3701')
-INSERT INTO Localidad (Provincia, localidad, CodigoPostal) VALUES
+INSERT INTO Localidad (Provincia, Nombre, CodigoPostal) VALUES
 ('CHACO','MALBALAES','3701'),
 ('CHACO','SAN BERNARDO','3701'),
 ('CHACO','COLONIA CORONEL BRANDSEN','3536'),
@@ -9009,7 +9009,7 @@ INSERT INTO Localidad (Provincia, localidad, CodigoPostal) VALUES
 ('TUCUMAN','MOYA','4117'),
 ('TUCUMAN','NUEVO PUEBLO LA FLORIDA','4117'),
 ('TUCUMAN','PACARA','4111')
-INSERT INTO Localidad (Provincia, localidad, CodigoPostal) VALUES
+INSERT INTO Localidad (Provincia, Nombre, CodigoPostal) VALUES
 ('TUCUMAN','PACARA PINTADO','4111'),
 ('TUCUMAN','PALMAS REDONDAS','4178'),
 ('TUCUMAN','POLITO','4111'),
@@ -10010,7 +10010,7 @@ INSERT INTO Localidad (Provincia, localidad, CodigoPostal) VALUES
 ('JUJUY','MINA PULPERA','4644'),
 ('JUJUY','MINA SAN FRANCISCO','4644'),
 ('JUJUY','PUMAHUASI','4644')
-INSERT INTO Localidad (Provincia, localidad, CodigoPostal) VALUES
+INSERT INTO Localidad (Provincia, Nombre, CodigoPostal) VALUES
 ('JUJUY','REDONDA','4644'),
 ('JUJUY','RIO COLORADO','4644'),
 ('JUJUY','SANSANA','4650'),
@@ -11011,7 +11011,7 @@ INSERT INTO Localidad (Provincia, localidad, CodigoPostal) VALUES
 ('SAN LUIS','LOS ALGARROBOS','5703'),
 ('SAN LUIS','LOS ARADITOS','5719'),
 ('SAN LUIS','LOS CERRITOS','5719')
-INSERT INTO Localidad (Provincia, localidad, CodigoPostal) VALUES
+INSERT INTO Localidad (Provincia, Nombre, CodigoPostal) VALUES
 ('SAN LUIS','LOS CHA','5703'),
 ('SAN LUIS','LOS CHANCAROS','5719'),
 ('SAN LUIS','LOS MOLLES','5703'),
@@ -12012,7 +12012,7 @@ INSERT INTO Localidad (Provincia, localidad, CodigoPostal) VALUES
 ('SAN JUAN','VILLA NACUSI','5427'),
 ('SAN JUAN','ALBARRACIN','5425'),
 ('SAN JUAN','BARRIO OBRERO RAWSON','5425')
-INSERT INTO Localidad (Provincia, localidad, CodigoPostal) VALUES
+INSERT INTO Localidad (Provincia, Nombre, CodigoPostal) VALUES
 ('SAN JUAN','CAPITAN LAZO','5423'),
 ('SAN JUAN','COLONIA CENTENARIO','5421'),
 ('SAN JUAN','COLONIA EL MOLINO','5425'),
@@ -13013,7 +13013,7 @@ INSERT INTO Localidad (Provincia, localidad, CodigoPostal) VALUES
 ('LA PAMPA','EL BOQUERON','8200'),
 ('MENDOZA','PTO LOS AMARILLOS','5636'),
 ('LA PAMPA','EX ESCUELA HOGAR NRO 5','8200')
-INSERT INTO Localidad (Provincia, localidad, CodigoPostal) VALUES
+INSERT INTO Localidad (Provincia, Nombre, CodigoPostal) VALUES
 ('MENDOZA','CIUDAD OESTE','5634'),
 ('MENDOZA','EL BUEN PASTOR','5634'),
 ('MENDOZA','EL DESVIO','5621'),
@@ -14014,7 +14014,7 @@ INSERT INTO Localidad (Provincia, localidad, CodigoPostal) VALUES
 ('MENDOZA','MIGUEZ','5594'),
 ('MENDOZA','MORON CHICO','5594'),
 ('MENDOZA','MORON VIEJO','5594')
-INSERT INTO Localidad (Provincia, localidad, CodigoPostal) VALUES
+INSERT INTO Localidad (Provincia, Nombre, CodigoPostal) VALUES
 ('ENTRE RIOS','PASO MARGARI','3200'),
 ('MENDOZA','N ZAPATA','5594'),
 ('MENDOZA','','5595'),
@@ -15015,7 +15015,7 @@ INSERT INTO Localidad (Provincia, localidad, CodigoPostal) VALUES
 ('SAN JUAN','VILLA PATRICIAS SANJUANINAS','5411'),
 ('CORRIENTES','NARANJATY','3405'),
 ('SAN JUAN','VILLA RIZZO','5411')
-INSERT INTO Localidad (Provincia, localidad, CodigoPostal) VALUES
+INSERT INTO Localidad (Provincia, Nombre, CodigoPostal) VALUES
 ('SAN JUAN','VILLA RUFINO GOMEZ','5411'),
 ('CORRIENTES','OBRAJE CUE','3405'),
 ('SAN JUAN','VILLA N LARRAIN','5411'),
@@ -16016,7 +16016,7 @@ INSERT INTO Localidad (Provincia, localidad, CodigoPostal) VALUES
 ('LA RIOJA','SIERRA BRAVA','5301'),
 ('MENDOZA','BARREAL JOSE LUIS','5613'),
 ('MENDOZA','BA','5611')
-INSERT INTO Localidad (Provincia, localidad, CodigoPostal) VALUES
+INSERT INTO Localidad (Provincia, Nombre, CodigoPostal) VALUES
 ('MISIONES','PUERTO AZARA','3350'),
 ('MISIONES','LOTE 117','3317'),
 ('MISIONES','ARROYO','3300'),
@@ -17017,7 +17017,7 @@ INSERT INTO Localidad (Provincia, localidad, CodigoPostal) VALUES
 ('SAN LUIS','LA ISABEL','5743'),
 ('SAN LUIS','LA JOSEFINA','5741'),
 ('SAN LUIS','LA PALMIRA','5741')
-INSERT INTO Localidad (Provincia, localidad, CodigoPostal) VALUES
+INSERT INTO Localidad (Provincia, Nombre, CodigoPostal) VALUES
 ('SAN LUIS','LA PRIMAVERA','5730'),
 ('SAN LUIS','LA REALIDAD','5741'),
 ('SAN LUIS','LA SILESIA','5741'),
@@ -18018,7 +18018,7 @@ INSERT INTO Localidad (Provincia, localidad, CodigoPostal) VALUES
 ('CORDOBA','LA SIERRITA','5813'),
 ('SANTIAGO DEL ESTERO','CAZADORES','4324'),
 ('SANTIAGO DEL ESTERO','COLLUJLIOJ','4324')
-INSERT INTO Localidad (Provincia, localidad, CodigoPostal) VALUES
+INSERT INTO Localidad (Provincia, Nombre, CodigoPostal) VALUES
 ('TUCUMAN','POZO ALTO','4111'),
 ('SANTIAGO DEL ESTERO','CORASPINO','4324'),
 ('CORDOBA','LA VERONICA','5801'),
@@ -18998,7 +18998,7 @@ INSERT INTO Localidad (Provincia, localidad, CodigoPostal) VALUES
 ('FORMOSA','PRIMAVERA','3610'),
 ('CORDOBA','SAN JUANCITO','5249'),
 ('JUJUY','SAN JUANCITO','4608')
-INSERT INTO Localidad (Provincia, localidad, CodigoPostal) VALUES
+INSERT INTO Localidad (Provincia, Nombre, CodigoPostal) VALUES
 ('TUCUMAN','CAMPO DE TALAMAYO','4158'),
 ('FORMOSA','PUNTA GUIA','3610'),
 ('JUJUY','SAN RAFAEL','4608'),
@@ -19600,7 +19600,7 @@ INSERT INTO Localidad (Provincia, localidad, CodigoPostal) VALUES
 ('TUCUMAN','LA MANGA','4103'),
 ('TUCUMAN','LA RAMADA','4103'),
 ('TUCUMAN','LA SALA','4119')
-INSERT INTO Localidad (Provincia, Localidad, CodigoPostal) VALUES
+INSERT INTO Localidad (Provincia, Nombre, CodigoPostal) VALUES
 ('TUCUMAN','LAGUNA GRANDE','4103'),
 ('CORDOBA','LOS QUEBRACHITOS','5221'),
 ('TUCUMAN','LAS CA','4103'),
@@ -20021,7 +20021,7 @@ INSERT INTO Localidad (Provincia, Localidad, CodigoPostal) VALUES
 ('CORDOBA','MANDALA','5284'),
 ('CORDOBA','LA VENTANA','5870'),
 ('CORDOBA','LAS CA','5870')
-INSERT INTO Localidad (Provincia, localidad, CodigoPostal) VALUES
+INSERT INTO Localidad (Provincia, Nombre, CodigoPostal) VALUES
 ('CORDOBA','MEDIA NARANJA','5281'),
 ('CORDOBA','LAS ENCRUCIJADAS','5871'),
 ('CORDOBA','LAS PALOMAS','5870'),
@@ -21022,7 +21022,7 @@ INSERT INTO Localidad (Provincia, localidad, CodigoPostal) VALUES
 ('CORDOBA','SAN IGNACIO','5182'),
 ('CORDOBA','SAN JOSE','5166'),
 ('CORDOBA','SAN ROQUE','5149')
-INSERT INTO Localidad (Provincia, localidad, CodigoPostal) VALUES
+INSERT INTO Localidad (Provincia, Nombre, CodigoPostal) VALUES
 ('CORDOBA','SAN SALVADOR','5282'),
 ('CORDOBA','LA PATRIA','5871'),
 ('CORDOBA','LA SIERRITA','5297'),
@@ -22023,7 +22023,7 @@ INSERT INTO Localidad (Provincia, localidad, CodigoPostal) VALUES
 ('SANTIAGO DEL ESTERO','BUENOS AIRES','4230'),
 ('SANTIAGO DEL ESTERO','POZANCONES','4230'),
 ('SANTIAGO DEL ESTERO','TACO ATUN','4328')
-INSERT INTO Localidad (Provincia, localidad, CodigoPostal) VALUES
+INSERT INTO Localidad (Provincia, Nombre, CodigoPostal) VALUES
 ('SANTIAGO DEL ESTERO','POZO CERCADO','4203'),
 ('SANTIAGO DEL ESTERO','CA','4203'),
 ('SANTIAGO DEL ESTERO','TACON ESQUINA','4332'),

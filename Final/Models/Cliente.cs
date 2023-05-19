@@ -5,6 +5,7 @@
         public int Id { get; set; }
         public long? CodigoTributario { get; set; }
         public string? Direccion { get; set; }
+        public int? CodigoPostal { get; set; }
         public int? IdLocalidad { get; set; }
         public string? Telefono { get; set; }
         public string? Mail { get; set; }

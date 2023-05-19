@@ -6,21 +6,33 @@
 <div class="container-lg col-4">
     <h1>Registrar Cliente</h1>
     <form asp-action="CrearCliente" method="POST">
-        <!-- Nombre -->
+
         <div class="input-group mb-3">
             <label asp-for="CodigoTributario" class="input-group-text">Codigo Tributario</label>
             <input asp-for="CodigoTributario" type="text" class="form-control" placeholder="Ingresar codigo tributario" id="codigoTributario">
         </div>
         <div class="input-group mb-3">
             <label asp-for="Direccion" class="input-group-text">Direccion</label>
-            <input asp-for="Direccion" type="text" class="form-control" placeholder="Ingresar direccion tributario" id="codigoTributario">
+            <input asp-for="Direccion" type="text" class="form-control" placeholder="Ingresar direccion tributario" id="direccion">
         </div>
-        <!--
+
+        <div class="input-group mb-3">
+            <label asp-for="CodigoPostal" class="input-group-text">Código Postal</label>
+            <input asp-for="CodigoPostal" type="text" class="form-control" placeholder="Ingresar código postal" id="codigoPostal">
+        </div>
+
+        <!-- Localidad -->
         <div class="input-group mb-3">
             <label asp-for="IdLocalidad" class="input-group-text">Localidad</label>
-            <input asp-for="IdLocalidad" type="text" class="form-control" placeholder="Ingrese el codigo postal" id="CodigoPostal">
+            <select asp-for="IdLocalidad" class="form-control">
+                <option value="">Seleccione una localidad</option>
+                @foreach (var localidad in ViewBag.Localidades)
+                {
+                    <option value="@localidad.Id">@localidad.Nombre, @localidad.Provincia - Código Postal: @localidad.CodigoPostal</option>
+                }
+            </select>
         </div>
-        -->
+
         <div class="input-group mb-3">
             <label asp-for="Telefono" class="input-group-text">Telefono</label>
             <input asp-for="Telefono" type="tel" class="form-control" placeholder="Ingrese el telefono" id="telefono">

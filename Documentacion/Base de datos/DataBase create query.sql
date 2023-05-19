@@ -1,15 +1,9 @@
-CREATE TABLE Provincia
-(
-	Id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
-	Nombre nvarchar(50) NOT NULL
-)
-GO 
 
 CREATE TABLE Localidad
 (
 	Id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	Nombre nvarchar(30) NOT NULL,
-	IdProvincia int NOT NULL REFERENCES Provincia(Id),
+	Provincia nvarchar(30) NOT NULL,
 	CodigoPostal smallint NOT NULL
 )
 GO

@@ -6,27 +6,32 @@
 <div class="container-lg col-4">
     <h1>Registrar Proveedor</h1>
     <form asp-action="CrearProveedor" method="POST">
-        <!-- Nombre -->
+
         <div class="input-group mb-3">
             <label asp-for="CodigoTributario" class="input-group-text">Codigo Tributario</label>
             <input asp-for="CodigoTributario" type="text" class="form-control" placeholder="Ingresar codigo tributario" id="codigoTributario">
         </div>
         <div class="input-group mb-3">
             <label asp-for="Direccion" class="input-group-text">Direccion</label>
-            <input asp-for="Direccion" type="text" class="form-control" placeholder="Ingresar direccion tributario" id="codigoTributario">
+            <input asp-for="Direccion" type="text" class="form-control" placeholder="Ingresar direccion tributario" id="direccion">
         </div>
- 
 
-        <!-- Buscador de localidad -->
-        <!--
+        <div class="input-group mb-3">
+            <label asp-for="CodigoPostal" class="input-group-text">Código Postal</label>
+            <input asp-for="CodigoPostal" type="text" class="form-control" placeholder="Ingresar código postal" id="codigoPostal">
+        </div>
+
+        <!-- Localidad -->
         <div class="input-group mb-3">
             <label asp-for="IdLocalidad" class="input-group-text">Localidad</label>
-            <input asp-for="IdLocalidad" type="search" class="form-control" placeholder="Ingrese el codigo postal" id="CodigoPostal">
+            <select asp-for="IdLocalidad" class="form-control">
+                <option value="">Seleccione una localidad</option>
+                @foreach (var localidad in ViewBag.Localidades)
+                {
+                    <option value="@localidad.Id">@localidad.Nombre, @localidad.Provincia - Código Postal: @localidad.CodigoPostal</option>
+                }
+            </select>
         </div>
-        -->
-
-
-
 
         <div class="input-group mb-3">
             <label asp-for="Telefono" class="input-group-text">Telefono</label>
@@ -42,11 +47,11 @@
         </div>
         <div class="input-group mb-3">
             <label asp-for="FechaAlta" class="input-group-text">Fecha de alta</label>
-            <input asp-for="FechaAlta" type="datetime" class="form-control" id="fechaAlta" readonly value="@DateTime.Now">
+            <input asp-for="FechaAlta" type="datetime" class="form-control" id="fechaAlta" value="@DateTime.Now" readonly>
         </div>
         <div class="input-group mb-3">
             <label asp-for="Activo" class="input-group-text">Activo</label>
-            <input asp-for="Activo" type="checkbox" class="form-control" id="activo" readonly value="true">
+            <input asp-for="Activo" type="checkbox" class="form-control" id="activo" value="true" readonly>
         </div>
 
         <button type="submit" class="btn btn-primary">Guardar</button>

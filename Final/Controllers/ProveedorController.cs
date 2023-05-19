@@ -23,22 +23,40 @@ namespace Final.Controllers
 
 
 
-            // URL: /Proveedor/CrearProveedor
-            public IActionResult CrearProveedor()
+        // URL: /Proveedor/CrearProveedor
+        [HttpGet]
+        public IActionResult CrearProveedor()
+        {
+            ViewBag.Localidades = _context.Localidad.ToList();
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult CrearProveedore(Proveedor proveedor)
+        {
+            if (ModelState.IsValid)
             {
-                return View();
+                // Obtener el Id de la localidad basado en el CodigoPostal
+                int? idLocalidad = _context.Localidad
+                    .Where(l => l.CodigoPostal == proveedor.CodigoPostal)
+                    .Select(l => l.Id)
+                    .FirstOrDefault();
+
+                if (idLocalidad != null)
+                {
+                    proveedor.IdLocalidad = idLocalidad.Value;
+                    _context.Add(proveedor);
+                    _context.SaveChanges();
+                    return RedirectToAction("Index"); // Redirigir a la página deseada después de guardar el cliente
+                }
+                else
+                {
+                    ModelState.AddModelError(string.Empty, "No se encontró una localidad con el código postal especificado.");
+                }
             }
 
-            [HttpPost]
-            public async Task<IActionResult> CrearProveedor(Proveedor proveedor)
-            {
-                if (ModelState.IsValid)
-                {
-                    _context.Proveedor.Add(proveedor);
-                    await _context.SaveChangesAsync();
-                    return RedirectToAction(nameof(Index));
-                }
-                return View(proveedor);
-            }
+            ViewBag.Localidades = _context.Localidad.ToList();
+            return View(proveedor);
         }
+    }
     }

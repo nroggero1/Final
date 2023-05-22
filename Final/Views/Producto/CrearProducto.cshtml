@@ -6,13 +6,83 @@
 <div class="container-lg col-4">
     <h1>Registrar Producto</h1>
     <form asp-action="CrearProducto" method="POST">
+
+        <!-- Marca -->
+         <div class="input-group mb-3">
+            <label asp-for="IdMarcaProducto" class="input-group-text">Marca</label>
+            <select asp-for="IdMarcaProducto" class="form-control">
+                @foreach (var marca in ViewBag.Marcas)
+                {
+                    <option value="@marca.Id">@marca.Nombre</option>
+                }
+            </select>
+        </div>
+
+        <!-- Categoría -->
+        <div class="input-group mb-3">
+            <label asp-for="IdCategoriaProducto" class="input-group-text">Categoría</label>
+            <select asp-for="IdCategoriaProducto" class="form-control">
+                @foreach (var categoria in ViewBag.Categorias)
+                {
+                    <option value="@categoria.Id">@categoria.Nombre</option>
+                }
+            </select>
+        </div>
+
         <!-- Nombre -->
         <div class="input-group mb-3">
-            <!--
             <label asp-for="Nombre" class="input-group-text">Nombre</label>
             <input asp-for="Nombre" type="text" class="form-control" placeholder="Ingresar Nombre" id="nombre">
-            -->
         </div>
+
+        <!-- Descripción -->
+        <div class="input-group mb-3">
+            <label asp-for="Descripcion" class="input-group-text">Descripción</label>
+            <input asp-for="Descripcion" type="text" class="form-control" placeholder="Ingresar Descripción">
+        </div>
+
+        <!-- Código de Barras -->
+        <div class="input-group mb-3">
+            <label asp-for="CodigoBarras" class="input-group-text">Código de Barras</label>
+            <input asp-for="CodigoBarras" type="text" class="form-control" placeholder="Ingresar Código de Barras">
+        </div>
+
+        <!-- Precio de Compra -->
+        <div class="input-group mb-3">
+            <label asp-for="PrecioCompra" class="input-group-text">Precio de Compra</label>
+            <input asp-for="PrecioCompra" type="text" class="form-control" placeholder="Ingresar Precio de Compra">
+        </div>
+
+        <!-- Porcentaje de Ganancia -->
+        <div class="input-group mb-3">
+            <label asp-for="PorcentajeGanacia" class="input-group-text">Porcentaje de Ganancia</label>
+            <input asp-for="PorcentajeGanacia" type="text" class="form-control" placeholder="Ingresar Porcentaje de Ganancia">
+        </div>
+
+        <!-- Precio de Venta Sugerido -->
+        <div class="input-group mb-3">
+            <label asp-for="PrecioVentaSugerido" class="input-group-text">Precio de Venta Sugerido</label>
+            <input asp-for="PrecioVentaSugerido" type="text" class="form-control" readonly>
+        </div>
+
+        <!-- Precio de Venta -->
+        <div class="input-group mb-3">
+            <label asp-for="PrecioVenta" class="input-group-text">Precio de Venta</label>
+            <input asp-for="PrecioVenta" type="text" class="form-control" placeholder="Ingresar Precio de Venta">
+        </div>
+
+        <!-- Stock -->
+        <div class="input-group mb-3">
+            <label asp-for="Stock" class="input-group-text">Stock</label>
+            <input asp-for="Stock" type="text" class="form-control" placeholder="Ingresar Stock">
+        </div>
+
+        <!-- Stock Mínimo -->
+        <div class="input-group mb-3">
+            <label asp-for="StockMinimo" class="input-group-text">Stock Mínimo</label>
+            <input asp-for="StockMinimo" type="text" class="form-control" placeholder="Ingresar Stock Mínimo">
+        </div>
+
         <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
 </div>

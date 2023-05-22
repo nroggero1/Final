@@ -1,5 +1,7 @@
-﻿using Final.Data;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using Final.Models;
+using Final.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Final.Controllers
 {
@@ -11,10 +13,10 @@ namespace Final.Controllers
             _context = context;
         }
 
-
         public IActionResult Index()
         {
             return View();
         }
+
     }
 }

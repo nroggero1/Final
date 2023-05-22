@@ -2,12 +2,14 @@
 using Final.Models;
 using Final.Data;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection.Metadata;
 
 namespace Final.Controllers
 {
     public class MarcaController : Controller
     {
         private readonly FinalWebContext _context;
+
         public MarcaController(FinalWebContext context)
         {
             _context = context;
@@ -23,7 +25,7 @@ namespace Final.Controllers
 
         [HttpGet]
         public async Task<IActionResult>
-            ConsultarCategoria(int? id)
+            ConsultarMarca(int? id)
         {
             if (id == null || _context.Marca == null)
             {
@@ -41,15 +43,8 @@ namespace Final.Controllers
         }
 
 
-
-
-
-
-
-
-
         // URL: /Marca/CrearMarca
-        public IActionResult CrearMarca()
+        public IActionResult CrearMarca(string nombre)
         {
             return View();
         }
@@ -59,6 +54,9 @@ namespace Final.Controllers
         {
             if (ModelState.IsValid)
             {
+                marca.Activo = true;
+                marca.FechaAlta = DateTime.Now;
+
                 _context.Marca.Add(marca);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

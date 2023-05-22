@@ -2,9 +2,9 @@
 CREATE TABLE Localidad
 (
 	Id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
-	Nombre nvarchar(30) NOT NULL,
-	Provincia nvarchar(30) NOT NULL,
-	CodigoPostal smallint NOT NULL
+	Nombre nvarchar(50) NOT NULL,
+	Provincia nvarchar(50) NOT NULL,
+	CodigoPostal int NOT NULL
 )
 GO
 

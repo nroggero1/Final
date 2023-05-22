@@ -1,0 +1,59 @@
+﻿@model List<Final.Models.Producto>
+@{
+    ViewData["Title"] = "Lista de productos";
+}
+
+<div class="container-lg col-4">
+    <h1>Todos los productos</h1>
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-bordered" id="" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Descripcion</th>
+                    <th>CodigoBarras</th>
+                    <th>PrecioCompra</th>
+                    <th>PorcentajeGanacia</th>
+                    <th>PrecioVentaSugerido</th>
+                    <th>PrecioVenta</th>
+                    <th>Stock</th>
+                    <th>StockMinimo</th>
+                    <th>Categoría</th>
+                    <th>Marca</th>
+                    <th>Fecha Alta</th>
+                    <th>Activo</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var producto in Model)
+                {
+                    <tr>
+                        <td>@producto.Id</td>
+                        <td>@producto.Nombre</td>
+                        <td>@producto.Descripcion</td>
+                        <td>@producto.CodigoBarras</td>
+                        <td>@producto.PrecioCompra</td>
+                        <td>@producto.PorcentajeGanacia</td>
+                        <td>@producto.PrecioVentaSugerido</td>
+                        <td>@producto.PrecioVenta</td>
+                        <td>@producto.Stock</td>
+                        <td>@producto.StockMinimo</td>
+                        <td>@producto.Categoria.Nombre</td>
+                        <td>@producto.Marca.Nombre</td>
+                        <td>@producto.FechaAlta</td>
+                        <td>@producto.Activo</td>
+                        <td>
+                            <a asp-action="EditarProducto" asp-route-id="@producto.Id">Editar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No hay registros</p>
+    }
+</div>

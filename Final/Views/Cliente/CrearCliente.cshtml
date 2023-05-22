@@ -13,7 +13,7 @@
         </div>
         <div class="input-group mb-3">
             <label asp-for="Direccion" class="input-group-text">Direccion</label>
-            <input asp-for="Direccion" type="text" class="form-control" placeholder="Ingresar direccion tributario" id="direccion">
+            <input asp-for="Direccion" type="text" class="form-control" placeholder="Ingresar direccion" id="direccion">
         </div>
 
         <div class="input-group mb-3">
@@ -21,17 +21,12 @@
             <input asp-for="CodigoPostal" type="text" class="form-control" placeholder="Ingresar código postal" id="codigoPostal">
         </div>
 
-        <!-- Localidad -->
-        <div class="input-group mb-3">
-            <label asp-for="IdLocalidad" class="input-group-text">Localidad</label>
-            <select asp-for="IdLocalidad" class="form-control">
-                <option value="">Seleccione una localidad</option>
-                @foreach (var localidad in ViewBag.Localidades)
-                {
-                    <option value="@localidad.Id">@localidad.Nombre, @localidad.Provincia - Código Postal: @localidad.CodigoPostal</option>
-                }
-            </select>
-        </div>
+        <!-- Localidad 
+
+
+
+
+        -->
 
         <div class="input-group mb-3">
             <label asp-for="Telefono" class="input-group-text">Telefono</label>

@@ -2,6 +2,7 @@
 using Final.Models;
 using Final.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualBasic;
 
 namespace Final.Controllers
 {
@@ -49,6 +50,7 @@ namespace Final.Controllers
         {
             var marcas = _context.Marca.ToList();
             var categorias = _context.Categoria.ToList();
+            var validar = false;
 
             ViewBag.Marcas = marcas;
             ViewBag.Categorias = categorias;

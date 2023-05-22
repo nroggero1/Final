@@ -50,13 +50,13 @@
         <!-- Precio de Compra -->
         <div class="input-group mb-3">
             <label asp-for="PrecioCompra" class="input-group-text">Precio de Compra</label>
-            <input asp-for="PrecioCompra" type="text" class="form-control" placeholder="Ingresar Precio de Compra">
+            <input asp-for="PrecioCompra" type="text" class="form-control" placeholder="Ingresar Precio de Compra" oninput="calcularPrecioVentaSugerido()">
         </div>
 
         <!-- Porcentaje de Ganancia -->
         <div class="input-group mb-3">
             <label asp-for="PorcentajeGanacia" class="input-group-text">Porcentaje de Ganancia</label>
-            <input asp-for="PorcentajeGanacia" type="text" class="form-control" placeholder="Ingresar Porcentaje de Ganancia">
+            <input asp-for="PorcentajeGanacia" type="text" class="form-control" placeholder="Ingresar Porcentaje de Ganancia" oninput="calcularPrecioVentaSugerido()">
         </div>
 
         <!-- Precio de Venta Sugerido -->
@@ -83,6 +83,22 @@
             <input asp-for="StockMinimo" type="text" class="form-control" placeholder="Ingresar Stock Mínimo">
         </div>
 
+        <div>
+            <button class="btn btn-primary" onclick="limpiarCampos()">Limpiar campos</button>
+        </div>
+        
+        <br />
+        <div>
+            <button class="btn btn-primary" onclick="convertirAMayusculas()">Validar</button>
+        </div>
+
+        <br />
+        <div>
         <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
     </form>
+
 </div>
+
+<script src="~/js/generics.js"></script>
+<script src="~/js/producto/producto.js"></script>

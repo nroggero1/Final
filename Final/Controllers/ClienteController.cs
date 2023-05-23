@@ -1,54 +1,132 @@
-﻿using Final.Data;
+﻿using Microsoft.AspNetCore.Mvc;
 using Final.Models;
-using Microsoft.AspNetCore.Mvc;
+using Final.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Final.Controllers
 {
     public class ClienteController : Controller
     {
-
         private readonly FinalWebContext _context;
+
         public ClienteController(FinalWebContext context)
         {
             _context = context;
         }
 
 
-        // URL Cliente/CrearCliente
+        // URL: /Cliente
+        [HttpGet]
+        public async Task<IActionResult> Index()
+        {
+            var clientes = await _context.Cliente.ToListAsync();
+            return View(clientes);
+        }
 
-            [HttpGet]
-            public IActionResult CrearCliente()
+        [HttpGet]
+        public async Task<IActionResult>
+            ConsultarCliente(int? id)
+        {
+            if (id == null || _context.Cliente == null)
             {
-                ViewBag.Localidades = _context.Localidad.ToList();
-                return View();
+                return NotFound();
             }
 
-            [HttpPost]
-            public IActionResult CrearCliente(Cliente cliente)
+            var cliente = await _context.Cliente
+            .FirstOrDefaultAsync(m => m.Id == id);
+            if (cliente == null)
             {
-                if (ModelState.IsValid)
-                {
-                    // Obtener el Id de la localidad basado en el CodigoPostal
-                    int? idLocalidad = _context.Localidad
-                        .Where(l => l.CodigoPostal == cliente.CodigoPostal)
-                        .Select(l => l.Id)
-                        .FirstOrDefault();
+                return NotFound();
+            }
 
-                    if (idLocalidad != null)
+            return View(cliente);
+        }
+
+        // GET: /Cliente/CrearCliente
+        public IActionResult CrearCliente()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CrearCliente(Cliente cliente)
+        {
+            if (ModelState.IsValid)
+            {
+                cliente.FechaAlta = System.DateTime.Now;
+                cliente.Activo = true;
+                _context.Cliente.Add(cliente);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(cliente);
+        }
+
+        // URL: /Cliente/EditarCliente
+        [HttpGet]
+        public async Task<IActionResult> EditarCliente(int? id)
+        {
+            if (id == null || _context.Cliente == null)
+            {
+                return NotFound();
+            }
+
+            var cliente = await _context.Cliente.FirstOrDefaultAsync(m => m.Id == id);
+            if (cliente == null)
+            {
+                return NotFound();
+            }
+
+            return View(cliente);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditarCliente(int id, Cliente cliente)
+        {
+            if (id != cliente.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var clienteToUpdate = await _context.Cliente.FirstOrDefaultAsync(c => c.Id == id);
+                    clienteToUpdate.CodigoTributario = cliente.CodigoTributario;
+                    clienteToUpdate.Direccion = cliente.Direccion;
+                    clienteToUpdate.LocalidadId = cliente.LocalidadId;
+                    clienteToUpdate.Telefono = cliente.Telefono;
+                    clienteToUpdate.Mail = cliente.Mail;
+                    clienteToUpdate.Denominacion = cliente.Denominacion;
+                    clienteToUpdate.Activo = cliente.Activo;
+                    // Mantener el valor original de FechaAlta
+                    cliente.FechaAlta = clienteToUpdate.FechaAlta;
+
+                    _context.Update(clienteToUpdate);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!ClienteExists(cliente.Id))
                     {
-                        cliente.IdLocalidad = idLocalidad.Value;
-                        _context.Add(cliente);
-                        _context.SaveChanges();
-                        return RedirectToAction("Index"); // Redirigir a la página deseada después de guardar el cliente
+                        return NotFound();
                     }
                     else
                     {
-                        ModelState.AddModelError(string.Empty, "No se encontró una localidad con el código postal especificado.");
+                        throw;
                     }
                 }
 
-                ViewBag.Localidades = _context.Localidad.ToList();
-                return View(cliente);
+                return RedirectToAction(nameof(Index));
             }
+
+            return View(cliente);
+        }
+
+        private bool ClienteExists(int id)
+        {
+            return _context.Cliente.Any(c => c.Id == id);
         }
     }
+}

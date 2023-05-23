@@ -12,6 +12,9 @@
         public string? Denominacion { get; set; }
         public DateTime FechaAlta { get; set; }
         public bool Activo { get; set; }
+
+        public int ProvinciaId { get; set; }
+        public int LocalidadId { get; set; }
     }
 }
 

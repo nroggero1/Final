@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Final.Models;
+using System.Collections;
 
 namespace Final.Data
 {
@@ -19,6 +20,8 @@ namespace Final.Data
         public DbSet<Final.Models.Proveedor> Proveedor { get; set; } = default!;
         public DbSet<Final.Models.Usuario> Usuario { get; set; } = default!;
         public DbSet<Final.Models.Venta> Venta { get; set; } = default!;
+        public IEnumerable Provincia { get; internal set; }
+        public IEnumerable<object> Localidades { get; internal set; }
     }
 
 }

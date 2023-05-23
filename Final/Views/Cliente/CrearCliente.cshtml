@@ -4,7 +4,7 @@
 }
 
 <div class="container-lg col-4">
-    <h1>Registrar Cliente</h1>
+    <h1>Registrar cliente</h1>
     <form asp-action="CrearCliente" method="POST">
 
         <div class="input-group mb-3">
@@ -13,20 +13,28 @@
         </div>
         <div class="input-group mb-3">
             <label asp-for="Direccion" class="input-group-text">Direccion</label>
-            <input asp-for="Direccion" type="text" class="form-control" placeholder="Ingresar direccion" id="direccion">
+            <input asp-for="Direccion" type="text" class="form-control" placeholder="Ingresar direccion tributario" id="direccion">
         </div>
 
+        <!-- Provincia -->
         <div class="input-group mb-3">
-            <label asp-for="CodigoPostal" class="input-group-text">Código Postal</label>
-            <input asp-for="CodigoPostal" type="text" class="form-control" placeholder="Ingresar código postal" id="codigoPostal">
+            <label asp-for="ProvinciaId" class="input-group-text">Provincia</label>
+            <select asp-for="ProvinciaId" class="form-select" id="provinciaId">
+                <option value="">Seleccione una provincia</option>
+                @foreach (var provincia in ViewBag.Provincia)
+                {
+                    <option value="@provincia.Value">@provincia.Text</option>
+                }
+            </select>
         </div>
 
-        <!-- Localidad 
-
-
-
-
-        -->
+        <!-- Localidad -->
+        <div class="input-group mb-3">
+            <label asp-for="LocalidadId" class="input-group-text">Localidad</label>
+            <select asp-for="LocalidadId" class="form-select" id="localidadId" disabled>
+                <option value="">Seleccione una localidad</option>
+            </select>
+        </div>
 
         <div class="input-group mb-3">
             <label asp-for="Telefono" class="input-group-text">Telefono</label>

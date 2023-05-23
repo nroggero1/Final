@@ -1,11 +1,11 @@
-﻿@model Final.Models.Proveedor
+﻿@model Final.Models.Cliente
 @{
-    ViewData["Title"] = "Crear proveedor";
+    ViewData["Title"] = "Editar cliente";
 }
 
 <div class="container-lg col-4">
-    <h1>Registrar Proveedor</h1>
-    <form asp-action="CrearProveedor" method="POST">
+    <h1>Editar cliente</h1>
+    <form asp-action="EditarCliente" method="POST">
 
         <div class="input-group mb-3">
             <label asp-for="CodigoTributario" class="input-group-text">Codigo Tributario</label>
@@ -54,7 +54,7 @@
         </div>
         <div class="input-group mb-3">
             <label asp-for="Activo" class="input-group-text">Activo</label>
-            <input asp-for="Activo" type="checkbox" class="form-control" id="activo" value="true" readonly>
+            <input asp-for="Activo" type="checkbox" class="form-control" id="activo" value="true">
         </div>
 
         <button type="submit" class="btn btn-primary">Guardar</button>

@@ -4,7 +4,7 @@
     {
         public int Id { get; set; }
         public string? Nombre { get; set; }
-        public string? Provincia { get; set; }
-        public int? CodigoPostal { get; set; }
+        public int IdProvincia { get; set; }
+        public short CodigoPostal { get; set; }
     }
 }

@@ -20,6 +20,10 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhXENyZWFyQ2F0ZWdvcmlhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Nicolas Roggero/Desktop/FINAL/FInal/Views/Categoria/EditarCategoria.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhXEVkaXRhckNhdGVnb3JpYS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Nicolas Roggero/Desktop/FINAL/FInal/Views/Categoria/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -48,6 +52,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FcQ3JlYXJNYXJjYS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Nicolas Roggero/Desktop/FINAL/FInal/Views/Marca/EditarMarca.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FcRWRpdGFyTWFyY2EuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Nicolas Roggero/Desktop/FINAL/FInal/Views/Marca/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -74,6 +82,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Nicolas Roggero/Desktop/FINAL/FInal/Views/Usuario/CrearUsuario.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xDcmVhclVzdWFyaW8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Nicolas Roggero/Desktop/FINAL/FInal/Views/Usuario/EditarUsuario.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xFZGl0YXJVc3VhcmlvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Nicolas Roggero/Desktop/FINAL/FInal/Views/Usuario/Index.cshtml]

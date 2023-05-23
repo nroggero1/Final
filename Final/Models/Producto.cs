@@ -11,7 +11,7 @@ namespace Final.Models
         public string Descripcion { get; set; }
         public long CodigoBarras { get; set; }
         public decimal PrecioCompra { get; set; }
-        public int PorcentajeGanacia { get; set; }
+        public int PorcentajeGanancia { get; set; }
         public decimal PrecioVentaSugerido { get; set; }
         public decimal PrecioVenta { get; set; }
         public int Stock { get; set; }

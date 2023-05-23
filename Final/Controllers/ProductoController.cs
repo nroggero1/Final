@@ -50,7 +50,6 @@ namespace Final.Controllers
         {
             var marcas = _context.Marca.ToList();
             var categorias = _context.Categoria.ToList();
-            var validar = false;
 
             ViewBag.Marcas = marcas;
             ViewBag.Categorias = categorias;
@@ -64,7 +63,7 @@ namespace Final.Controllers
             if (ModelState.IsValid)
             {
                 // Cálculo del precio de venta sugerido
-                producto.PrecioVentaSugerido = producto.PrecioCompra * producto.PorcentajeGanacia / 100;
+                producto.PrecioVentaSugerido = producto.PrecioCompra * producto.PorcentajeGanancia / 100;
 
                 producto.Activo = true;
                 producto.FechaAlta = DateTime.Now;

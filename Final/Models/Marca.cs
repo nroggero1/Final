@@ -12,5 +12,6 @@ namespace Final.Models
         public DateTime FechaAlta { get; set; }
 
         public bool Activo { get; set; }
+
     }
 }

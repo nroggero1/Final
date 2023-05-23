@@ -1,11 +1,11 @@
 ﻿@model Final.Models.Usuario
 @{
-    ViewData["Title"] = "Crear usuario";
+    ViewData["Title"] = "Editar usuario";
 }
 
 <div class="container-lg col-4">
-    <h1>Crear un usuario</h1>
-    <form asp-action="CrearUsuario" method="POST">
+    <h1>Editar un usuario</h1>
+    <form asp-action="EditarUsuario" method="post">
 
         <div class="input-group mb-3">
             <label asp-for="NombreUsuario" class="input-group-text">Nombre de usuario</label>
@@ -15,18 +15,18 @@
             <label asp-for="Clave" class="input-group-text">Clave</label>
             <input asp-for="Clave" type="password" class="form-control" placeholder="Clave" id="clave">
         </div>
-        
+
         <div class="input-group mb-3">
             <label asp-for="Nombre" class="input-group-text">Nombre</label>
             <input asp-for="Nombre" type="text" class="form-control" placeholder="Ingresar Nombre" id="nombre">
         </div>
         <div class="input-group mb-3">
             <label asp-for="Apellido" class="input-group-text">Apellido</label>
-            <input asp-for="Apellido" type="tel" class="form-control" placeholder="Ingrese el apellido" id="apellido">
+            <input asp-for="Apellido" type="text" class="form-control" placeholder="Ingrese el apellido" id="apellido">
         </div>
         <div class="input-group mb-3">
             <label asp-for="Correo" class="input-group-text">Correo</label>
-            <input asp-for="Correo" type="email" class="form-control" placeholder="Ingrese el mail" id="correo">
+            <input asp-for="Correo" type="email" class="form-control" placeholder="Ingrese el correo" id="correo">
         </div>
 
         <div class="input-group mb-3">
@@ -35,15 +35,15 @@
         </div>
         <div class="input-group mb-3">
             <label asp-for="FechaAlta" class="input-group-text">Fecha de alta</label>
-            <input asp-for="FechaAlta" type="date" class="form-control" id="fechaAlta" value="@DateTime.Now" readonly>
+            <input asp-for="FechaAlta" type="date" class="form-control" id="fechaAlta" readonly>
         </div>
         <div class="input-group mb-3">
             <label asp-for="Administrador" class="input-group-text">Administrador</label>
-            <input asp-for="Administrador" type="checkbox" class="form-control" id="administrador" value="true">
+            <input asp-for="Administrador" type="checkbox" class="form-control" id="administrador">
         </div>
         <div class="input-group mb-3">
             <label asp-for="Activo" class="input-group-text">Activo</label>
-            <input asp-for="Activo" type="checkbox" class="form-control" id="activo" value="true" readonly>
+            <input asp-for="Activo" type="checkbox" class="form-control" id="activo">
         </div>
 
         <button type="submit" class="btn btn-primary">Guardar</button>

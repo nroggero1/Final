@@ -1,0 +1,34 @@
+﻿@using Final.Models;
+@model Final.Models.Marca
+@{
+    ViewData["Title"] = "Editar marca";
+}
+
+<h1>Editar marca</h1>
+
+<form asp-action="EditarMarca" method="post">
+    <div class="form-group">
+        <label asp-for="Nombre">Nombre</label>
+        <input asp-for="Nombre" class="form-control" />
+        <span asp-validation-for="Nombre" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="FechaAlta">Fecha Alta</label>
+        <input asp-for="FechaAlta" class="form-control" readonly />
+    </div>
+
+
+    <div class="form-group">
+        <label for="Activo">Activo:</label>
+        <select id="Activo" name="Activo" class="form-control">
+            <option value="1">Activo</option>
+            <option value="0">Inactivo</option>
+        </select>
+    </div>
+
+
+    <div class="form-group">
+        <input type="submit" value="Guardar" class="btn btn-primary" />
+    </div>
+</form>

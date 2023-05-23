@@ -13,16 +13,6 @@ namespace Final.Controllers
                 _context = context;
             }
 
-
-
-
-
-
-
-
-
-
-
         // URL: /Proveedor/CrearProveedor
         [HttpGet]
         public IActionResult CrearProveedor()
@@ -32,7 +22,7 @@ namespace Final.Controllers
         }
 
         [HttpPost]
-        public IActionResult CrearProveedore(Proveedor proveedor)
+        public IActionResult CrearProveedor(Proveedor proveedor)
         {
             if (ModelState.IsValid)
             {

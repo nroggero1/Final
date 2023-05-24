@@ -44,6 +44,9 @@ namespace Final.Controllers
         // GET: /Proveedor/CrearProveedor
         public IActionResult CrearProveedor()
         {
+            var provincias = _context.Provincia.ToList();
+            ViewBag.Provincias = provincias;
+
             return View();
         }
 

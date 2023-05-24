@@ -18,8 +18,8 @@
 
         <!-- Provincia -->
         <div class="input-group mb-3">
-            <label asp-for="Id" class="input-group-text">Provincia</label>
-            <select asp-for="Id" class="form-control">
+            <label asp-for="ProvinciaId" class="input-group-text">Provincia</label>
+            <select asp-for="ProvinciaId" class=" form-control">
                 @foreach (var provincia in ViewBag.Provincias)
                 {
                     <option value="@provincia.Id">@provincia.Id</option>

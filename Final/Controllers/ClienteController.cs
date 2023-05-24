@@ -45,6 +45,11 @@ namespace Final.Controllers
         // GET: /Cliente/CrearCliente
         public IActionResult CrearCliente()
         {
+            var provincias = _context.Provincia.ToList();
+            var localidades = _context.Localidad.ToList();
+            ViewBag.Provincias = provincias;
+            ViewBag.Localidades = localidades;
+
             return View();
         }
 
@@ -59,6 +64,11 @@ namespace Final.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            var provincias = _context.Provincia.ToList();
+            var localidades = _context.Localidad.ToList();
+            ViewBag.Provincias = provincias;
+            ViewBag.Localidades = localidades;
+
             return View(cliente);
         }
 
@@ -76,6 +86,11 @@ namespace Final.Controllers
             {
                 return NotFound();
             }
+
+            var provincias = _context.Provincia.ToList();
+            var localidades = _context.Localidad.ToList();
+            ViewBag.Provincias = provincias;
+            ViewBag.Localidades = localidades;
 
             return View(cliente);
         }
@@ -120,6 +135,11 @@ namespace Final.Controllers
 
                 return RedirectToAction(nameof(Index));
             }
+
+            var provincias = _context.Provincia.ToList();
+            var localidades = _context.Localidad.ToList();
+            ViewBag.Provincias = provincias;
+            ViewBag.Localidades = localidades;
 
             return View(cliente);
         }

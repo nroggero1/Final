@@ -22,7 +22,7 @@
             <select asp-for="ProvinciaId" class=" form-control">
                 @foreach (var provincia in ViewBag.Provincias)
                 {
-                    <option value="@provincia.Id">@provincia.Id</option>
+                    <option value="@provincia.Nombre">@provincia.Nombre</option>
                 }
             </select>
         </div>
@@ -30,8 +30,11 @@
         <!-- Localidad -->
         <div class="input-group mb-3">
             <label asp-for="LocalidadId" class="input-group-text">Localidad</label>
-            <select asp-for="LocalidadId" class="form-select" id="localidadId" disabled>
-                <option value="">Seleccione una localidad</option>
+            <select asp-for="LocalidadId" class=" form-control">
+                @foreach (var localidad in ViewBag.Localidades)
+                {
+                    <option value="@localidad.Nombre">@localidad.Nombre</option>
+                }
             </select>
         </div>
 

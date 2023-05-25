@@ -19,11 +19,11 @@
         <!-- Provincia -->
         <div class="input-group mb-3">
             <label asp-for="ProvinciaId" class="input-group-text">Provincia</label>
-            <select asp-for="ProvinciaId" class="form-control" id="provincia">
+            <select asp-for="ProvinciaId" class=" form-control" id="provincia">
                 <option value="">Seleccione una provincia</option>
                 @foreach (var provincia in ViewBag.Provincias)
                 {
-                    <option value="@provincia.Id">@provincia.Nombre</option>
+                    <option value="@provincia.Nombre">@provincia.Nombre</option>
                 }
             </select>
         </div>
@@ -56,9 +56,13 @@
             <label asp-for="FechaAlta" class="input-group-text">Fecha de alta</label>
             <input asp-for="FechaAlta" type="datetime" class="form-control" id="fechaAlta" value="@DateTime.Now" readonly>
         </div>
-        <div class="input-group mb-3">
-            <label asp-for="Activo" class="input-group-text">Activo</label>
-            <input asp-for="Activo" type="checkbox" class="form-control" id="activo" value="true" readonly>
+        <!-- Activo -->
+        <div class="form-group">
+            <label asp-for="Activo">Activo:</label>
+            <select asp-for="Activo" id="Activo" name="Activo" class="form-control" disabled value="True">
+                <option value="True">Activo</option>
+                <option value="False">Inactivo</option>
+            </select>
         </div>
 
         <button type="submit" class="btn btn-primary">Guardar</button>

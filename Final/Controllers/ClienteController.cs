@@ -2,8 +2,6 @@
 using Final.Models;
 using Final.Data;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Final.Controllers
 {
@@ -32,7 +30,7 @@ namespace Final.Controllers
                 return NotFound();
             }
 
-            var cliente = await _context.Cliente.FirstOrDefaultAsync(m => m.Id == id);
+            var cliente = await _context.Cliente.FirstOrDefaultAsync(c => c.Id == id);
             if (cliente == null)
             {
                 return NotFound();
@@ -40,6 +38,7 @@ namespace Final.Controllers
 
             return View(cliente);
         }
+
 
         // GET: /Cliente/CrearCliente
         public IActionResult CrearCliente()

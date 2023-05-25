@@ -11,6 +11,15 @@
             <label asp-for="Nombre" class="input-group-text">Nombre</label>
             <input asp-for="Nombre" type="text" class="form-control" placeholder="Ingresar Nombre" id="nombre">
         </div>
+
+        <!-- Activo -->
+        <div class="form-group">
+            <label asp-for="Activo">Activo:</label>
+            <select asp-for="Activo" id="Activo" name="Activo" class="form-control" disabled value="True">
+                <option value="True">Activo</option>
+                <option value="False">Inactivo</option>
+            </select>
+        </div>
         <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
 </div>

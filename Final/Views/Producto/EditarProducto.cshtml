@@ -1,14 +1,14 @@
 ﻿@model Final.Models.Producto
 @{
-    ViewData["Title"] = "Crear producto";
+    ViewData["Title"] = "Editar producto";
 }
 
 <div class="container-lg col-4">
-    <h1>Registrar Producto</h1>
-    <form asp-action="CrearProducto" method="POST">
+    <h1>Editar Producto</h1>
+    <form asp-action="EditarProducto" method="POST">
 
         <!-- Marca -->
-         <div class="input-group mb-3">
+        <div class="input-group mb-3">
             <label asp-for="IdMarcaProducto" class="input-group-text">Marca</label>
             <select asp-for="IdMarcaProducto" class="form-control">
                 @foreach (var marca in ViewBag.Marcas)
@@ -84,16 +84,15 @@
         </div>
 
         <!-- Fecha Alta-->
-        <div class="form-group">
-            <label asp-for="FechaAlta">Fecha Alta</label>
-            <input asp-for="FechaAlta" class="form-control" disabled />
-            <input type="hidden" asp-for="FechaAlta" />
+        <div class="input-group mb-3">
+            <label asp-for="FechaAlta" class="input-group-text">Fecha de alta</label>
+            <input asp-for="FechaAlta" type="datetime" class="form-control" id="fechaAlta" value="@DateTime.Now" readonly>
         </div>
 
         <!-- Activo -->
-        <div class="form-group">
-            <label asp-for="Activo">Activo:</label>
-            <select asp-for="Activo" id="Activo" name="Activo" class="form-control" disabled value="True">
+        <div class="input-group mb-3">
+            <label asp-for="Activo" class="input-group-text">Activo</label>
+            <select asp-for="Activo" id="Activo" name="Activo" class="form-control">
                 <option value="True">Activo</option>
                 <option value="False">Inactivo</option>
             </select>
@@ -101,7 +100,7 @@
 
         <br />
         <div>
-        <button type="submit" class="btn btn-primary">Guardar</button>
+            <button type="submit" class="btn btn-primary">Guardar</button>
         </div>
     </form>
 

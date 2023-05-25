@@ -2,7 +2,6 @@
 using Final.Models;
 using Final.Data;
 using Microsoft.EntityFrameworkCore;
-using System.Reflection.Metadata;
 
 namespace Final.Controllers
 {
@@ -24,16 +23,14 @@ namespace Final.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult>
-            ConsultarMarca(int? id)
+        public async Task<IActionResult> ConsultarMarca(int? id)
         {
             if (id == null || _context.Marca == null)
             {
                 return NotFound();
             }
 
-            var marca = await _context.Marca
-            .FirstOrDefaultAsync(m => m.Id == id);
+            var marca = await _context.Marca.FirstOrDefaultAsync(m => m.Id == id);
             if (marca == null)
             {
                 return NotFound();
@@ -53,15 +50,12 @@ namespace Final.Controllers
         {
             if (ModelState.IsValid)
             {
-                marca.FechaAlta = System.DateTime.Now;
-                marca.Activo = true;
                 _context.Marca.Add(marca);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(marca);
         }
-
 
         // URL: /Marca/EditarMarca
         [HttpGet]

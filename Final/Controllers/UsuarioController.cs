@@ -22,16 +22,14 @@ namespace Final.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult>
-            ConsultarUsuario(int? id)
+        public async Task<IActionResult> ConsultarUsuario(int? id)
         {
             if (id == null || _context.Usuario == null)
             {
                 return NotFound();
             }
 
-            var usuario = await _context.Usuario
-            .FirstOrDefaultAsync(m => m.Id == id);
+            var usuario = await _context.Usuario.FirstOrDefaultAsync(u => u.Id == id);
             if (usuario == null)
             {
                 return NotFound();

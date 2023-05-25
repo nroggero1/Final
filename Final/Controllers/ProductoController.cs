@@ -14,7 +14,6 @@ namespace Final.Controllers
             _context = context;
         }
 
-
         // URL: /Producto
         [HttpGet]
         public async Task<IActionResult> Index()
@@ -24,16 +23,14 @@ namespace Final.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult>
-            ConsultarProducto(int? id)
+        public async Task<IActionResult> ConsultarProducto(int? id)
         {
             if (id == null || _context.Producto == null)
             {
                 return NotFound();
             }
 
-            var producto = await _context.Producto
-            .FirstOrDefaultAsync(m => m.Id == id);
+            var producto = await _context.Producto.FirstOrDefaultAsync(p => p.Id == id);
             if (producto == null)
             {
                 return NotFound();
@@ -42,10 +39,7 @@ namespace Final.Controllers
             return View(producto);
         }
 
-
-
         // URL: /Producto/CrearProducto
-
         public IActionResult CrearProducto()
         {
             var marcas = _context.Marca.ToList();
@@ -64,9 +58,6 @@ namespace Final.Controllers
             {
                 // Cálculo del precio de venta sugerido
                 producto.PrecioVentaSugerido = producto.PrecioCompra * producto.PorcentajeGanancia / 100;
-
-                producto.Activo = true;
-                producto.FechaAlta = DateTime.Now;
 
                 _context.Producto.Add(producto);
                 await _context.SaveChangesAsync();

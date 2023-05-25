@@ -22,16 +22,14 @@ namespace Final.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult>
-            ConsultarCategoria(int? id)
+        public async Task<IActionResult> ConsultarCategoria(int? id)
         {
             if (id == null || _context.Categoria == null)
             {
                 return NotFound();
             }
 
-            var categoria = await _context.Categoria
-            .FirstOrDefaultAsync(m => m.Id == id);
+            var categoria = await _context.Categoria.FirstOrDefaultAsync(m => m.Id == id);
             if (categoria == null)
             {
                 return NotFound();

@@ -37,13 +37,23 @@
             <label asp-for="FechaAlta" class="input-group-text">Fecha de alta</label>
             <input asp-for="FechaAlta" type="date" class="form-control" id="fechaAlta" readonly>
         </div>
+
+        <!-- Administrador -->
         <div class="input-group mb-3">
             <label asp-for="Administrador" class="input-group-text">Administrador</label>
-            <input asp-for="Administrador" type="checkbox" class="form-control" id="administrador">
+            <select asp-for="Administrador" id="Administrador" name="Administrador" class="form-control" value="Estandar">
+                <option value="True">Administrador</option>
+                <option value="False">Estandar</option>
+            </select>
         </div>
+
+        <!-- Activo -->
         <div class="input-group mb-3">
             <label asp-for="Activo" class="input-group-text">Activo</label>
-            <input asp-for="Activo" type="checkbox" class="form-control" id="activo">
+            <select asp-for="Activo" id="Activo" name="Activo" class="form-control">
+                <option value="True">Activo</option>
+                <option value="False">Inactivo</option>
+            </select>
         </div>
 
         <button type="submit" class="btn btn-primary">Guardar</button>

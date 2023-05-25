@@ -23,16 +23,14 @@ namespace Final.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult>
-            ConsultarProveedor(int? id)
+        public async Task<IActionResult> ConsultarProveedor(int? id)
         {
             if (id == null || _context.Proveedor == null)
             {
                 return NotFound();
             }
 
-            var proveedor = await _context.Proveedor
-            .FirstOrDefaultAsync(m => m.Id == id);
+            var proveedor = await _context.Proveedor.FirstOrDefaultAsync(m => m.Id == id);
             if (proveedor == null)
             {
                 return NotFound();
@@ -46,6 +44,7 @@ namespace Final.Controllers
         {
             var provincias = _context.Provincia.ToList();
             var localidades = _context.Localidad.ToList();
+
             ViewBag.Provincias = provincias;
             ViewBag.Localidades = localidades;
 
@@ -66,6 +65,7 @@ namespace Final.Controllers
 
             var provincias = _context.Provincia.ToList();
             var localidades = _context.Localidad.ToList();
+
             ViewBag.Provincias = provincias;
             ViewBag.Localidades = localidades;
 
@@ -133,6 +133,7 @@ namespace Final.Controllers
 
             var provincias = _context.Provincia.ToList();
             var localidades = _context.Localidad.ToList();
+
             ViewBag.Provincias = provincias;
             ViewBag.Localidades = localidades;
 

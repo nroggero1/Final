@@ -2,6 +2,8 @@
 using Final.Models;
 using Final.Data;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Final.Controllers
 {
@@ -14,7 +16,6 @@ namespace Final.Controllers
             _context = context;
         }
 
-
         // URL: /Cliente
         [HttpGet]
         public async Task<IActionResult> Index()
@@ -24,16 +25,14 @@ namespace Final.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult>
-            ConsultarCliente(int? id)
+        public async Task<IActionResult> ConsultarCliente(int? id)
         {
             if (id == null || _context.Cliente == null)
             {
                 return NotFound();
             }
 
-            var cliente = await _context.Cliente
-            .FirstOrDefaultAsync(m => m.Id == id);
+            var cliente = await _context.Cliente.FirstOrDefaultAsync(m => m.Id == id);
             if (cliente == null)
             {
                 return NotFound();
@@ -46,8 +45,8 @@ namespace Final.Controllers
         public IActionResult CrearCliente()
         {
             var provincias = _context.Provincia.ToList();
-            var localidades = _context.Localidad.ToList();
             ViewBag.Provincias = provincias;
+            var localidades = _context.Localidad.ToList();
             ViewBag.Localidades = localidades;
 
             return View();
@@ -64,10 +63,11 @@ namespace Final.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
             var provincias = _context.Provincia.ToList();
-            var localidades = _context.Localidad.ToList();
             ViewBag.Provincias = provincias;
-            ViewBag.Localidades = localidades;
+            var localidades = _context.Localidad.ToList();
+            ViewBag.Localidades = localidades; ;
 
             return View(cliente);
         }
@@ -88,8 +88,8 @@ namespace Final.Controllers
             }
 
             var provincias = _context.Provincia.ToList();
-            var localidades = _context.Localidad.ToList();
             ViewBag.Provincias = provincias;
+            var localidades = _context.Localidad.ToList();
             ViewBag.Localidades = localidades;
 
             return View(cliente);
@@ -137,12 +137,16 @@ namespace Final.Controllers
             }
 
             var provincias = _context.Provincia.ToList();
-            var localidades = _context.Localidad.ToList();
             ViewBag.Provincias = provincias;
+            var localidades = _context.Localidad.ToList();
             ViewBag.Localidades = localidades;
 
             return View(cliente);
         }
+
+
+        //
+
 
         private bool ClienteExists(int id)
         {

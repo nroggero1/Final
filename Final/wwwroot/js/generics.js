@@ -28,5 +28,4 @@ function convertirAMayusculas() {
     for (var i = 0; i < camposDeTexto.length; i++) {
         camposDeTexto[i].value = camposDeTexto[i].value.toUpperCase();
     }
-    var validar = true;
 }

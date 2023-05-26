@@ -1,3 +1,123 @@
+CREATE TABLE Provincia 
+(
+	Id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	Nombre nvarchar(50) NOT NULL
+)
+GO 
+
+CREATE TABLE Localidad
+(
+	Id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	Nombre nvarchar(50) NOT NULL,
+	IdProvincia int NOT NULL REFERENCES Provincia(Id),
+	CodigoPostal smallint NOT NULL
+)
+GO
+
+CREATE TABLE Proveedor
+(
+	Id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	CodigoTributario bigint NOT NULL,
+	Direccion nvarchar(50) NOT NULL,
+	IdLocalidad int NOT NULL REFERENCES Localidad(Id),
+	Telefono nvarchar(20), 
+	Mail NVARCHAR(50),
+	Denominacion NVARCHAR(100) NOT NULL,
+	FechaAlta datetime NOT NULL,
+	Activo bit NOT NULL
+)
+GO
+
+CREATE TABLE Cliente
+(
+	Id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	CodigoTributario bigint NOT NULL,
+	Direccion nvarchar(50) NOT NULL,
+	IdLocalidad int NOT NULL REFERENCES Localidad(Id),
+	Telefono nvarchar(20), 
+	Mail NVARCHAR(50),
+	Denominacion NVARCHAR(100),
+	FechaAlta datetime NOT NULL,
+	Activo bit NOT NULL
+)
+GO
+
+CREATE TABLE Marca
+(
+	Id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	Nombre nvarchar(50) NOT NULL,
+	Activo bit NOT NULL,
+	FechaAlta datetime NOT NULL
+)
+GO
+
+CREATE TABLE Categoria
+(
+	Id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	Nombre nvarchar(50) NOT NULL,
+	FechaAlta datetime NOT NULL,
+	Activo bit NOT NULL,
+) 
+GO
+
+CREATE TABLE Producto
+(
+	Id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	Nombre nvarchar(50) NOT NULL,
+	Descripcion nvarchar(50) NOT NULL,
+	CodigoBarras bigint NOT NULL,
+	IdCategoriaProducto int NOT NULL REFERENCES Categoria(Id),
+	IdMarcaProducto int NOT NULL REFERENCES Marca(Id),
+	PrecioCompra decimal(12, 2) NOT NULL,
+	PorcentajeGanancia int NOT NULL,
+	PrecioVentaSugerido decimal(12, 2) NOT NULL,
+	PrecioVenta decimal(12, 2) NOT NULL,
+	Stock int NOT NULL,
+	StockMinimo int NOT NULL,
+	Activo bit NOT NULL,
+	FechaAlta datetime NOT NULL
+)
+GO
+
+CREATE TABLE Usuario
+(
+	Id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	NombreUsuario varchar(50) NOT NULL,
+	Nombre varchar(50) NOT NULL,
+	Apellido varchar(50) NOT NULL,
+	Correo varchar(100) NOT NULL,
+	FechaNacimiento [datetime] NOT NULL,
+	Clave varchar(50) NOT NULL,
+	Administrador bit NOT NULL,
+	FechaAlta datetime NOT NULL,
+	Activo bit NOT NULL
+) 
+GO
+
+CREATE TABLE Compra
+(	
+	Id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	Fecha datetime,
+	IdUsuario int REFERENCES Usuario(Id),
+	IdProveedor int REFERENCES Proveedor(Id),
+	IdProducto int REFERENCES Producto(Id),
+	Cantidad int NOT NULL,
+	PrecioCompra DECIMAL(10,2) NOT NULL,
+) 
+GO
+
+CREATE TABLE Venta
+(	
+	Id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	Fecha datetime,
+	IdUsuario int REFERENCES Usuario(Id),
+	IdCliente int REFERENCES Cliente(Id),
+	IdProducto int REFERENCES Producto(Id),
+	Cantidad int NOT NULL,
+	PrecioVenta DECIMAL(10,2) NOT NULL,
+) 
+GO
+
 INSERT INTO Provincia(Nombre) VALUES
 ('Ciudad Autonoma de Buenos Aires (CABA)'),
 ('Buenos Aires'),
@@ -24,7 +144,7 @@ INSERT INTO Provincia(Nombre) VALUES
 ('Santa Cruz'),
 ('Tierra del Fuego');
 
-INSERT INTO Localidad (Provincia, localidad, CodigoPostal) VALUES
+INSERT INTO Localidad (IdProvincia, Nombre, CodigoPostal) VALUES
 (13,'CABEZA DE CHANCHO','3061'),
 (13,'CAMPO GARAY','3066'),
 (13,'CAMPO SAN JOSE','3060'),
@@ -1070,7 +1190,7 @@ INSERT INTO Localidad (IdProvincia, Nombre, CodigoPostal) VALUES
 (2,'LAS LOMAS','7603'),
 (2,'LAS PIEDRITAS','7605'),
 (2,'LOS PATOS','7603')
-INSERT INTO Localidad (Provincia, Localidad, CodigoPostal) VALUES
+INSERT INTO Localidad (IdProvincia, Nombre, CodigoPostal) VALUES
 (2,'MAR DEL SUD','7607'),
 (2,'MECHONGUE','7605'),
 (2,'MIRAMAR','7607'),
@@ -19626,7 +19746,7 @@ INSERT INTO Localidad (IdProvincia, Nombre, CodigoPostal) VALUES
 (15,'LA MANGA','4103'),
 (15,'LA RAMADA','4103'),
 (15,'LA SALA','4119')
-INSERT INTO Localidad (Provincia, Localidad, CodigoPostal) VALUES
+INSERT INTO Localidad (IdProvincia, Nombre, CodigoPostal) VALUES
 (15,'LAGUNA GRANDE','4103'),
 (4,'LOS QUEBRACHITOS','5221'),
 (15,'LAS CA','4103'),
@@ -23014,3 +23134,14 @@ INSERT INTO Localidad (IdProvincia, Nombre, CodigoPostal) VALUES
 (13,'COSTA DEL TOBA','3553'),
 (3,'CANDELARIA','4231'),
 (8,'LAS VEGAS','5549');
+
+
+DBCC CHECKIDENT ('Proveedor', RESEED, 1);
+DBCC CHECKIDENT ('Cliente', RESEED, 1);
+DBCC CHECKIDENT ('Marca', RESEED, 1);
+DBCC CHECKIDENT ('Categoria', RESEED, 1);
+DBCC CHECKIDENT ('Producto', RESEED, 1);
+DBCC CHECKIDENT ('Usuario', RESEED, 1);
+DBCC CHECKIDENT ('Compra', RESEED, 1);
+DBCC CHECKIDENT ('Venta', RESEED, 1);
+

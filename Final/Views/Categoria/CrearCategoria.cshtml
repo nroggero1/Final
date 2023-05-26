@@ -12,6 +12,12 @@
             <input asp-for="Nombre" type="text" class="form-control" placeholder="Ingresar Nombre" id="nombre">
         </div>
 
+        <!-- Fecha Alta -->
+        <div class="input-group mb-3">
+            <label asp-for="FechaAlta" class="input-group-text">Fecha de alta</label>
+            <input asp-for="FechaAlta" type="datetime" class="form-control" id="fechaAlta" value="@DateTime.Now" readonly>
+        </div>
+
         <!-- Activo -->
         <div class="form-group">
             <label asp-for="Activo">Activo:</label>
@@ -20,6 +26,8 @@
                 <option value="False">Inactivo</option>
             </select>
         </div>
+        <br>
+
         <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
 </div>

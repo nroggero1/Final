@@ -42,10 +42,10 @@ namespace Final.Controllers
         // URL: /Producto/CrearProducto
         public IActionResult CrearProducto()
         {
-            var marcas = _context.Marca.ToList();
-            var categorias = _context.Categoria.ToList();
 
+            var marcas = _context.Marca.ToList();
             ViewBag.Marcas = marcas;
+            var categorias = _context.Categoria.ToList();
             ViewBag.Categorias = categorias;
 
             return View();
@@ -57,19 +57,21 @@ namespace Final.Controllers
             if (ModelState.IsValid)
             {
                 // Cálculo del precio de venta sugerido
-                producto.PrecioVentaSugerido = producto.PrecioCompra * producto.PorcentajeGanancia / 100;
+                producto.PrecioVentaSugerido = (producto.PrecioCompra + (producto.PrecioCompra * producto.PorcentajeGanancia) / 100);
+
+                producto.FechaAlta = System.DateTime.Now;
+                producto.Activo = true;
+                producto.Marca = ViewBag.Marca.Id;
+                producto.Categoria = ViewBag.Categoria.Id;
 
                 _context.Producto.Add(producto);
                 await _context.SaveChangesAsync();
-
                 return RedirectToAction(nameof(Index));
             }
 
-            // Recarga las marcas y categorías en caso de error de validación
             var marcas = _context.Marca.ToList();
-            var categorias = _context.Categoria.ToList();
-
             ViewBag.Marcas = marcas;
+            var categorias = _context.Categoria.ToList();
             ViewBag.Categorias = categorias;
 
             return View(producto);

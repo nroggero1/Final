@@ -29,7 +29,7 @@ namespace Final.Controllers
                 return NotFound();
             }
 
-            var categoria = await _context.Categoria.FirstOrDefaultAsync(m => m.Id == id);
+            var categoria = await _context.Categoria.FirstOrDefaultAsync(c => c.Id == id);
             if (categoria == null)
             {
                 return NotFound();
@@ -37,7 +37,6 @@ namespace Final.Controllers
 
             return View(categoria);
         }
-
 
         // URL: /Categoria/CrearCategoria
         public IActionResult CrearCategoria()

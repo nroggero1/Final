@@ -39,16 +39,23 @@ namespace Final.Controllers
             return View(cliente);
         }
 
-
         // GET: /Cliente/CrearCliente
         public IActionResult CrearCliente()
         {
             var provincias = _context.Provincia.ToList();
             ViewBag.Provincias = provincias;
-            var localidades = _context.Localidad.ToList();
-            ViewBag.Localidades = localidades;
 
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult CargarLocalidades(int provinciaId)
+        {
+            var localidades = _context.Localidad
+                .Where(l => l.IdProvincia == provinciaId)
+                .ToList();
+
+            return PartialView("_LocalidadesDropdown", localidades);
         }
 
         [HttpPost]
@@ -64,9 +71,10 @@ namespace Final.Controllers
             }
 
             var provincias = _context.Provincia.ToList();
-            ViewBag.Provincias = provincias;
             var localidades = _context.Localidad.ToList();
-            ViewBag.Localidades = localidades; ;
+
+            ViewBag.Provincias = provincias;
+            ViewBag.Localidades = localidades;
 
             return View(cliente);
         }
@@ -87,8 +95,9 @@ namespace Final.Controllers
             }
 
             var provincias = _context.Provincia.ToList();
-            ViewBag.Provincias = provincias;
             var localidades = _context.Localidad.ToList();
+
+            ViewBag.Provincias = provincias;
             ViewBag.Localidades = localidades;
 
             return View(cliente);
@@ -109,7 +118,7 @@ namespace Final.Controllers
                     var clienteToUpdate = await _context.Cliente.FirstOrDefaultAsync(c => c.Id == id);
                     clienteToUpdate.CodigoTributario = cliente.CodigoTributario;
                     clienteToUpdate.Direccion = cliente.Direccion;
-                    clienteToUpdate.LocalidadId = cliente.LocalidadId;
+                    clienteToUpdate.IdLocalidad = cliente.IdLocalidad;
                     clienteToUpdate.Telefono = cliente.Telefono;
                     clienteToUpdate.Mail = cliente.Mail;
                     clienteToUpdate.Denominacion = cliente.Denominacion;
@@ -136,16 +145,13 @@ namespace Final.Controllers
             }
 
             var provincias = _context.Provincia.ToList();
-            ViewBag.Provincias = provincias;
             var localidades = _context.Localidad.ToList();
+
+            ViewBag.Provincias = provincias;
             ViewBag.Localidades = localidades;
 
             return View(cliente);
         }
-
-
-        //
-
 
         private bool ClienteExists(int id)
         {

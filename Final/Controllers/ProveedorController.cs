@@ -30,7 +30,7 @@ namespace Final.Controllers
                 return NotFound();
             }
 
-            var proveedor = await _context.Proveedor.FirstOrDefaultAsync(m => m.Id == id);
+            var proveedor = await _context.Proveedor.FirstOrDefaultAsync(p => p.Id == id);
             if (proveedor == null)
             {
                 return NotFound();
@@ -81,7 +81,7 @@ namespace Final.Controllers
                 return NotFound();
             }
 
-            var proveedor = await _context.Proveedor.FirstOrDefaultAsync(m => m.Id == id);
+            var proveedor = await _context.Proveedor.FirstOrDefaultAsync(p => p.Id == id);
             if (proveedor == null)
             {
                 return NotFound();
@@ -105,7 +105,7 @@ namespace Final.Controllers
                     var proveedorToUpdate = await _context.Proveedor.FirstOrDefaultAsync(c => c.Id == id);
                     proveedorToUpdate.CodigoTributario = proveedor.CodigoTributario;
                     proveedorToUpdate.Direccion = proveedor.Direccion;
-                    proveedorToUpdate.LocalidadId = proveedor.LocalidadId;
+                    proveedorToUpdate.IdLocalidad = proveedor.IdLocalidad;
                     proveedorToUpdate.Telefono = proveedor.Telefono;
                     proveedorToUpdate.Mail = proveedor.Mail;
                     proveedorToUpdate.Denominacion = proveedor.Denominacion;
@@ -142,7 +142,7 @@ namespace Final.Controllers
 
         private bool ProveedorExists(int id)
         {
-            return _context.Proveedor.Any(c => c.Id == id);
+            return _context.Proveedor.Any(p => p.Id == id);
         }
     }
 }

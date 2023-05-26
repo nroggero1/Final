@@ -62,7 +62,7 @@
         <!-- Precio de Venta Sugerido -->
         <div class="input-group mb-3">
             <label asp-for="PrecioVentaSugerido" class="input-group-text">Precio de Venta Sugerido</label>
-            <input asp-for="PrecioVentaSugerido" type="text" class="form-control" readonly>
+            <input id="PrecioVentaSugerido" asp-for="PrecioVentaSugerido" type="text" class="form-control" readonly>
         </div>
 
         <!-- Precio de Venta -->
@@ -83,11 +83,10 @@
             <input asp-for="StockMinimo" type="text" class="form-control" placeholder="Ingresar Stock Mínimo">
         </div>
 
-        <!-- Fecha Alta-->
-        <div class="form-group">
-            <label asp-for="FechaAlta">Fecha Alta</label>
-            <input asp-for="FechaAlta" class="form-control" disabled />
-            <input type="hidden" asp-for="FechaAlta" />
+        <!-- Fecha Alta -->
+        <div class="input-group mb-3">
+            <label asp-for="FechaAlta" class="input-group-text">Fecha de alta</label>
+            <input asp-for="FechaAlta" type="datetime" class="form-control" id="fechaAlta" value="@DateTime.Now" readonly>
         </div>
 
         <!-- Activo -->
@@ -98,11 +97,14 @@
                 <option value="False">Inactivo</option>
             </select>
         </div>
+        <br>
 
-        <br />
         <div>
         <button type="submit" class="btn btn-primary">Guardar</button>
         </div>
     </form>
 
 </div>
+
+
+<script src="~/js/producto/producto.js"></script>

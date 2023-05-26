@@ -1,0 +1,56 @@
+﻿@model List<Final.Models.Proveedor>
+@{
+    ViewData["Title"] = "Lista de proveedores";
+}
+
+<div class="container-lg col-4">
+    <h1>Todos los proveedores</h1>
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-bordered" id="" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Codigo Tributario</th>
+                    <th>Direccion</th>
+                    <th>CodigoPostal</th>
+                    <th>Provincia</th>
+                    <th>Localidad</th>
+                    <th>Telefono</th>
+                    <th>Mail</th>
+                    <th>Denominacion</th>
+                    <th>FechaAlta</th>
+                    <th>Activo</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var proveedor in Model)
+                {
+                    <tr>
+                        <td>@proveedor.Id</td>
+                        <td>@proveedor.CodigoTributario</td>
+                        <td>@proveedor.Direccion</td>
+                        <td>@proveedor.CodigoPostal</td>
+                        <td>@proveedor.IdProvincia</td>
+                        <td>@proveedor.IdLocalidad</td>
+                        <td>@proveedor.Telefono</td>
+                        <td>@proveedor.Mail</td>
+                        <td>@proveedor.Denominacion</td>
+                        <td>@proveedor.FechaAlta</td>
+                        <td>@proveedor.Activo</td>
+
+
+                        <td>
+                            <a asp-action="EditarProveedor" asp-route-id="@proveedor.Id">Editar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No hay registros</p>
+    }
+</div>
+

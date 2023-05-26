@@ -8,7 +8,6 @@ namespace Final.Controllers
     public class MarcaController : Controller
     {
         private readonly FinalWebContext _context;
-
         public MarcaController(FinalWebContext context)
         {
             _context = context;
@@ -50,6 +49,8 @@ namespace Final.Controllers
         {
             if (ModelState.IsValid)
             {
+                marca.FechaAlta = System.DateTime.Now;
+                marca.Activo = true;
                 _context.Marca.Add(marca);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

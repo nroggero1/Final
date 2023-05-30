@@ -48,7 +48,7 @@ GO
 CREATE TABLE Categoria
 (
 	Id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
-	Nombre nvarchar(20) NOT NULL,
+	Nombre nvarchar(50) NOT NULL,
 	FechaAlta datetime NOT NULL,
 	Activo bit NOT NULL,
 ) 

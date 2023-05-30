@@ -2,6 +2,7 @@
 using Final.Models;
 using Final.Data;
 using Microsoft.EntityFrameworkCore;
+using System.Text;
 
 namespace Final.Controllers
 {
@@ -45,17 +46,26 @@ namespace Final.Controllers
             var provincias = _context.Provincia.ToList();
             ViewBag.Provincias = provincias;
 
+            var localidades = _context.Localidad.ToList();
+            ViewBag.Localidades = localidades; 
+
             return View();
         }
 
         [HttpPost]
         public IActionResult CargarLocalidades(int provinciaId)
         {
-            var localidades = _context.Localidad
-                .Where(l => l.IdProvincia == provinciaId)
-                .ToList();
+            var localidades = _context.Localidad.Where(l => l.IdProvincia == provinciaId).ToList();
 
-            return PartialView("_LocalidadesDropdown", localidades);
+            var options = new StringBuilder();
+            options.Append("<option value=''>Seleccione una localidad</option>");
+
+            foreach (var localidad in localidades)
+            {
+                options.AppendFormat("<option value='{0}'>{1}</option>", localidad.Id, localidad.Nombre);
+            }
+
+            return Content(options.ToString());
         }
 
         [HttpPost]
@@ -63,18 +73,17 @@ namespace Final.Controllers
         {
             if (ModelState.IsValid)
             {
+                var provincias = _context.Provincia.ToList();
+
+                ViewBag.Provincias = provincias;
+                ViewBag.Localidades = new List<Localidad>();
+
                 cliente.FechaAlta = System.DateTime.Now;
                 cliente.Activo = true;
                 _context.Cliente.Add(cliente);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-
-            var provincias = _context.Provincia.ToList();
-            var localidades = _context.Localidad.ToList();
-
-            ViewBag.Provincias = provincias;
-            ViewBag.Localidades = localidades;
 
             return View(cliente);
         }

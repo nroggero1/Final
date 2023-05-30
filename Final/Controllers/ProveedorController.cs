@@ -2,24 +2,25 @@
 using Final.Models;
 using Final.Data;
 using Microsoft.EntityFrameworkCore;
+using System.Text;
 
 namespace Final.Controllers
 {
     public class ProveedorController : Controller
     {
+        private readonly FinalWebContext _context;
 
-            private readonly FinalWebContext _context;
-            public ProveedorController(FinalWebContext context)
-            {
-                _context = context;
-            }
+        public ProveedorController(FinalWebContext context)
+        {
+            _context = context;
+        }
 
         // URL: /Proveedor
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            var proveedores = await _context.Proveedor.ToListAsync();
-            return View(proveedores);
+            var proveedor = await _context.Proveedor.ToListAsync();
+            return View(proveedor);
         }
 
         [HttpGet]
@@ -43,12 +44,28 @@ namespace Final.Controllers
         public IActionResult CrearProveedor()
         {
             var provincias = _context.Provincia.ToList();
-            var localidades = _context.Localidad.ToList();
-
             ViewBag.Provincias = provincias;
+
+            var localidades = _context.Localidad.ToList();
             ViewBag.Localidades = localidades;
 
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult CargarLocalidades(int provinciaId)
+        {
+            var localidades = _context.Localidad.Where(l => l.IdProvincia == provinciaId).ToList();
+
+            var options = new StringBuilder();
+            options.Append("<option value=''>Seleccione una localidad</option>");
+
+            foreach (var localidad in localidades)
+            {
+                options.AppendFormat("<option value='{0}'>{1}</option>", localidad.Id, localidad.Nombre);
+            }
+
+            return Content(options.ToString());
         }
 
         [HttpPost]
@@ -56,18 +73,17 @@ namespace Final.Controllers
         {
             if (ModelState.IsValid)
             {
+                var provincias = _context.Provincia.ToList();
+
+                ViewBag.Provincias = provincias;
+                ViewBag.Localidades = new List<Localidad>();
+
                 proveedor.FechaAlta = System.DateTime.Now;
                 proveedor.Activo = true;
                 _context.Proveedor.Add(proveedor);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-
-            var provincias = _context.Provincia.ToList();
-            var localidades = _context.Localidad.ToList();
-
-            ViewBag.Provincias = provincias;
-            ViewBag.Localidades = localidades;
 
             return View(proveedor);
         }

@@ -4,7 +4,7 @@
 }
 
 <div class="container-lg col-4">
-    <h1>Registrar Proveedor</h1>
+    <h1>Registrar proveedor</h1>
     <form asp-action="CrearProveedor" method="POST">
 
         <div class="input-group mb-3">
@@ -16,14 +16,13 @@
             <input asp-for="Direccion" type="text" class="form-control" placeholder="Ingresar direccion tributario" id="direccion">
         </div>
 
-        <!-- Provincia -->
         <div class="input-group mb-3">
             <label asp-for="IdProvincia" class="input-group-text">Provincia</label>
-            <select asp-for="IdProvincia" class=" form-control" id="provincia">
+            <select asp-for="IdProvincia" class="form-control" id="provincia">
                 <option value="">Seleccione una provincia</option>
                 @foreach (var provincia in ViewBag.Provincias)
                 {
-                    <option value="@provincia.Nombre">@provincia.Nombre</option>
+                    <option value="@provincia.Id">@provincia.Nombre</option>
                 }
             </select>
         </div>
@@ -31,7 +30,7 @@
         <!-- Localidad -->
         <div class="input-group mb-3">
             <label asp-for="IdLocalidad" class="input-group-text">Localidad</label>
-            <select asp-for="IdLocalidad" class="form-control" id="localidad">
+            <select asp-for="IdLocalidad" class="form-control" id="localidad" disabled>
                 <option value="">Seleccione una localidad</option>
                 @foreach (var localidad in ViewBag.Localidades)
                 {
@@ -52,13 +51,11 @@
             <label asp-for="Denominacion" class="input-group-text">Denominacion</label>
             <input asp-for="Denominacion" type="text" class="form-control" placeholder="Denominacion" id="denominacion">
         </div>
-
         <!-- Fecha Alta -->
         <div class="input-group mb-3">
             <label asp-for="FechaAlta" class="input-group-text">Fecha de alta</label>
             <input asp-for="FechaAlta" type="datetime" class="form-control" id="fechaAlta" value="@DateTime.Now" readonly>
         </div>
-
         <!-- Activo -->
         <div class="form-group">
             <label asp-for="Activo">Activo:</label>
@@ -72,3 +69,6 @@
     </form>
 </div>
 
+@section Scripts {
+    <script src="~/js/localidad/localidad.js"></script>
+}

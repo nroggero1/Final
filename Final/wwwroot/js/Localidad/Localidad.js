@@ -8,7 +8,12 @@ $(document).ready(function () {
                 type: 'POST',
                 data: { provinciaId: provinciaId },
                 success: function (response) {
-                    $('#localidad').html(response);
+                    // Ordenar las opciones alfabéticamente
+                    var sortedOptions = $(response).sort(function (a, b) {
+                        return $(a).text().localeCompare($(b).text());
+                    });
+
+                    $('#localidad').html(sortedOptions);
                     $('#localidad').prop('disabled', false);
                 },
                 error: function (xhr, status, error) {

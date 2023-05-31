@@ -18,13 +18,7 @@ namespace Final.Models
         public int StockMinimo { get; set; }
         public bool Activo { get; set; }
         public DateTime? FechaAlta { get; set; }
-
-        [ForeignKey("Marca")]
         public int IdMarcaProducto { get; set; }
-        public Marca? Marca { get; set; }
-
-        [ForeignKey("Categoria")]
         public int IdCategoriaProducto { get; set; }
-        public Categoria? Categoria { get; set; }
     }
 }

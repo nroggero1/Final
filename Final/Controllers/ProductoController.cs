@@ -2,7 +2,7 @@
 using Final.Models;
 using Final.Data;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.VisualBasic;
+using System.Text;
 
 namespace Final.Controllers
 {
@@ -40,39 +40,34 @@ namespace Final.Controllers
         }
 
         // URL: /Producto/CrearProducto
+        [HttpPost]
         public IActionResult CrearProducto()
         {
+            var categorias = _context.Categoria.ToList();
+            ViewBag.Categoria = categorias;
 
             var marcas = _context.Marca.ToList();
-            ViewBag.Marcas = marcas;
-            var categorias = _context.Categoria.ToList();
-            ViewBag.Categorias = categorias;
+            ViewBag.Marca = marcas;
 
             return View();
         }
 
-        [HttpPost]
         public async Task<IActionResult> CrearProducto(Producto producto)
         {
             if (ModelState.IsValid)
             {
-                // Cálculo del precio de venta sugerido
-                producto.PrecioVentaSugerido = (producto.PrecioCompra + (producto.PrecioCompra * producto.PorcentajeGanancia) / 100);
+                var marcas = _context.Marca.ToList();
+                var categorias = _context.Categoria.ToList();
+
+                ViewBag.Marcas = marcas;
+                ViewBag.Categorias = categorias;
 
                 producto.FechaAlta = System.DateTime.Now;
                 producto.Activo = true;
-                producto.Marca = ViewBag.Marca.Id;
-                producto.Categoria = ViewBag.Categoria.Id;
-
                 _context.Producto.Add(producto);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-
-            var marcas = _context.Marca.ToList();
-            ViewBag.Marcas = marcas;
-            var categorias = _context.Categoria.ToList();
-            ViewBag.Categorias = categorias;
 
             return View(producto);
         }

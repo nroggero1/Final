@@ -9,7 +9,6 @@ namespace Final.Controllers
     public class ClienteController : Controller
     {
         private readonly FinalWebContext _context;
-
         public ClienteController(FinalWebContext context)
         {
             _context = context;

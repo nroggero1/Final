@@ -45,7 +45,7 @@ namespace Final.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CrearUsuarior(Usuario usuario)
+        public async Task<IActionResult> CrearUsuario(Usuario usuario)
         {
             if (ModelState.IsValid)
             {

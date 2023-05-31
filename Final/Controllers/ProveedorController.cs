@@ -40,7 +40,7 @@ namespace Final.Controllers
             return View(proveedor);
         }
 
-        // GET: /Proveedor/CrearProveedor
+        // URL: /Proveedor/CrearProveedor
         public IActionResult CrearProveedor()
         {
             var provincias = _context.Provincia.ToList();
@@ -80,6 +80,7 @@ namespace Final.Controllers
 
                 proveedor.FechaAlta = System.DateTime.Now;
                 proveedor.Activo = true;
+
                 _context.Proveedor.Add(proveedor);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

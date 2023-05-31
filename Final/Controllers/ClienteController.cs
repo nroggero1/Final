@@ -104,10 +104,9 @@ namespace Final.Controllers
             }
 
             var provincias = _context.Provincia.ToList();
-            var localidades = _context.Localidad.ToList();
 
             ViewBag.Provincias = provincias;
-            ViewBag.Localidades = localidades;
+            ViewBag.Localidades = new List<Localidad>();
 
             return View(cliente);
         }
@@ -127,6 +126,7 @@ namespace Final.Controllers
                     var clienteToUpdate = await _context.Cliente.FirstOrDefaultAsync(c => c.Id == id);
                     clienteToUpdate.CodigoTributario = cliente.CodigoTributario;
                     clienteToUpdate.Direccion = cliente.Direccion;
+                    clienteToUpdate.IdProvincia = cliente.IdProvincia;
                     clienteToUpdate.IdLocalidad = cliente.IdLocalidad;
                     clienteToUpdate.Telefono = cliente.Telefono;
                     clienteToUpdate.Mail = cliente.Mail;

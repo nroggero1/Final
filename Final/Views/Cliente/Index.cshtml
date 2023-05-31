@@ -37,8 +37,13 @@
                         <td>@cliente.Denominacion</td>
                         <td>@cliente.FechaAlta</td>
                         <td>@cliente.Activo</td>
+
+                        <td>
+                            <a asp-action="EditarCliente" asp-route-id="@cliente.Id">Editar</a>
+                        </td>
                     </tr>
                 }
+
             </tbody>
         </table>
     }

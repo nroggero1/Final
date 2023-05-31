@@ -103,6 +103,11 @@ namespace Final.Controllers
                 return NotFound();
             }
 
+            var provincias = _context.Provincia.ToList();
+
+            ViewBag.Provincias = provincias;
+            ViewBag.Localidades = new List<Localidad>();
+
             return View(proveedor);
         }
 
@@ -121,6 +126,7 @@ namespace Final.Controllers
                     var proveedorToUpdate = await _context.Proveedor.FirstOrDefaultAsync(c => c.Id == id);
                     proveedorToUpdate.CodigoTributario = proveedor.CodigoTributario;
                     proveedorToUpdate.Direccion = proveedor.Direccion;
+                    proveedorToUpdate.IdProvincia = proveedor.IdProvincia;
                     proveedorToUpdate.IdLocalidad = proveedor.IdLocalidad;
                     proveedorToUpdate.Telefono = proveedor.Telefono;
                     proveedorToUpdate.Mail = proveedor.Mail;

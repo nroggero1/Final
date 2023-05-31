@@ -23,7 +23,7 @@
                 <option value="">Seleccione una provincia</option>
                 @foreach (var provincia in ViewBag.Provincias)
                 {
-                    <option value="@provincia.Nombre">@provincia.Nombre</option>
+                    <option value="@provincia.Id">@provincia.Nombre</option>
                 }
             </select>
         </div>
@@ -70,5 +70,7 @@
     </form>
 </div>
 
-
+@section Scripts {
+    <script src="~/js/Localidad/Localidad.js"></script>
+}
 

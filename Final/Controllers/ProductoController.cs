@@ -57,12 +57,12 @@ namespace Final.Controllers
             if (ModelState.IsValid)
             {
                 var marcas = _context.Marca.ToList();
-                var categorias = _context.Categoria.ToList();
-
                 ViewBag.Marca = marcas;
+
+                var categorias = _context.Categoria.ToList();
                 ViewBag.Categoria = categorias;
 
-                producto.FechaAlta = System.DateTime.Now;
+                producto.FechaAlta = DateTime.Now;
                 producto.Activo = true;
 
                 _context.Producto.Add(producto);

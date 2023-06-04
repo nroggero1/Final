@@ -10,7 +10,7 @@
         <!-- Marca -->
         <div class="input-group mb-3">
             <label asp-for="IdMarca" class="input-group-text">Marca</label>
-            <select asp-for="IdMarca" class="form-control" id="provincia">
+            <select asp-for="IdMarca" class="form-control" id="marca">
                 <option value="">Seleccione una marca</option>
                 @foreach (var marca in ViewBag.Marcas)
                 {
@@ -23,7 +23,7 @@
         <div class="input-group mb-3">
             <label asp-for="IdCategoria" class="input-group-text">Categoría</label>
             <select asp-for="IdCategoria" class="form-control">
-                <option value="">Seleccione una categoria</option>
+                <option value="">Seleccione una categoría</option>
                 @foreach (var categoria in ViewBag.Categorias)
                 {
                     <option value="@categoria.Id">@categoria.Nombre</option>

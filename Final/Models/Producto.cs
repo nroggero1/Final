@@ -18,7 +18,7 @@ namespace Final.Models
         public int StockMinimo { get; set; }
         public bool Activo { get; set; }
         public DateTime? FechaAlta { get; set; }
-        public int IdMarcaProducto { get; set; }
-        public int IdCategoriaProducto { get; set; }
+        public int IdMarca { get; set; }
+        public int IdCategoria { get; set; }
     }
 }

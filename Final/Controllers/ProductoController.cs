@@ -40,18 +40,18 @@ namespace Final.Controllers
         }
 
         // URL: /Producto/CrearProducto
-        [HttpPost]
         public IActionResult CrearProducto()
         {
             var categorias = _context.Categoria.ToList();
-            ViewBag.Categoria = categorias;
+            ViewBag.Categorias = categorias;
 
             var marcas = _context.Marca.ToList();
-            ViewBag.Marca = marcas;
+            ViewBag.Marcas = marcas;
 
             return View();
         }
 
+        [HttpPost]
         public async Task<IActionResult> CrearProducto(Producto producto)
         {
             if (ModelState.IsValid)
@@ -59,11 +59,12 @@ namespace Final.Controllers
                 var marcas = _context.Marca.ToList();
                 var categorias = _context.Categoria.ToList();
 
-                ViewBag.Marcas = marcas;
-                ViewBag.Categorias = categorias;
+                ViewBag.Marca = marcas;
+                ViewBag.Categoria = categorias;
 
                 producto.FechaAlta = System.DateTime.Now;
                 producto.Activo = true;
+
                 _context.Producto.Add(producto);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

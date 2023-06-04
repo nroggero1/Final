@@ -8,9 +8,10 @@
     <form asp-action="CrearProducto" method="POST">
 
         <!-- Marca -->
-         <div class="input-group mb-3">
-            <label asp-for="IdMarcaProducto" class="input-group-text">Marca</label>
-            <select asp-for="IdMarcaProducto" class="form-control" id="marca">
+        <div class="input-group mb-3">
+            <label asp-for="IdMarca" class="input-group-text">Marca</label>
+            <select asp-for="IdMarca" class="form-control" id="provincia">
+                <option value="">Seleccione una marca</option>
                 @foreach (var marca in ViewBag.Marcas)
                 {
                     <option value="@marca.Id">@marca.Nombre</option>
@@ -20,8 +21,9 @@
 
         <!-- Categoría -->
         <div class="input-group mb-3">
-            <label asp-for="IdCategoriaProducto" class="input-group-text">Categoría</label>
-            <select asp-for="IdCategoriaProducto" class="form-control">
+            <label asp-for="IdCategoria" class="input-group-text">Categoría</label>
+            <select asp-for="IdCategoria" class="form-control">
+                <option value="">Seleccione una categoria</option>
                 @foreach (var categoria in ViewBag.Categorias)
                 {
                     <option value="@categoria.Id">@categoria.Nombre</option>

@@ -1,0 +1,55 @@
+﻿@model List<Final.Models.Producto>
+@{
+    ViewData["Title"] = "Consultar productos bajo stock";
+}
+
+<h1>Productos bajo stock</h1>
+
+@if (Model.Count == 0)
+{
+    <p>No hay productos bajo stock.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>CodigoBarras</th>
+                <th>PrecioCompra</th>
+                <th>PorcentajeGanancia</th>
+                <th>PrecioVentaSugerido</th>
+                <th>PrecioVenta</th>
+                <th>Stock</th>
+                <th>StockMinimo</th>
+                <th>Categoría</th>
+                <th>Marca</th>
+                <th>Fecha Alta</th>
+                <th>Activo</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var producto in Model)
+            {
+                <tr>
+                    <td>@producto.Id</td>
+                    <td>@producto.Nombre</td>
+                    <td>@producto.Descripcion</td>
+                    <td>@producto.CodigoBarras</td>
+                    <td>@producto.PrecioCompra</td>
+                    <td>@producto.PorcentajeGanancia</td>
+                    <td>@producto.PrecioVentaSugerido</td>
+                    <td>@producto.PrecioVenta</td>
+                    <td>@producto.Stock</td>
+                    <td>@producto.StockMinimo</td>
+                    <td>@producto.IdCategoria</td>
+                    <td>@producto.IdMarca</td>
+                    <td>@producto.FechaAlta</td>
+                    <td>@producto.Activo</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

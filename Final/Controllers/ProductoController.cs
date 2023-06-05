@@ -156,5 +156,14 @@ namespace Final.Controllers
         {
             return _context.Producto.Any(p => p.Id == id);
         }
+
+
+        // URL: /Producto/ConsultarBajoStock
+        [HttpGet]
+        public async Task<IActionResult> ConsultarProductosBajoStock()
+        {
+            var productosBajoStock = _context.Producto.Where(p => p.Stock <= p.StockMinimo && p.Activo).ToList();
+            return View(productosBajoStock);
+        }
     }
 }

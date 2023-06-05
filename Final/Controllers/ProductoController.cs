@@ -56,11 +56,11 @@ namespace Final.Controllers
         {
             if (ModelState.IsValid)
             {
-                var marcas = _context.Marca.ToList();
-                ViewBag.Marca = marcas;
-
                 var categorias = _context.Categoria.ToList();
-                ViewBag.Categoria = categorias;
+                ViewBag.Categorias = categorias;
+
+                var marcas = _context.Marca.ToList();
+                ViewBag.Marcas = marcas;
 
                 producto.FechaAlta = DateTime.Now;
                 producto.Activo = true;
@@ -71,6 +71,90 @@ namespace Final.Controllers
             }
 
             return View(producto);
+        }
+
+        // URL: /Producto/EditarProducto
+        [HttpGet]
+        public async Task<IActionResult> EditarProducto(int? id)
+        {
+            if (id == null || _context.Producto == null)
+            {
+                return NotFound();
+            }
+
+            var producto = await _context.Producto.FirstOrDefaultAsync(p => p.Id == id);
+            if (producto == null)
+            {
+                return NotFound();
+            }
+
+            var categorias = _context.Categoria.ToList();
+            ViewBag.Categorias = categorias;
+
+            var marcas = _context.Marca.ToList();
+            ViewBag.Marcas = marcas;
+
+            return View(producto);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditarProducto(int id, Producto producto)
+        {
+            if (id != producto.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var productoToUpdate = await _context.Producto.FirstOrDefaultAsync(p => p.Id == id);
+                    productoToUpdate.Nombre = producto.Nombre;
+                    productoToUpdate.Descripcion = producto.Descripcion;
+                    productoToUpdate.CodigoBarras = producto.CodigoBarras;
+                    productoToUpdate.PrecioCompra = producto.PrecioCompra;
+                    productoToUpdate.PorcentajeGanancia = producto.PorcentajeGanancia;
+                    productoToUpdate.PrecioVentaSugerido = producto.PrecioVentaSugerido;
+                    productoToUpdate.PrecioVenta = producto.PrecioVenta;
+                    productoToUpdate.Stock = producto.Stock;
+                    productoToUpdate.StockMinimo = producto.StockMinimo;
+                    productoToUpdate.Activo = producto.Activo;
+                    productoToUpdate.IdMarca = producto.IdMarca;
+                    productoToUpdate.IdCategoria = producto.IdCategoria;
+                    // Mantener el valor original de FechaAlta
+                    producto.FechaAlta = productoToUpdate.FechaAlta;
+
+                    _context.Update(productoToUpdate);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!ProductoExists(producto.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+
+            return RedirectToAction(nameof(Index));
+            }
+
+            var categorias = _context.Categoria.ToList();
+            ViewBag.Categorias = categorias;
+
+            var marcas = _context.Marca.ToList();
+            ViewBag.Marcas = marcas;
+
+            return View(producto);
+        }
+
+        private bool ProductoExists(int id)
+        {
+            return _context.Producto.Any(p => p.Id == id);
         }
     }
 }

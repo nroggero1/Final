@@ -7,10 +7,12 @@
     <h1>Editar cliente</h1>
     <form asp-action="EditarCliente" method="POST">
 
+        <!-- Codigo Tributario -->
         <div class="input-group mb-3">
             <label asp-for="CodigoTributario" class="input-group-text">Codigo Tributario</label>
             <input asp-for="CodigoTributario" type="text" class="form-control" placeholder="Ingresar codigo tributario" id="codigoTributario">
         </div>
+        <!-- Direccion -->
         <div class="input-group mb-3">
             <label asp-for="Direccion" class="input-group-text">Direccion</label>
             <input asp-for="Direccion" type="text" class="form-control" placeholder="Ingresar direccion tributario" id="direccion">
@@ -39,23 +41,27 @@
                 }
             </select>
         </div>
-
+        <!-- Telefono -->
         <div class="input-group mb-3">
             <label asp-for="Telefono" class="input-group-text">Telefono</label>
             <input asp-for="Telefono" type="tel" class="form-control" placeholder="Ingrese el telefono" id="telefono">
         </div>
+        <!-- Mail -->
         <div class="input-group mb-3">
             <label asp-for="Mail" class="input-group-text">Mail</label>
             <input asp-for="Mail" type="email" class="form-control" placeholder="Ingrese el mail" id="mail">
         </div>
+        <!-- Denominacion -->
         <div class="input-group mb-3">
             <label asp-for="Denominacion" class="input-group-text">Denominacion</label>
             <input asp-for="Denominacion" type="text" class="form-control" placeholder="Denominacion" id="denominacion">
         </div>
-        <div class="input-group mb-3">
-            <label asp-for="FechaAlta" class="input-group-text">Fecha de alta</label>
-            <input asp-for="FechaAlta" type="datetime" class="form-control" id="fechaAlta" value="@DateTime.Now" readonly>
+        <!-- Fecha Alta -->
+        <div class="form-group">
+            <label asp-for="FechaAlta">Fecha Alta</label>
+            <input asp-for="FechaAlta" class="form-control" readonly />
         </div>
+        <!-- Activo -->
         <div class="form-group">
             <label asp-for="Activo">Activo</label>
             <select asp-for="Activo" id="Activo" name="Activo" class="form-control">

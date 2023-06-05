@@ -4,13 +4,14 @@
 }
 
 <div class="container-lg col-4">
-    <h1>Editar Producto</h1>
-    <form asp-action="EditarProducto" method="POST">
+    <h1>Registrar Producto</h1>
+    <form asp-action="CrearProducto" method="POST">
 
         <!-- Marca -->
         <div class="input-group mb-3">
             <label asp-for="IdMarca" class="input-group-text">Marca</label>
-            <select asp-for="IdMarca" class="form-control">
+            <select asp-for="IdMarca" class="form-control" id="marca">
+                <option value="">Seleccione una marca</option>
                 @foreach (var marca in ViewBag.Marcas)
                 {
                     <option value="@marca.Id">@marca.Nombre</option>
@@ -22,6 +23,7 @@
         <div class="input-group mb-3">
             <label asp-for="IdCategoria" class="input-group-text">Categoría</label>
             <select asp-for="IdCategoria" class="form-control">
+                <option value="">Seleccione una categoría</option>
                 @foreach (var categoria in ViewBag.Categorias)
                 {
                     <option value="@categoria.Id">@categoria.Nombre</option>
@@ -38,13 +40,13 @@
         <!-- Descripción -->
         <div class="input-group mb-3">
             <label asp-for="Descripcion" class="input-group-text">Descripción</label>
-            <input asp-for="Descripcion" type="text" class="form-control" placeholder="Ingresar Descripción">
+            <input asp-for="Descripcion" type="text" class="form-control" placeholder="Ingresar Descripción" id="descripcion">
         </div>
 
         <!-- Código de Barras -->
         <div class="input-group mb-3">
             <label asp-for="CodigoBarras" class="input-group-text">Código de Barras</label>
-            <input asp-for="CodigoBarras" type="text" class="form-control" placeholder="Ingresar Código de Barras">
+            <input asp-for="CodigoBarras" type="text" class="form-control" placeholder="Ingresar Código de Barras" id="codigoBarras">
         </div>
 
         <!-- Precio de Compra -->
@@ -62,46 +64,48 @@
         <!-- Precio de Venta Sugerido -->
         <div class="input-group mb-3">
             <label asp-for="PrecioVentaSugerido" class="input-group-text">Precio de Venta Sugerido</label>
-            <input asp-for="PrecioVentaSugerido" type="text" class="form-control" readonly>
+            <input id="PrecioVentaSugerido" asp-for="PrecioVentaSugerido" type="text" class="form-control" readonly>
         </div>
 
         <!-- Precio de Venta -->
         <div class="input-group mb-3">
             <label asp-for="PrecioVenta" class="input-group-text">Precio de Venta</label>
-            <input asp-for="PrecioVenta" type="text" class="form-control" placeholder="Ingresar Precio de Venta">
+            <input asp-for="PrecioVenta" type="text" class="form-control" placeholder="Ingresar Precio de Venta" id="precioVenta">
         </div>
 
         <!-- Stock -->
         <div class="input-group mb-3">
             <label asp-for="Stock" class="input-group-text">Stock</label>
-            <input asp-for="Stock" type="text" class="form-control" placeholder="Ingresar Stock">
+            <input asp-for="Stock" type="text" class="form-control" placeholder="Ingresar Stock" id="stock">
         </div>
 
         <!-- Stock Mínimo -->
         <div class="input-group mb-3">
             <label asp-for="StockMinimo" class="input-group-text">Stock Mínimo</label>
-            <input asp-for="StockMinimo" type="text" class="form-control" placeholder="Ingresar Stock Mínimo">
+            <input asp-for="StockMinimo" type="text" class="form-control" placeholder="Ingresar Stock Mínimo" id="stockMinimo">
         </div>
 
-        <!-- Fecha Alta-->
-        <div class="input-group mb-3">
-            <label asp-for="FechaAlta" class="input-group-text">Fecha de alta</label>
-            <input asp-for="FechaAlta" type="datetime" class="form-control" id="fechaAlta" value="@DateTime.Now" readonly>
+        <!-- Fecha Alta -->
+        <div class="form-group">
+            <label asp-for="FechaAlta">Fecha Alta</label>
+            <input asp-for="FechaAlta" class="form-control" readonly />
         </div>
 
         <!-- Activo -->
-        <div class="input-group mb-3">
-            <label asp-for="Activo" class="input-group-text">Activo</label>
-            <select asp-for="Activo" id="Activo" name="Activo" class="form-control">
+        <div class="form-group">
+            <select asp-for="Activo" id="Activo" name="Activo" class="form-control" value="True">
                 <option value="True">Activo</option>
                 <option value="False">Inactivo</option>
             </select>
         </div>
+        <br>
 
-        <br />
         <div>
             <button type="submit" class="btn btn-primary">Guardar</button>
         </div>
     </form>
 
 </div>
+
+
+<script src="~/js/Producto/Producto.js"></script>

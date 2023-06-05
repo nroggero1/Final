@@ -7,16 +7,19 @@
 
 <form asp-action="EditarCategoria" method="post">
     <div class="form-group">
+        <!-- Nombre -->
         <label asp-for="Nombre">Nombre</label>
         <input asp-for="Nombre" class="form-control" />
         <span asp-validation-for="Nombre" class="text-danger"></span>
     </div>
 
-    <div class="input-group mb-3">
-        <label asp-for="FechaAlta" class="input-group-text">Fecha de alta</label>
-        <input asp-for="FechaAlta" type="datetime" class="form-control" id="fechaAlta" value="@DateTime.Now" readonly>
+    <!-- Fecha Alta -->
+    <div class="form-group">
+        <label asp-for="FechaAlta">Fecha Alta</label>
+        <input asp-for="FechaAlta" class="form-control" readonly />
     </div>
 
+    <!-- Activo -->
     <div class="form-group">
         <label asp-for="Activo">Activo</label>
         <select asp-for="Activo" id="Activo" name="Activo" class="form-control">

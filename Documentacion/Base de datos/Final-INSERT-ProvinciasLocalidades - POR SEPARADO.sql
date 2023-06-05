@@ -103,6 +103,8 @@ CREATE TABLE Compra
 	IdUsuario int REFERENCES Usuario(Id),
 	IdProveedor int REFERENCES Proveedor(Id),
 	IdProducto int REFERENCES Producto(Id),
+	IdCategoria int REFERENCES Categoria(Id),
+	IdMarca int REFERENCES Marca(Id),
 	Cantidad int NOT NULL,
 	PrecioCompra DECIMAL(10,2) NOT NULL,
 ) 
@@ -115,6 +117,8 @@ CREATE TABLE Venta
 	IdUsuario int REFERENCES Usuario(Id),
 	IdCliente int REFERENCES Cliente(Id),
 	IdProducto int REFERENCES Producto(Id),
+	IdCategoria int REFERENCES Categoria(Id),
+	IdMarca int REFERENCES Marca(Id),
 	Cantidad int NOT NULL,
 	PrecioVenta DECIMAL(10,2) NOT NULL,
 ) 

@@ -8,3 +8,4 @@ function calcularPrecioVentaSugerido() {
         document.getElementById('PrecioVentaSugerido').value = precioVentaSugerido.toFixed(2);
     }
 }
+

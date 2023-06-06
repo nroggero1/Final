@@ -415,3 +415,11 @@ TestResult.xml
 Version.cs
 Version.h
 Version.cpp
+.vs/FInal/v17/.suo
+*.vsidx
+*.dll
+*.pdb
+*.editorconfig
+*.dll
+*.v2
+*.bin

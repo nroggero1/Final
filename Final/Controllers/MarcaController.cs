@@ -88,7 +88,7 @@ namespace Final.Controllers
             {
                 try
                 {
-                    var marcaToUpdate = await _context.Marca.FirstOrDefaultAsync(c => c.Id == id);
+                    var marcaToUpdate = await _context.Marca.FirstOrDefaultAsync(m => m.Id == id);
                     marcaToUpdate.Nombre = marca.Nombre;
                     // Mantener el valor original de FechaAlta
                     marca.FechaAlta = marcaToUpdate.FechaAlta;
@@ -117,7 +117,7 @@ namespace Final.Controllers
 
         private bool MarcaExists(int id)
         {
-            return _context.Marca.Any(c => c.Id == id);
+            return _context.Marca.Any(m => m.Id == id);
         }
     }
 }

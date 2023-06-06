@@ -1,5 +1,60 @@
 ﻿@model Final.Models.Compra
 @{
-    ViewData["Title"] = "Registar compra";
+    ViewData["Title"] = "Registrar compra";
 }
 
+
+<div class="container-lg col-4">
+    <h1>Registrar Compra</h1>
+    <form asp-action="RegistrarCompra" method="POST">
+
+        <!-- Proveedor -->
+        <div class="input-group mb-3">
+            <label asp-for="IdProveedor" class="input-group-text">Proveedor</label>
+            <select asp-for="IdProveedor" class="form-control" id="proveedor" disabled>
+                <option value="">Seleccione el proveedor</option>
+                @foreach (var proveedor in ViewBag.Proveedores)
+                {
+                    <option value="@proveedor.Id">@proveedor.Nombre</option>
+                }
+            </select>
+        </div>
+
+        <!-- Producto -->
+        <div class="input-group mb-3">
+            <label asp-for="IdProducto" class="input-group-text">Producto</label>
+            <input type="text" class="form-control" id="codigoBarras" placeholder="Ingrese el código de barras">
+            <button type="button" class="btn btn-primary" onclick="buscarProducto()">Buscar</button>
+        </div>
+
+        <!-- Nombre del Producto -->
+        <div class="input-group mb-3">
+            <label asp-for="NombreProducto" class="input-group-text">Nombre del Producto</label>
+            <input asp-for="NombreProducto" type="text" class="form-control" readonly>
+        </div>
+
+        <!-- Precio de Compra -->
+        <div class="input-group mb-3">
+            <label asp-for="PrecioCompra" class="input-group-text">Precio unitario</label>
+            <input asp-for="PrecioCompra" type="text" class="form-control" placeholder="Ingrese el precio de compra">
+        </div>
+
+        <!-- Cantidad -->
+        <div class="input-group mb-3">
+            <label asp-for="Cantidad" class="input-group-text">Cantidad</label>
+            <input asp-for="Cantidad" type="text" class="form-control" placeholder="Ingrese la cantidad" id="cantidad">
+        </div>
+
+        <!-- Fecha -->
+        <div class="input-group mb-3">
+            <label asp-for="Fecha" class="input-group-text">Fecha</label>
+            <input asp-for="Fecha" type="datetime" class="form-control" id="fechaAlta" value="@DateTime.Now" readonly>
+        </div>
+
+        <br>
+
+        <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+</div>
+
+<script src="~/js/Producto/Producto.js"></script>

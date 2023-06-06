@@ -10,8 +10,6 @@ namespace Final.Models
         public int IdUsuario { get; set; }
         public int IdCliente { get; set; }
         public int IdProducto { get; set; }
-        public int IdCategoria { get; set; }
-        public int IdMarca { get; set; }
         public int Cantidad { get; set; }
         public decimal PrecioVenta { get; set; }
     }

@@ -40,10 +40,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nicolas Roggero/Desktop/FINAL/FInal/Views/Compra/RegistrarCompra.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcHJhXFJlZ2lzdHJhckNvbXByYS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Nicolas Roggero/Desktop/FINAL/FInal/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -114,10 +110,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Nicolas Roggero/Desktop/FINAL/FInal/Views/Usuario/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Nicolas Roggero/Desktop/FINAL/FInal/Views/Venta/RegistrarVenta.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVudGFcUmVnaXN0cmFyVmVudGEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Nicolas Roggero/Desktop/FINAL/FInal/Views/_ViewImports.cshtml]

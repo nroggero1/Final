@@ -11,7 +11,7 @@
         <!-- Proveedor -->
         <div class="input-group mb-3">
             <label asp-for="IdProveedor" class="input-group-text">Proveedor</label>
-            <select asp-for="IdProveedor" class="form-control" id="proveedor" disabled>
+            <select asp-for="IdProveedor" class="form-control" id="proveedor">
                 <option value="">Seleccione el proveedor</option>
                 @foreach (var proveedor in ViewBag.Proveedores)
                 {

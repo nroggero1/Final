@@ -8,6 +8,19 @@
     <h1>Registrar Compra</h1>
     <form asp-action="RegistrarCompra" method="POST">
 
+
+        <!-- Usuario -->
+        <div class="input-group mb-3">
+            <label asp-for="IdUsuario" class="input-group-text">usuario</label>
+            <select asp-for="IdUsuario" class="form-control" id="usuario">
+                <option value="">Seleccione el usuario</option>
+                @foreach (var usuario in ViewBag.Usuarios)
+                {
+                    <option value="@usuario.Id">@usuario.Nombre</option>
+                }
+            </select>
+        </div>
+
         <!-- Proveedor -->
         <div class="input-group mb-3">
             <label asp-for="IdProveedor" class="input-group-text">Proveedor</label>
@@ -20,24 +33,46 @@
             </select>
         </div>
 
+        <!-- Categoria -->
+        <div class="input-group mb-3">
+            <label asp-for="IdCategoria" class="input-group-text">Categoria</label>
+            <select asp-for="IdCategoria" class="form-control" id="categoria" onchange="filtrarProductos()">
+                <option value="">Seleccione la categoria</option>
+                @foreach (var categoria in ViewBag.Categorias)
+                {
+                    <option value="@categoria.Id">@categoria.Nombre</option>
+                }
+            </select>
+        </div>
+
+        <!-- marca -->
+        <div class="input-group mb-3">
+            <label asp-for="IdMarca" class="input-group-text">Marca</label>
+            <select asp-for="IdMarca" class="form-control" id="marca" onchange="filtrarProductos()">
+                <option value="">Seleccione la marca</option>
+                @foreach (var marca in ViewBag.Marcas)
+                {
+                    <option value="@marca.Id">@marca.Nombre</option>
+                }
+            </select>
+        </div>
+
         <!-- Producto -->
         <div class="input-group mb-3">
             <label asp-for="IdProducto" class="input-group-text">Producto</label>
-            <input type="text" class="form-control" id="codigoBarras" placeholder="Ingrese el código de barras">
-            <button type="button" class="btn btn-primary" onclick="buscarProducto()">Buscar</button>
+            <select asp-for="IdProducto" class="form-control" id="producto">
+                <option value="">Seleccione el producto</option>
+                @foreach (var producto in ViewBag.Productos)
+                {
+                    <option value="@producto.Id">@producto.Nombre</option>
+                }
+            </select>
         </div>
-
-        <!-- Nombre del Producto 
-        <div class="input-group mb-3">
-            <label asp-for="NombreProducto" class="input-group-text">Nombre del Producto</label>
-            <input asp-for="NombreProducto" type="text" class="form-control" readonly>
-        </div>
-        -->
 
         <!-- Precio de Compra -->
         <div class="input-group mb-3">
             <label asp-for="PrecioCompra" class="input-group-text">Precio unitario</label>
-            <input asp-for="PrecioCompra" type="text" class="form-control" placeholder="Ingrese el precio de compra">
+            <input asp-for="PrecioCompra" type="text" class="form-control" placeholder="Ingrese el precio de compra" id="precioCompra">
         </div>
 
         <!-- Cantidad -->
@@ -54,8 +89,23 @@
 
         <br>
 
+        <button type="submit" class="btn btn-primary">Nuevo producto</button>
         <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
+
+    <table class="table" id="tablaProductos">
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Precio unitario</th>
+                <th>Cantidad</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Aquí se agregarán las filas dinámicamente -->
+        </tbody>
+    </table>
 </div>
+
 
 <script src="~/js/Producto/Producto.js"></script>

@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace Final.Controllers
 {
@@ -17,42 +18,72 @@ namespace Final.Controllers
             _context = context;
         }
 
+        // GET: /Compra/RegistrarCompra
+        [HttpGet]
         public IActionResult RegistrarCompra()
         {
-            // Obtener la lista de proveedores y productos para mostrar en la vista
-            ViewBag.Proveedores = _context.Proveedor.ToList();
-            ViewBag.Productos = _context.Producto.ToList();
+            var marcas = _context.Marca.ToList();
+            ViewBag.Marcas = marcas;
+
+            var categorias = _context.Categoria.ToList();
+            ViewBag.Categorias = categorias;
+
+            var productos = _context.Producto.ToList();
+            ViewBag.Productos = productos;
+
+            var usuarios = _context.Usuario.ToList();
+            ViewBag.Usuarios = usuarios;
+
+            var proveedores = _context.Proveedor.ToList();
+            ViewBag.Proveedores = proveedores;
 
             return View();
         }
 
+        [HttpGet]
+        public IActionResult CargarProductos(int MarcaId, int CategoriaId)
+        {
+            var productos = _context.Producto
+                .Where(p => p.IdMarca == MarcaId && p.IdCategoria == CategoriaId)
+                .ToList();
+
+            var options = new StringBuilder();
+            options.Append("<option value=''>Seleccione un producto</option>");
+
+            foreach (var producto in productos)
+            {
+                options.AppendFormat("<option value='{0}'>{1}</option>", producto.Id, producto.Nombre);
+            }
+
+            return Content(options.ToString());
+        }
+
         [HttpPost]
-        public IActionResult RegistrarCompra(Compra compra)
+        public async Task<IActionResult> RegistrarCompra(Compra compra)
         {
             if (ModelState.IsValid)
             {
-                // Agregar la compra a la lista de compras
-                // Aquí se puede usar una lista en memoria o cualquier otra estructura de datos adecuada
-                // Por ejemplo: List<Compra> listaCompras = new List<Compra>();
-                // listaCompras.Add(compra);
+                var marcas = _context.Marca.ToList();
+                ViewBag.Marcas = marcas;
 
-                // Insertar los registros en la base de datos
+                var categorias = _context.Categoria.ToList();
+                ViewBag.Categorias = categorias;
+
+                var productos = _context.Producto.ToList();
+                ViewBag.Productos = productos;
+
+                var usuarios = _context.Usuario.ToList();
+                ViewBag.Usuarios = usuarios;
+
+                var proveedores = _context.Proveedor.ToList();
+                ViewBag.Proveedores = proveedores;
+
+                compra.Fecha = System.DateTime.Now;
                 _context.Compra.Add(compra);
-                _context.SaveChanges();
-
-                // Recorrer la lista de compras y guardar cada registro en la base de datos
-                //foreach (var compra in listaCompras)
-                //{
-                //    _context.Compras.Add(compra);
-                //    _context.SaveChanges();
-                //}
-
-                return RedirectToAction(nameof(Index)); // Redirigir a la página de inicio u otra página deseada
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
             }
 
-            // Si la validación falla, volver a cargar la vista con los errores
-            ViewBag.Proveedores = _context.Proveedor.ToList();
-            ViewBag.Productos = _context.Producto.ToList();
             return View(compra);
         }
     }

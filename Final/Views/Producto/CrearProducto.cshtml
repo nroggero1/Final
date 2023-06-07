@@ -5,7 +5,7 @@
 
 <div class="container-lg col-4">
     <h1>Registrar Producto</h1>
-    <form asp-action="CrearProducto" method="POST">
+    <form asp-action="CrearProducto" method="POST" onsubmit="return validarCampos();">
 
         <!-- Marca -->
         <div class="input-group mb-3">
@@ -22,7 +22,7 @@
         <!-- Categoría -->
         <div class="input-group mb-3">
             <label asp-for="IdCategoria" class="input-group-text">Categoría</label>
-            <select asp-for="IdCategoria" class="form-control">
+            <select asp-for="IdCategoria" class="form-control" id="categoria">
                 <option value="">Seleccione una categoría</option>
                 @foreach (var categoria in ViewBag.Categorias)
                 {
@@ -46,13 +46,13 @@
         <!-- Precio de Compra -->
         <div class="input-group mb-3">
             <label asp-for="PrecioCompra" class="input-group-text">Precio de Compra</label>
-            <input asp-for="PrecioCompra" type="text" class="form-control" placeholder="Ingresar Precio de Compra" oninput="calcularPrecioVentaSugerido()">
+            <input asp-for="PrecioCompra" type="text" class="form-control" placeholder="Ingresar Precio de Compra" id="precioCompra" oninput="calcularPrecioVentaSugerido()">
         </div>
 
         <!-- Porcentaje de Ganancia -->
         <div class="input-group mb-3">
             <label asp-for="PorcentajeGanancia" class="input-group-text">Porcentaje de Ganancia</label>
-            <input asp-for="PorcentajeGanancia" type="text" class="form-control" placeholder="Ingresar Porcentaje de Ganancia" oninput="calcularPrecioVentaSugerido()">
+            <input asp-for="PorcentajeGanancia" type="text" class="form-control" placeholder="Ingresar Porcentaje de Ganancia" id="porcentajeGanancia" oninput="calcularPrecioVentaSugerido()">
         </div>
 
         <!-- Precio de Venta Sugerido -->
@@ -109,3 +109,4 @@
 
 
 <script src="~/js/Producto/Producto.js"></script>
+<script src="~/js/Validaciones/CrearProducto.js"></script>

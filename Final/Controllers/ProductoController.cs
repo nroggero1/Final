@@ -3,6 +3,7 @@ using Final.Models;
 using Final.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Text;
+using System.Reflection.Metadata;
 
 namespace Final.Controllers
 {
@@ -93,6 +94,8 @@ namespace Final.Controllers
 
             var marcas = _context.Marca.ToList();
             ViewBag.Marcas = marcas;
+
+            producto.PrecioVentaSugerido = ((producto.PorcentajeGanancia / 100 * producto.PrecioCompra) + producto.PrecioCompra);
 
             return View(producto);
         }

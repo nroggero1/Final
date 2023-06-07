@@ -92,7 +92,7 @@ namespace Final.Controllers
                     usuarioToUpdate.Clave = usuario.Clave;
                     usuarioToUpdate.Nombre = usuario.Nombre;
                     usuarioToUpdate.Apellido = usuario.Apellido;
-                    usuarioToUpdate.Correo = usuario.Correo;
+                    usuarioToUpdate.Mail = usuario.Mail;
                     usuarioToUpdate.FechaNacimiento = usuario.FechaNacimiento;
                     // Mantener el valor original de FechaAlta
                     usuario.FechaAlta = usuarioToUpdate.FechaAlta;

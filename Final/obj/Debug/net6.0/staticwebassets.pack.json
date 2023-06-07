@@ -21,6 +21,30 @@
       "PackagePath": "staticwebassets\\js\\Producto\\Producto.js"
     },
     {
+      "Id": "C:\\Users\\Nicolas Roggero\\Desktop\\FINAL\\FInal\\wwwroot\\js\\Validaciones\\CrearCategoria.js",
+      "PackagePath": "staticwebassets\\js\\Validaciones\\CrearCategoria.js"
+    },
+    {
+      "Id": "C:\\Users\\Nicolas Roggero\\Desktop\\FINAL\\FInal\\wwwroot\\js\\Validaciones\\CrearCliente.js",
+      "PackagePath": "staticwebassets\\js\\Validaciones\\CrearCliente.js"
+    },
+    {
+      "Id": "C:\\Users\\Nicolas Roggero\\Desktop\\FINAL\\FInal\\wwwroot\\js\\Validaciones\\CrearMarca.js",
+      "PackagePath": "staticwebassets\\js\\Validaciones\\CrearMarca.js"
+    },
+    {
+      "Id": "C:\\Users\\Nicolas Roggero\\Desktop\\FINAL\\FInal\\wwwroot\\js\\Validaciones\\CrearProducto.js",
+      "PackagePath": "staticwebassets\\js\\Validaciones\\CrearProducto.js"
+    },
+    {
+      "Id": "C:\\Users\\Nicolas Roggero\\Desktop\\FINAL\\FInal\\wwwroot\\js\\Validaciones\\CrearProveedor.js",
+      "PackagePath": "staticwebassets\\js\\Validaciones\\CrearProveedor.js"
+    },
+    {
+      "Id": "C:\\Users\\Nicolas Roggero\\Desktop\\FINAL\\FInal\\wwwroot\\js\\Validaciones\\CrearUsuario.js",
+      "PackagePath": "staticwebassets\\js\\Validaciones\\CrearUsuario.js"
+    },
+    {
       "Id": "C:\\Users\\Nicolas Roggero\\Desktop\\FINAL\\FInal\\wwwroot\\js\\generics.js",
       "PackagePath": "staticwebassets\\js\\generics.js"
     },

@@ -9,7 +9,7 @@ namespace Final.Models
         public int Id { get; set; }
         public string? Nombre { get; set; }
         public string? Descripcion { get; set; }
-        public long CodigoBarras { get; set; }
+        public string? CodigoBarras { get; set; }
         public decimal PrecioCompra { get; set; }
         public int PorcentajeGanancia { get; set; }
         public decimal PrecioVentaSugerido { get; set; }

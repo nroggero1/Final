@@ -5,7 +5,7 @@
 
 <div class="container-lg col-4">
     <h1>Registrar proveedor</h1>
-    <form asp-action="CrearProveedor" method="POST">
+    <form asp-action="CrearProveedor" method="POST" onsubmit="return validarCampos();">
 
         <div class="input-group mb-3">
             <label asp-for="CodigoTributario" class="input-group-text">Codigo Tributario</label>
@@ -70,6 +70,5 @@
     </form>
 </div>
 
-@section Scripts {
-    <script src="~/js/localidad/localidad.js"></script>
-}
+<script src="~/js/Localidad/Localidad.js"></script>
+<script src="~/js/Validaciones/CrearProveedor.js"></script>

@@ -49,8 +49,8 @@ namespace Final.Controllers
         {
             if (ModelState.IsValid)
             {
-                marca.FechaAlta = System.DateTime.Now;
                 marca.Activo = true;
+                marca.FechaAlta = System.DateTime.Now;
                 _context.Marca.Add(marca);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

@@ -53,13 +53,25 @@ namespace Final.Controllers
         public Task<IActionResult> RegistrarVenta()
         {
             var marcas = _context.Marca.ToList();
-            ViewBag.Marcas = marcas;
+            //ViewBag.Marcas = marcas;
 
             var categorias = _context.Categoria.ToList();
-            ViewBag.Categorias = categorias;
+            //ViewBag.Categorias = categorias;
 
             var productos = _context.Producto.ToList();
-            ViewBag.Productos = productos;
+            //ViewBag.Productos = productos;
+
+
+            var listProductos = new Dictionary<int, string>();
+            foreach (var x in productos)
+            {
+                var nombreCategoria = categorias.FirstOrDefault(y => y.Id == x.IdCategoria)?.Nombre;
+                var nombreMarca = marcas.FirstOrDefault(y => y.Id == x.IdMarca)?.Nombre;
+                var nombreCategoriaYmarca = $"codBar: {x.CodigoBarras} Cod: {x.Id} -> {nombreCategoria} -> {nombreMarca} -> {x.Nombre}";
+                listProductos.Add(x.Id, nombreCategoriaYmarca);
+            }
+
+            ViewBag.Productos = listProductos;
 
             var usuarios = _context.Usuario.ToList();
             ViewBag.Usuarios = usuarios;
@@ -67,6 +79,8 @@ namespace Final.Controllers
             var proveedores = _context.Proveedor.ToList();
             ViewBag.Proveedores = proveedores;
 
+            var clientes = _context.Cliente.ToList();
+            ViewBag.Clientes = clientes;
 
             return Task.FromResult<IActionResult>(View());
         }

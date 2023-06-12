@@ -27,7 +27,7 @@
                     <option value="">Seleccione el cliente</option>
                     @foreach (var cliente in ViewBag.Clientes)
                     {
-                        <option value="@cliente.Id">@cliente.Nombre</option>
+                        <option value="@cliente.Id">@cliente.Denominacion</option>
                     }
                 </select>
             </div>
@@ -35,7 +35,7 @@
 
         <div class="DatosDinamicos">
             <!-- Categoria -->
-            <div class="input-group mb-3">
+@*            <div class="input-group mb-3">
                 <label asp-for="IdCategoria" class="input-group-text">Categoria</label>
                 <select asp-for="IdCategoria" class="form-control" id="categoria" onchange="filtrarProductos()">
                     <option value="">Seleccione la categoria</option>
@@ -56,16 +56,16 @@
                         <option value="@marca.Id">@marca.Nombre</option>
                     }
                 </select>
-            </div>
+            </div>*@
 
             <!-- Producto -->
             <div class="input-group mb-3">
                 <label asp-for="IdProducto" class="input-group-text">Producto</label>
-                <select asp-for="IdProducto" class="form-control" id="producto">
+                <select asp-for="IdProducto" class="form-select">
                     <option value="">Seleccione el producto</option>
                     @foreach (var producto in ViewBag.Productos)
                     {
-                        <option value="@producto.Id">@producto.Nombre</option>
+                        <option value="@producto.Key">@producto.Value</option>
                     }
                 </select>
             </div>
@@ -104,5 +104,17 @@
     </form>
 </div>
 
-<script src="~/js/Venta/Venta.js"></script>
-<script src="~/js/Producto/Producto.js"></script>
+@section Scripts {
+    <script src="~/js/Venta/Venta.js"></script>
+@*    <script>
+        $(document).ready(function () {
+            $('#IdProducto').select2({
+                theme: "bootstrap-5",
+                selectionCssClass: "select2--small",
+                dropdownCssClass: "select2--small",
+            });
+        });
+
+    </script>*@
+}
+<!--<script src="~/js/Producto/Producto.js"></script>-->

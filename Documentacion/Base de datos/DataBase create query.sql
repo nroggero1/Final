@@ -1,10 +1,16 @@
+CREATE TABLE Provincia 
+(
+	Id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	Nombre nvarchar(50) NOT NULL
+)
+GO 
 
 CREATE TABLE Localidad
 (
 	Id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	Nombre nvarchar(50) NOT NULL,
-	Provincia nvarchar(50) NOT NULL,
-	CodigoPostal int NOT NULL
+	IdProvincia int NOT NULL REFERENCES Provincia(Id),
+	CodigoPostal smallint NOT NULL
 )
 GO
 
@@ -14,6 +20,7 @@ CREATE TABLE Proveedor
 	CodigoTributario bigint NOT NULL,
 	Direccion nvarchar(50) NOT NULL,
 	IdLocalidad int NOT NULL REFERENCES Localidad(Id),
+	IdProvincia int NOT NULL REFERENCES Provincia(Id),
 	Telefono nvarchar(20), 
 	Mail NVARCHAR(50),
 	Denominacion NVARCHAR(100) NOT NULL,
@@ -28,6 +35,7 @@ CREATE TABLE Cliente
 	CodigoTributario bigint NOT NULL,
 	Direccion nvarchar(50) NOT NULL,
 	IdLocalidad int NOT NULL REFERENCES Localidad(Id),
+	IdProvincia int NOT NULL REFERENCES Provincia(Id),
 	Telefono nvarchar(20), 
 	Mail NVARCHAR(50),
 	Denominacion NVARCHAR(100),
@@ -59,11 +67,11 @@ CREATE TABLE Producto
 	Id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	Nombre nvarchar(50) NOT NULL,
 	Descripcion nvarchar(50) NOT NULL,
-	CodigoBarras bigint NOT NULL,
-	IdCategoriaProducto int NOT NULL REFERENCES Categoria(Id),
-	IdMarcaProducto int NOT NULL REFERENCES Marca(Id),
+	CodigoBarras nvarchar(30) NOT NULL,
+	IdCategoria int NOT NULL REFERENCES Categoria(Id),
+	IdMarca int NOT NULL REFERENCES Marca(Id),
 	PrecioCompra decimal(12, 2) NOT NULL,
-	PorcentajeGanacia int NOT NULL,
+	PorcentajeGanancia int NOT NULL,
 	PrecioVentaSugerido decimal(12, 2) NOT NULL,
 	PrecioVenta decimal(12, 2) NOT NULL,
 	Stock int NOT NULL,
@@ -73,21 +81,13 @@ CREATE TABLE Producto
 )
 GO
 
-CREATE TABLE ProveedoresProductos
-(
-	Id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
-	idProducto int REFERENCES Producto(Id),
-	idProveedor int REFERENCES Proveedor(Id)
-) 
-GO
-
 CREATE TABLE Usuario
 (
 	Id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	NombreUsuario varchar(50) NOT NULL,
 	Nombre varchar(50) NOT NULL,
 	Apellido varchar(50) NOT NULL,
-	Correo varchar(100) NOT NULL,
+	Mail NVARCHAR(50),
 	FechaNacimiento [datetime] NOT NULL,
 	Clave varchar(50) NOT NULL,
 	Administrador bit NOT NULL,
@@ -102,9 +102,17 @@ CREATE TABLE Compra
 	Fecha datetime,
 	IdUsuario int REFERENCES Usuario(Id),
 	IdProveedor int REFERENCES Proveedor(Id),
+	Importe DECIMAL(10,2) NOT NULL
+) 
+GO
+
+CREATE TABLE DetalleCompra
+(	
+	Id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	IdCompra int REFERENCES Compra(Id),
 	IdProducto int REFERENCES Producto(Id),
 	Cantidad int NOT NULL,
-	PrecioCompra DECIMAL(10,2) NOT NULL,
+	PrecioUnitario DECIMAL(10,2) NOT NULL,
 ) 
 GO
 
@@ -114,8 +122,16 @@ CREATE TABLE Venta
 	Fecha datetime,
 	IdUsuario int REFERENCES Usuario(Id),
 	IdCliente int REFERENCES Cliente(Id),
+	Importe DECIMAL(10,2) NOT NULL
+) 
+GO
+
+CREATE TABLE DetalleVenta
+(	
+	Id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	IdVenta int REFERENCES Venta(Id),
 	IdProducto int REFERENCES Producto(Id),
 	Cantidad int NOT NULL,
-	PrecioVenta DECIMAL(10,2) NOT NULL,
+	PrecioUnitario DECIMAL(10,2) NOT NULL,
 ) 
 GO

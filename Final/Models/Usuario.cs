@@ -10,7 +10,7 @@ namespace Final.Models
         public string? Nombre { get; set; }
         public string? Apellido { get; set; }
         public string? Mail { get; set; }
-        public DateTime? FechaNacimiento { get; set;}
+        public DateTime? FechaNacimiento { get; set; }
         public string? Clave { get; set; }
         public bool Administrador { get; set; }
         public DateTime? FechaAlta { get; set; }

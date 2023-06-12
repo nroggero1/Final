@@ -102,9 +102,17 @@ CREATE TABLE Compra
 	Fecha datetime,
 	IdUsuario int REFERENCES Usuario(Id),
 	IdProveedor int REFERENCES Proveedor(Id),
+	Importe DECIMAL(10,2) NOT NULL
+) 
+GO
+
+CREATE TABLE DetalleCompra
+(	
+	Id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	IdCompra int REFERENCES Compra(Id),
 	IdProducto int REFERENCES Producto(Id),
 	Cantidad int NOT NULL,
-	PrecioCompra DECIMAL(10,2) NOT NULL,
+	PrecioUnitario DECIMAL(10,2) NOT NULL,
 ) 
 GO
 
@@ -114,9 +122,17 @@ CREATE TABLE Venta
 	Fecha datetime,
 	IdUsuario int REFERENCES Usuario(Id),
 	IdCliente int REFERENCES Cliente(Id),
+	Importe DECIMAL(10,2) NOT NULL
+) 
+GO
+
+CREATE TABLE DetalleVenta
+(	
+	Id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	IdVenta int REFERENCES Venta(Id),
 	IdProducto int REFERENCES Producto(Id),
 	Cantidad int NOT NULL,
-	PrecioVenta DECIMAL(10,2) NOT NULL,
+	PrecioUnitario DECIMAL(10,2) NOT NULL,
 ) 
 GO
 

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "cnPbwIL2HLv1dbw2v3mkSBhRYaou7oH68AG11+fUoE0=",
+  "Hash": "wmtFDsDIuQApz1/R760ZMnRC2V2q2N0DUybWdxHqqp8=",
   "Source": "Final",
   "BasePath": "_content/Final",
   "Mode": "Default",
@@ -253,6 +253,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\Validaciones\\CrearUsuario.js"
+    },
+    {
+      "Identity": "C:\\Users\\Nicolas Roggero\\Desktop\\FINAL\\FInal\\wwwroot\\js\\Venta\\Venta.js",
+      "SourceId": "Final",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Nicolas Roggero\\Desktop\\FINAL\\FInal\\wwwroot\\",
+      "BasePath": "_content/Final",
+      "RelativePath": "js/Venta/Venta.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Venta\\Venta.js"
     },
     {
       "Identity": "C:\\Users\\Nicolas Roggero\\Desktop\\FINAL\\FInal\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",

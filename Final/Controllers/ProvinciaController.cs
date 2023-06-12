@@ -1,7 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Final.Models;
-using Final.Data;
-using Microsoft.EntityFrameworkCore;
+﻿using Final.Data;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Final.Controllers
 {

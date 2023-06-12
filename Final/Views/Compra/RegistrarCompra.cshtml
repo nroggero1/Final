@@ -3,12 +3,11 @@
     ViewData["Title"] = "Registrar compra";
 }
 
-
 <div class="container-lg col-4">
     <h1>Registrar Compra</h1>
     <form asp-action="RegistrarCompra" method="POST">
 
-
+        <div class="DatosFijos">
         <!-- Usuario -->
         <div class="input-group mb-3">
             <label asp-for="IdUsuario" class="input-group-text">usuario</label>
@@ -32,7 +31,9 @@
                 }
             </select>
         </div>
+        </div>
 
+        <div class="DatosDinamicos">
         <!-- Categoria -->
         <div class="input-group mb-3">
             <label asp-for="IdCategoria" class="input-group-text">Categoria</label>
@@ -80,6 +81,7 @@
             <label asp-for="Cantidad" class="input-group-text">Cantidad</label>
             <input asp-for="Cantidad" type="text" class="form-control" placeholder="Ingrese la cantidad" id="cantidad">
         </div>
+        </div>
 
         <!-- Fecha -->
         <div class="input-group mb-3">
@@ -89,16 +91,19 @@
 
         <br>
 
-        <button type="submit" class="btn btn-primary">Nuevo producto</button>
+        <button id="agregarProducto" type="button" class="btn btn-primary" onclick="agregarProducto()">Agregar producto</button>
+        <br />
         <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
 
+    <!-- Tabla para mostrar los productos agregados -->
     <table class="table" id="tablaProductos">
         <thead>
             <tr>
                 <th>Producto</th>
                 <th>Precio unitario</th>
                 <th>Cantidad</th>
+                <th>Total</th>
             </tr>
         </thead>
         <tbody>

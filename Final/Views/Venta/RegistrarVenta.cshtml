@@ -3,4 +3,106 @@
     ViewData["Title"] = "Registrar Venta";
 }
 
-<h1>Pantalla de nueva venta</h1>
+<div class="container-lg col-4">
+    <h1>Registrar Venta</h1>
+    <form asp-action="RegistrarVenta" method="POST">
+
+        <div class="DatosFijos">
+            <!-- Usuario -->
+            <div class="input-group mb-3">
+                <label asp-for="IdUsuario" class="input-group-text">Usuario</label>
+                <select asp-for="IdUsuario" class="form-control" id="usuario">
+                    <option value="">Seleccione el usuario</option>
+                    @foreach (var usuario in ViewBag.Usuarios)
+                    {
+                        <option value="@usuario.Id">@usuario.Nombre</option>
+                    }
+                </select>
+            </div>
+
+            <!-- Cliente -->
+            <div class="input-group mb-3">
+                <label asp-for="IdCliente" class="input-group-text">Cliente</label>
+                <select asp-for="IdCliente" class="form-control" id="cliente">
+                    <option value="">Seleccione el cliente</option>
+                    @foreach (var cliente in ViewBag.Clientes)
+                    {
+                        <option value="@cliente.Id">@cliente.Nombre</option>
+                    }
+                </select>
+            </div>
+        </div>
+
+        <div class="DatosDinamicos">
+            <!-- Categoria -->
+            <div class="input-group mb-3">
+                <label asp-for="IdCategoria" class="input-group-text">Categoria</label>
+                <select asp-for="IdCategoria" class="form-control" id="categoria" onchange="filtrarProductos()">
+                    <option value="">Seleccione la categoria</option>
+                    @foreach (var categoria in ViewBag.Categorias)
+                    {
+                        <option value="@categoria.Id">@categoria.Nombre</option>
+                    }
+                </select>
+            </div>
+
+            <!-- marca -->
+            <div class="input-group mb-3">
+                <label asp-for="IdMarca" class="input-group-text">Marca</label>
+                <select asp-for="IdMarca" class="form-control" id="marca" onchange="filtrarProductos()">
+                    <option value="">Seleccione la marca</option>
+                    @foreach (var marca in ViewBag.Marcas)
+                    {
+                        <option value="@marca.Id">@marca.Nombre</option>
+                    }
+                </select>
+            </div>
+
+            <!-- Producto -->
+            <div class="input-group mb-3">
+                <label asp-for="IdProducto" class="input-group-text">Producto</label>
+                <select asp-for="IdProducto" class="form-control" id="producto">
+                    <option value="">Seleccione el producto</option>
+                    @foreach (var producto in ViewBag.Productos)
+                    {
+                        <option value="@producto.Id">@producto.Nombre</option>
+                    }
+                </select>
+            </div>
+
+            <!-- Cantidad -->
+            <div class="input-group mb-3">
+                <label asp-for="Cantidad" class="input-group-text">Cantidad</label>
+                <input asp-for="Cantidad" type="text" class="form-control" placeholder="Ingrese la cantidad" id="cantidad">
+            </div>
+        </div>
+
+        <!-- Botón para agregar nuevo producto -->
+        <button id="agregarProducto" type="button" class="btn btn-primary" onclick="agregarProducto()">Agregar producto</button>
+
+        <br><br>
+
+        <!-- Tabla para mostrar los productos agregados -->
+        <table class="table" id="tablaProductos">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Precio unitario</th>
+                    <th>Cantidad</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aquí se agregarán las filas dinámicamente -->
+            </tbody>
+        </table>
+
+        <br><br>
+
+        <!-- Botón para registrar la venta -->
+        <button type="submit" class="btn btn-primary">Registrar Venta</button>
+    </form>
+</div>
+
+<script src="~/js/Venta/Venta.js"></script>
+<script src="~/js/Producto/Producto.js"></script>

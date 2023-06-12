@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Final.Models
 {
@@ -20,5 +19,6 @@ namespace Final.Models
         public DateTime? FechaAlta { get; set; }
         public int IdMarca { get; set; }
         public int IdCategoria { get; set; }
+        public int Cantidad { get; set; }
     }
 }

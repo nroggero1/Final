@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\js\Localidad\" />
+    <Folder Include="wwwroot\js\Venta\" />
   </ItemGroup>
 
 </Project>

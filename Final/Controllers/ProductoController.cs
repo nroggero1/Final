@@ -1,9 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Final.Data;
 using Final.Models;
-using Final.Data;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Text;
-using System.Reflection.Metadata;
 
 namespace Final.Controllers
 {
@@ -143,7 +141,7 @@ namespace Final.Controllers
                     }
                 }
 
-            return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index));
             }
 
             var categorias = _context.Categoria.ToList();

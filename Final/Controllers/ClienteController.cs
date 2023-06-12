@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Final.Data;
 using Final.Models;
-using Final.Data;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Text;
 
@@ -46,7 +46,7 @@ namespace Final.Controllers
             ViewBag.Provincias = provincias;
 
             var localidades = _context.Localidad.ToList();
-            ViewBag.Localidades = localidades; 
+            ViewBag.Localidades = localidades;
 
             return View();
         }

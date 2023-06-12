@@ -1,10 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Final.Models
+namespace Final.ViewModels
 {
-    public class Producto
+    public class ProductoViewModel
     {
-        [Key]
         public int Id { get; set; }
         public string? Nombre { get; set; }
         public string? Descripcion { get; set; }
@@ -19,5 +18,6 @@ namespace Final.Models
         public DateTime? FechaAlta { get; set; }
         public int IdMarca { get; set; }
         public int IdCategoria { get; set; }
+        public int Cantidad { get; set; }
     }
 }

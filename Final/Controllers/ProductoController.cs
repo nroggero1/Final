@@ -93,7 +93,7 @@ namespace Final.Controllers
             var marcas = _context.Marca.ToList();
             ViewBag.Marcas = marcas;
 
-            producto.PrecioVentaSugerido = ((producto.PorcentajeGanancia / 100 * producto.PrecioCompra) + producto.PrecioCompra);
+            producto.PrecioVentaSugerido = (((producto.PorcentajeGanancia/100 * producto.PrecioCompra) + producto.PrecioCompra )/100);
 
             return View(producto);
         }

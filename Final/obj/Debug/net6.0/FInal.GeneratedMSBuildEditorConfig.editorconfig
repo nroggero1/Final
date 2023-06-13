@@ -9,141 +9,141 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Final
 build_property.RootNamespace = Final
-build_property.ProjectDir = C:\Users\Nicolas Roggero\Desktop\FInal\FInal\
+build_property.ProjectDir = C:\Users\Nicolas Roggero\Desktop\FINAL\FInal\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Nicolas Roggero\Desktop\FInal\FInal
+build_property.MSBuildProjectDirectory = C:\Users\Nicolas Roggero\Desktop\FINAL\FInal
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Nicolas Roggero/Desktop/FInal/FInal/Views/Categoria/CrearCategoria.cshtml]
+[C:/Users/Nicolas Roggero/Desktop/FINAL/FInal/Views/Categoria/CrearCategoria.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhXENyZWFyQ2F0ZWdvcmlhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nicolas Roggero/Desktop/FInal/FInal/Views/Categoria/EditarCategoria.cshtml]
+[C:/Users/Nicolas Roggero/Desktop/FINAL/FInal/Views/Categoria/EditarCategoria.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhXEVkaXRhckNhdGVnb3JpYS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nicolas Roggero/Desktop/FInal/FInal/Views/Categoria/Index.cshtml]
+[C:/Users/Nicolas Roggero/Desktop/FINAL/FInal/Views/Categoria/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nicolas Roggero/Desktop/FInal/FInal/Views/Cliente/CrearCliente.cshtml]
+[C:/Users/Nicolas Roggero/Desktop/FINAL/FInal/Views/Cliente/CrearCliente.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxDcmVhckNsaWVudGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nicolas Roggero/Desktop/FInal/FInal/Views/Cliente/EditarCliente.cshtml]
+[C:/Users/Nicolas Roggero/Desktop/FINAL/FInal/Views/Cliente/EditarCliente.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxFZGl0YXJDbGllbnRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nicolas Roggero/Desktop/FInal/FInal/Views/Cliente/Index.cshtml]
+[C:/Users/Nicolas Roggero/Desktop/FINAL/FInal/Views/Cliente/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nicolas Roggero/Desktop/FInal/FInal/Views/Compra/ConsultarCompra.cshtml]
+[C:/Users/Nicolas Roggero/Desktop/FINAL/FInal/Views/Compra/ConsultarCompra.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcHJhXENvbnN1bHRhckNvbXByYS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nicolas Roggero/Desktop/FInal/FInal/Views/Compra/Index.cshtml]
+[C:/Users/Nicolas Roggero/Desktop/FINAL/FInal/Views/Compra/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcHJhXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nicolas Roggero/Desktop/FInal/FInal/Views/Compra/RegistrarCompra.cshtml]
+[C:/Users/Nicolas Roggero/Desktop/FINAL/FInal/Views/Compra/RegistrarCompra.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcHJhXFJlZ2lzdHJhckNvbXByYS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nicolas Roggero/Desktop/FInal/FInal/Views/Home/Index.cshtml]
+[C:/Users/Nicolas Roggero/Desktop/FINAL/FInal/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nicolas Roggero/Desktop/FInal/FInal/Views/Home/Privacy.cshtml]
+[C:/Users/Nicolas Roggero/Desktop/FINAL/FInal/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nicolas Roggero/Desktop/FInal/FInal/Views/Login/Login.cshtml]
+[C:/Users/Nicolas Roggero/Desktop/FINAL/FInal/Views/Login/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nicolas Roggero/Desktop/FInal/FInal/Views/Marca/CrearMarca.cshtml]
+[C:/Users/Nicolas Roggero/Desktop/FINAL/FInal/Views/Marca/CrearMarca.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FcQ3JlYXJNYXJjYS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nicolas Roggero/Desktop/FInal/FInal/Views/Marca/EditarMarca.cshtml]
+[C:/Users/Nicolas Roggero/Desktop/FINAL/FInal/Views/Marca/EditarMarca.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FcRWRpdGFyTWFyY2EuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nicolas Roggero/Desktop/FInal/FInal/Views/Marca/Index.cshtml]
+[C:/Users/Nicolas Roggero/Desktop/FINAL/FInal/Views/Marca/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nicolas Roggero/Desktop/FInal/FInal/Views/Producto/ConsultarProductosBajoStock.cshtml]
+[C:/Users/Nicolas Roggero/Desktop/FINAL/FInal/Views/Producto/ConsultarProductosBajoStock.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cQ29uc3VsdGFyUHJvZHVjdG9zQmFqb1N0b2NrLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nicolas Roggero/Desktop/FInal/FInal/Views/Producto/CrearProducto.cshtml]
+[C:/Users/Nicolas Roggero/Desktop/FINAL/FInal/Views/Producto/CrearProducto.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cQ3JlYXJQcm9kdWN0by5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nicolas Roggero/Desktop/FInal/FInal/Views/Producto/EditarProducto.cshtml]
+[C:/Users/Nicolas Roggero/Desktop/FINAL/FInal/Views/Producto/EditarProducto.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cRWRpdGFyUHJvZHVjdG8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nicolas Roggero/Desktop/FInal/FInal/Views/Producto/Index.cshtml]
+[C:/Users/Nicolas Roggero/Desktop/FINAL/FInal/Views/Producto/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nicolas Roggero/Desktop/FInal/FInal/Views/Proveedor/CrearProveedor.cshtml]
+[C:/Users/Nicolas Roggero/Desktop/FINAL/FInal/Views/Proveedor/CrearProveedor.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmVlZG9yXENyZWFyUHJvdmVlZG9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nicolas Roggero/Desktop/FInal/FInal/Views/Proveedor/EditarProveedor.cshtml]
+[C:/Users/Nicolas Roggero/Desktop/FINAL/FInal/Views/Proveedor/EditarProveedor.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmVlZG9yXEVkaXRhclByb3ZlZWRvci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nicolas Roggero/Desktop/FInal/FInal/Views/Proveedor/Index.cshtml]
+[C:/Users/Nicolas Roggero/Desktop/FINAL/FInal/Views/Proveedor/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmVlZG9yXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nicolas Roggero/Desktop/FInal/FInal/Views/Shared/Error.cshtml]
+[C:/Users/Nicolas Roggero/Desktop/FINAL/FInal/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nicolas Roggero/Desktop/FInal/FInal/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Nicolas Roggero/Desktop/FINAL/FInal/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nicolas Roggero/Desktop/FInal/FInal/Views/Usuario/CrearUsuario.cshtml]
+[C:/Users/Nicolas Roggero/Desktop/FINAL/FInal/Views/Usuario/CrearUsuario.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xDcmVhclVzdWFyaW8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nicolas Roggero/Desktop/FInal/FInal/Views/Usuario/EditarUsuario.cshtml]
+[C:/Users/Nicolas Roggero/Desktop/FINAL/FInal/Views/Usuario/EditarUsuario.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xFZGl0YXJVc3VhcmlvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nicolas Roggero/Desktop/FInal/FInal/Views/Usuario/Index.cshtml]
+[C:/Users/Nicolas Roggero/Desktop/FINAL/FInal/Views/Usuario/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nicolas Roggero/Desktop/FInal/FInal/Views/Venta/ConsultarVenta.cshtml]
+[C:/Users/Nicolas Roggero/Desktop/FINAL/FInal/Views/Venta/ConsultarVenta.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVudGFcQ29uc3VsdGFyVmVudGEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nicolas Roggero/Desktop/FInal/FInal/Views/Venta/Index.cshtml]
+[C:/Users/Nicolas Roggero/Desktop/FINAL/FInal/Views/Venta/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVudGFcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nicolas Roggero/Desktop/FInal/FInal/Views/Venta/RegistrarVenta.cshtml]
+[C:/Users/Nicolas Roggero/Desktop/FINAL/FInal/Views/Venta/RegistrarVenta.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVudGFcUmVnaXN0cmFyVmVudGEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nicolas Roggero/Desktop/FInal/FInal/Views/_ViewImports.cshtml]
+[C:/Users/Nicolas Roggero/Desktop/FINAL/FInal/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nicolas Roggero/Desktop/FInal/FInal/Views/_ViewStart.cshtml]
+[C:/Users/Nicolas Roggero/Desktop/FINAL/FInal/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nicolas Roggero/Desktop/FInal/FInal/Views/Shared/_Layout.cshtml]
+[C:/Users/Nicolas Roggero/Desktop/FINAL/FInal/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-rv1mw6xdva

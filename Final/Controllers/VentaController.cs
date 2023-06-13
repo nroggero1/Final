@@ -135,32 +135,47 @@ namespace Final.Controllers
             //TODO: hacer Nico
             return RedirectToAction("RegistrarVenta");
         }
+
+
         [HttpPost]
         public IActionResult RegistrarVenta(Venta venta)
         {
-            venta.Fecha = DateTime.Now;
-
-            using (var connection = new SqlConnection())
+            if (ModelState.IsValid)
             {
-                connection.Open();
+                venta.Fecha = DateTime.Now; // Establecer la fecha actual
+                _context.Venta.Add(venta);
+                _context.SaveChanges();
 
-                var command = new SqlCommand("InsertarVenta", connection);
-                command.CommandType = CommandType.StoredProcedure;
+                var productosString = HttpContext.Session.GetString("CarritoDeVenta");
 
-                command.Parameters.AddWithValue("@IdUsuario", venta.IdUsuario);
-                command.Parameters.AddWithValue("@IdCliente", venta.IdCliente);
+                if (!string.IsNullOrEmpty(productosString))
+                {
+                    var productos = System.Text.Json.JsonSerializer.Deserialize<List<DetalleVentaViewModel>>(productosString);
 
-                var idVentaParameter = new SqlParameter("@IdVenta", SqlDbType.Int);
-                idVentaParameter.Direction = ParameterDirection.Output;
-                command.Parameters.Add(idVentaParameter);
+                    foreach (var producto in productos)
+                    {
+                        var detalleVenta = new DetalleVenta()
+                        {
+                            IdVenta = venta.Id,
+                            IdProducto = producto.IdProducto,
+                            Cantidad = producto.Cantidad,
+                            PrecioUnitario = producto.PrecioUnitario
+                        };
 
-                command.ExecuteNonQuery();
+                        _context.DetalleVenta.Add(detalleVenta);
+                    }
 
-                var idVenta = (int)idVentaParameter.Value;
+                    _context.SaveChanges();
+                }
 
-                return View(venta);
+                // Limpiar el carrito de venta en la sesión
+                HttpContext.Session.Remove("CarritoDeVenta");
+
+                return RedirectToAction("Index");
             }
 
+            // Si la validación falla, vuelve a cargar la vista de registro con los datos ingresados anteriormente
+            return View(venta);
         }
     }
 }

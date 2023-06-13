@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gOnmflYq1NAAy1oTYG6FD6fUHafEg3jhR0Yy5dVSXgA0CzUT079HFvnZfNwoQaDJzGy9o2bK5CPvo7d12y/Qtw==",
+  "dgSpecHash": "kpZObu3Aqwk9ehcwCnT8pVcdRR6jtliBk68bcKQELgg1O/07zA9+IUbVS3VacgPwFTcP9zpp/PiKXFjF+sx99w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Nicolas Roggero\\Desktop\\FInal\\FInal\\Final.csproj",
+  "projectFilePath": "C:\\Users\\Nicolas Roggero\\Desktop\\FINAL\\FInal\\Final.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nicolas Roggero\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Nicolas Roggero\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

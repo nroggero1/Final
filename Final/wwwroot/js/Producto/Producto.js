@@ -9,42 +9,11 @@ function calcularPrecioVentaSugerido() {
     }
 }
 
-//Funcion para filtrar los productos en los viewbag
-function filtrarProductos() {
-    var marcaSeleccionada = document.getElementById("marca").value;
-    var categoriaSeleccionada = document.getElementById("categoria").value;
-    var productos = document.getElementById("producto").options;
-
-    // Mostrar todos los productos al seleccionar "Seleccione la marca" o "Seleccione la categoria"
-    if (marcaSeleccionada === "" || categoriaSeleccionada === "") {
-        for (var i = 0; i < productos.length; i++) {
-            productos[i].style.display = "";
-        }
-        return;
-    }
-
-    // Filtrar los productos según la marca y la categoria seleccionadas
-    for (var i = 0; i < productos.length; i++) {
-        var producto = productos[i];
-        var marcaProducto = producto.getAttribute("data-marca");
-        var categoriaProducto = producto.getAttribute("data-categoria");
-
-        if (marcaProducto === marcaSeleccionada && categoriaProducto === categoriaSeleccionada) {
-            producto.style.display = "";
-        } else {
-            producto.style.display = "none";
-        }
-    }
-}
-
-
 //Funcion para agregar un producto a la lista
 var productos = [];
 function agregarProducto() {
     var producto = {
         Id: document.getElementById('producto').value,
-        Nombre: document.getElementById('producto').selectedOptions[0].text,
-        Precio: document.getElementById('precioCompra').value,
         Cantidad: document.getElementById('cantidad').value
     };
 

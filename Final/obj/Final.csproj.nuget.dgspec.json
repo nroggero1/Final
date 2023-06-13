@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Nicolas Roggero\\Desktop\\FINAL\\FInal\\Final.csproj": {}
+    "C:\\Users\\Nicolas Roggero\\Desktop\\FInal\\FInal\\Final.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Nicolas Roggero\\Desktop\\FINAL\\FInal\\Final.csproj": {
+    "C:\\Users\\Nicolas Roggero\\Desktop\\FInal\\FInal\\Final.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nicolas Roggero\\Desktop\\FINAL\\FInal\\Final.csproj",
+        "projectUniqueName": "C:\\Users\\Nicolas Roggero\\Desktop\\FInal\\FInal\\Final.csproj",
         "projectName": "Final",
-        "projectPath": "C:\\Users\\Nicolas Roggero\\Desktop\\FINAL\\FInal\\Final.csproj",
+        "projectPath": "C:\\Users\\Nicolas Roggero\\Desktop\\FInal\\FInal\\Final.csproj",
         "packagesPath": "C:\\Users\\Nicolas Roggero\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Nicolas Roggero\\Desktop\\FINAL\\FInal\\obj\\",
         "projectStyle": "PackageReference",

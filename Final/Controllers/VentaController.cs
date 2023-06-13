@@ -9,6 +9,9 @@ using Microsoft.EntityFrameworkCore;
 using System.Text.RegularExpressions;
 using System.Data;
 using System.Data.SqlClient;
+using System.Xml.Linq;
+using Final.ViewModels;
+using Microsoft.AspNetCore.Http;
 
 namespace Final.Controllers
 {
@@ -85,6 +88,53 @@ namespace Final.Controllers
             return Task.FromResult<IActionResult>(View());
         }
 
+        
+        [HttpPost]
+        public IActionResult AgregarProducto(int IdProducto, int Cantidad)
+        {
+            var productosString = HttpContext.Session.GetString("CarritoDeVenta");
+
+            var productos = new List<DetalleVentaViewModel>();
+
+            if (!string.IsNullOrEmpty(productosString)) {
+                productos = System.Text.Json.JsonSerializer.Deserialize<List<DetalleVentaViewModel>>(productosString);
+            }
+
+            var producto = productos?.FirstOrDefault(x => x.IdProducto == IdProducto);
+
+            if (producto != null)
+            {
+                producto.Cantidad += Cantidad;
+            }
+            else
+            {
+                var productoTable = _context.Producto.FirstOrDefault(x => x.Id == IdProducto);
+
+                var productoAux = new DetalleVentaViewModel()
+                {
+                    Linea = productos.Count + 1,
+                    IdProducto = IdProducto,
+                    NombreProducto = productoTable.Nombre,
+                    PrecioUnitario = productoTable.PrecioVenta,
+                    Cantidad = Cantidad
+                };
+                productos.Add(productoAux);
+            }
+
+            productos.RemoveAll(p => p.Cantidad == 0);
+
+            // Store the JSON in the session
+            HttpContext.Session.SetString("CarritoDeVenta", System.Text.Json.JsonSerializer.Serialize(productos));
+
+            return RedirectToAction("RegistrarVenta");
+        }
+
+        [HttpPost]
+        public IActionResult EliminarProducto(int IdProducto)
+        {
+            //TODO: hacer Nico
+            return RedirectToAction("RegistrarVenta");
+        }
         [HttpPost]
         public IActionResult RegistrarVenta(Venta venta)
         {

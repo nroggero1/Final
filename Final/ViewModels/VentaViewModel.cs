@@ -14,5 +14,6 @@ namespace Final.ViewModels
         public int IdProducto { get; set; }
         public int Cantidad { get; set; }
         public List<DetalleVenta> DetallesVenta { get; set; }
+
     }
 }

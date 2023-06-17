@@ -28,6 +28,7 @@ namespace Final.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
+            var productos = new List<DetalleVentaViewModel>();
             var ventas = await _context.Venta.ToListAsync();
             return View(ventas);
         }
@@ -88,7 +89,7 @@ namespace Final.Controllers
             return Task.FromResult<IActionResult>(View());
         }
 
-        
+
         [HttpPost]
         public IActionResult AgregarProducto(int IdProducto, int Cantidad)
         {
@@ -96,7 +97,8 @@ namespace Final.Controllers
 
             var productos = new List<DetalleVentaViewModel>();
 
-            if (!string.IsNullOrEmpty(productosString)) {
+            if (!string.IsNullOrEmpty(productosString))
+            {
                 productos = System.Text.Json.JsonSerializer.Deserialize<List<DetalleVentaViewModel>>(productosString);
             }
 
@@ -138,11 +140,17 @@ namespace Final.Controllers
 
 
         [HttpPost]
-        public IActionResult RegistrarVenta(Venta venta)
+        public IActionResult RegistrarVenta(VentaViewModel ventaViewModel)
         {
             if (ModelState.IsValid)
             {
-                venta.Fecha = DateTime.Now; // Establecer la fecha actual
+                var venta = new Venta
+                {
+                    Fecha = DateTime.Now,
+                    IdUsuario = ventaViewModel.IdUsuario,
+                    IdCliente = ventaViewModel.IdCliente
+                };
+
                 _context.Venta.Add(venta);
                 _context.SaveChanges();
 
@@ -154,7 +162,7 @@ namespace Final.Controllers
 
                     foreach (var producto in productos)
                     {
-                        var detalleVenta = new DetalleVenta()
+                        var detalleVenta = new DetalleVenta
                         {
                             IdVenta = venta.Id,
                             IdProducto = producto.IdProducto,
@@ -163,6 +171,13 @@ namespace Final.Controllers
                         };
 
                         _context.DetalleVenta.Add(detalleVenta);
+
+                        // Reducir el stock del producto en la base de datos
+                        var productoDB = _context.Producto.FirstOrDefault(p => p.Id == producto.IdProducto);
+                        if (productoDB != null)
+                        {
+                            productoDB.Stock -= producto.Cantidad;
+                        }
                     }
 
                     _context.SaveChanges();
@@ -175,7 +190,7 @@ namespace Final.Controllers
             }
 
             // Si la validación falla, vuelve a cargar la vista de registro con los datos ingresados anteriormente
-            return View(venta);
+            return View(ventaViewModel);
         }
     }
 }

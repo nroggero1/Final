@@ -4,7 +4,6 @@ using Final.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Data;
-using System.Threading.Tasks;
 
 namespace Final.Controllers
 {
@@ -62,12 +61,12 @@ namespace Final.Controllers
             ViewBag.Productos = listProductos;
 
             var usuarios = _context.Usuario.ToList();
-            ViewBag.Usuarios = usuarios;;
+            ViewBag.Usuarios = usuarios; ;
 
             var clientes = _context.Cliente.ToList();
             ViewBag.Clientes = clientes;
 
-            var ImporteTotal = 0;
+            ViewBag.ImporteTotal = 0;
 
             return Task.FromResult<IActionResult>(View());
         }
@@ -91,7 +90,7 @@ namespace Final.Controllers
             {
                 producto.Cantidad += Cantidad;
                 var importe = Convert.ToDecimal(ViewBag.ImporteTotal);
-                var ImporteTotal = importe + (producto.PrecioUnitario * Cantidad);
+                ViewBag.ImporteTotal = importe + producto.PrecioUnitario;
             }
             else
             {
@@ -108,7 +107,7 @@ namespace Final.Controllers
                 productos.Add(productoAux);
 
                 var importe = Convert.ToDecimal(ViewBag.ImporteTotal);
-                var ImporteTotal = importe + (productoTable.PrecioVenta * Cantidad);
+                ViewBag.ImporteTotal = importe + (productoTable.PrecioVenta * Cantidad);
             }
 
             productos.RemoveAll(p => p.Cantidad == 0);
@@ -145,7 +144,7 @@ namespace Final.Controllers
 
         // Registrar Venta
         [HttpPost]
-        public IActionResult RegistrarVentaFinal(VentaViewModel ventaViewModel)
+        public IActionResult RegistrarVenta(VentaViewModel ventaViewModel)
         {
             if (ModelState.IsValid)
             {
@@ -153,8 +152,8 @@ namespace Final.Controllers
                 var venta = new Venta
                 {
                     Fecha = DateTime.Now,
-                    IdUsuario = ventaViewModel.IdUsuario,
-                    IdCliente = ventaViewModel.IdCliente,
+                    IdUsuario = Convert.ToInt32(ventaViewModel.IdUsuario),
+                    IdCliente = Convert.ToInt32(ventaViewModel.IdCliente),
                     Importe = ventaViewModel.Importe
                 };
 

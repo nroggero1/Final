@@ -1,17 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Final.Data;
 using Final.Models;
-using System;
-using System.Collections.Generic;
-using Final.Data;
-using System.Linq;
-using Microsoft.AspNetCore.Components.Forms;
-using Microsoft.EntityFrameworkCore;
-using System.Text.RegularExpressions;
-using System.Data;
-using System.Data.SqlClient;
-using System.Xml.Linq;
 using Final.ViewModels;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Data;
+using System.Runtime.InteropServices;
 
 namespace Final.Controllers
 {
@@ -41,7 +34,7 @@ namespace Final.Controllers
                 return NotFound();
             }
 
-            var compra = await _context.Compra.FirstOrDefaultAsync(v => v.Id == id);
+            var compra = await _context.Compra.FirstOrDefaultAsync(c => c.Id == id);
             if (compra == null)
             {
                 return NotFound();
@@ -76,9 +69,6 @@ namespace Final.Controllers
 
             var proveedores = _context.Proveedor.ToList();
             ViewBag.Proveedores = proveedores;
-
-            var clientes = _context.Cliente.ToList();
-            ViewBag.Clientes = clientes;
 
             ViewBag.ImporteTotal = 0;
 
@@ -126,7 +116,6 @@ namespace Final.Controllers
 
             productos.RemoveAll(p => p.Cantidad == 0);
 
-            // Store the JSON in the session
             HttpContext.Session.SetString("CarritoDeCompra", System.Text.Json.JsonSerializer.Serialize(productos));
 
             return RedirectToAction("RegistrarCompra");
@@ -136,7 +125,7 @@ namespace Final.Controllers
         [HttpPost]
         public IActionResult EliminarProducto(int IdProducto)
         {
-            var productosString = HttpContext.Session.GetString("CarritoDeVenta");
+            var productosString = HttpContext.Session.GetString("CarritoDeCompra");
 
             var productos = new List<DetalleVentaViewModel>();
 
@@ -152,76 +141,77 @@ namespace Final.Controllers
                 productos.Remove(producto);
             }
 
-            HttpContext.Session.SetString("CarritoDeVenta", System.Text.Json.JsonSerializer.Serialize(productos));
+            HttpContext.Session.SetString("CarritoDeCompra", System.Text.Json.JsonSerializer.Serialize(productos));
 
             return RedirectToAction("RegistrarVenta");
         }
 
         // Registrar Compra
         [HttpPost]
-        public IActionResult RegistrarCompraFinal()
+        public IActionResult RegistrarCompra(CompraViewModel compraViewModel)
         {
-            var productosString = HttpContext.Session.GetString("CarritoDeCompra");
-
-            var compraViewModel = new List<DetalleCompraViewModel>();
-
-            if (!string.IsNullOrEmpty(productosString))
+            if (ModelState.IsValid)
             {
-                compraViewModel = System.Text.Json.JsonSerializer.Deserialize<List<DetalleCompraViewModel>>(productosString);
-            }
-
-            // Crear una instancia de Venta y asignar los valores correspondientes
-            var compra = new Compra
-            {
-                Fecha = DateTime.Now,
-                IdUsuario = 1,
-                IdProveedor = 1,
-                Importe = Convert.ToDecimal(ViewBag.ImporteTotal)
-            };
-
-            // Guardar la venta en la base de datos
-            _context.Compra.Add(compra);
-            _context.SaveChanges();
-
-            // Recorrer la lista de DetalleCompra y guardar los datos en la base de datos
-            foreach (var detalleCompra in compraViewModel)
-            {
-                var detalle = new DetalleCompra
+                // Crear una instancia de Compra y asignar los valores correspondientes
+                var venta = new Venta
                 {
-                    IdCompra = compra.Id,
-                    IdProducto = detalleCompra.IdProducto,
-                    Cantidad = detalleCompra.Cantidad,
-                    PrecioUnitario = detalleCompra.PrecioUnitario
-                    // Otros valores de DetalleCompra según tus necesidades
+                    Fecha = DateTime.Now,
+                    IdUsuario = Convert.ToInt32(compraViewModel.IdUsuario),
+                    IdCliente = Convert.ToInt32(compraViewModel.IdProveedor)
+                   
                 };
-                var productoTable = _context.Producto.FirstOrDefault(x => x.Id == detalleCompra.IdProducto);
-                productoTable.Stock = productoTable.Stock + detalleCompra.Cantidad;
 
-                _context.Producto.Update(productoTable);
-                _context.DetalleCompra.Add(detalle);
+                // Guardar la venta en la base de datos
+                _context.Venta.Add(venta);
+                _context.SaveChanges();
+
+                // Recorrer la lista de DetalleVenta y guardar los datos en la base de datos
+                foreach (var detalleVenta in compraViewModel.DetallesCompra)
+                {
+                    var detalle = new DetalleCompra
+                    {
+                        IdCompra = compraViewModel.Id,
+                        IdProducto = detalleVenta.IdProducto,
+                        Cantidad = detalleVenta.Cantidad,
+                        PrecioUnitario = detalleVenta.PrecioUnitario,
+                    };
+
+                    // Actualizar el stock del producto
+                    var productoTable = _context.Producto.FirstOrDefault(x => x.Id == detalle.IdProducto);
+                    if (productoTable != null)
+                    {
+                        productoTable.Stock += detalle.Cantidad;
+                        _context.Producto.Update(productoTable);
+                    }
+
+                    _context.DetalleCompra.Add(detalle);
+                }
+
+                _context.SaveChanges();
+
+                return RedirectToAction("Index");
             }
 
-            _context.SaveChanges();
+            // Si el modelo no es válido, vuelve a la vista con los errores de validación
+            var marcas = _context.Marca.ToList();
+            var categorias = _context.Categoria.ToList();
+            var productos = _context.Producto.ToList();
 
-            return RedirectToAction("Index");
-        }
-
-        // URL: /Compra/ConsultarCompra
-        [HttpGet]
-        public async Task<IActionResult> ConsultarCompra(int? id)
-        {
-            if (id == null || _context.Compra == null)
+            var listProductos = new Dictionary<int, string>();
+            foreach (var x in productos)
             {
-                return NotFound();
+                var nombreCategoria = categorias.FirstOrDefault(y => y.Id == x.IdCategoria)?.Nombre;
+                var nombreMarca = marcas.FirstOrDefault(y => y.Id == x.IdMarca)?.Nombre;
+                var nombreCategoriaYmarca = $"codBar: {x.CodigoBarras} Cod: {x.Id} -> {nombreCategoria} -> {nombreMarca} -> {x.Nombre}";
+                listProductos.Add(x.Id, nombreCategoriaYmarca);
             }
 
-            var compra = await _context.Compra.FirstOrDefaultAsync(v => v.Id == id);
-            if (compra == null)
-            {
-                return NotFound();
-            }
+            ViewBag.Productos = listProductos;
+            ViewBag.Usuarios = _context.Usuario.ToList();
+            ViewBag.Clientes = _context.Cliente.ToList();
+            ViewBag.ImporteTotal = 0;
 
-            return View(compra);
+            return View("RegistrarCompra", compraViewModel);
         }
     }
 }

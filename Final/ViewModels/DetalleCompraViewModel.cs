@@ -1,6 +1,4 @@
-﻿using Final.Models;
-
-namespace Final.ViewModels
+﻿namespace Final.ViewModels
 {
     public class DetalleCompraViewModel
     {

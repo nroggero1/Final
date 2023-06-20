@@ -29,7 +29,7 @@
                     <option value="">Seleccione el producto</option>
                     @foreach (var producto in ViewBag.Productos)
                     {
-                        <option value="@producto.Id">@producto.Value</option>
+                        <option value="@producto.Key">@producto.Value</option>
                     }
                 </select>
             </div>
@@ -40,15 +40,16 @@
                 <input asp-for="Cantidad" type="text" class="form-control" placeholder="Ingrese la cantidad" id="cantidad">
             </div>
         </div>
-        <br><br>
-        <!-- Botón para registrar la venta -->
+        <br>
+        <!-- Botón para agregar producto -->
         <button type="submit" class="btn btn-primary">Agregar producto</button>
 
     </form>
 
+    <br>
+
     <form asp-action="RegistrarVentaFinal" method="POST">
         <input type="hidden" name="numFilas" id="numFilas" value="@productos.Count" />
-
         <div class="DatosFijos">
             <!-- Usuario -->
             <div class="input-group mb-3">
@@ -57,7 +58,7 @@
                     <option value="">Seleccione el usuario</option>
                     @foreach (var usuario in ViewBag.Usuarios)
                     {
-                        <option value="@usuario.Id">@usuario.NombreUsuario</option>
+                        <option value="@usuario.Id">@usuario.Nombre</option>
                     }
                 </select>
             </div>
@@ -79,7 +80,7 @@
         <button type="submit" class="btn btn-primary">Registrar Venta</button>
     </form>
 
-    <br><br>
+    <br>
     <!-- Tabla para mostrar los productos agregados -->
     <table class="table" id="tablaProductos">
         <thead>

@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Final.ViewModels
+﻿namespace Final.ViewModels
 {
     public class ProductoViewModel
     {

@@ -46,7 +46,8 @@
 
     </form>
 
-    <form asp-action="RegistrarVenta" method="POST">
+    <form asp-action="RegistrarVentaFinal" method="POST">
+        <input type="hidden" name="numFilas" id="numFilas" value="@productos.Count" />
 
         <div class="DatosFijos">
             <!-- Usuario -->
@@ -56,7 +57,7 @@
                     <option value="">Seleccione el usuario</option>
                     @foreach (var usuario in ViewBag.Usuarios)
                     {
-                        <option value="@usuario.Id">@usuario.Nombre</option>
+                        <option value="@usuario.Id">@usuario.NombreUsuario</option>
                     }
                 </select>
             </div>
@@ -77,8 +78,6 @@
         <!-- Botón para registrar la venta -->
         <button type="submit" class="btn btn-primary">Registrar Venta</button>
     </form>
-        <!-- Botón para agregar nuevo producto -->
-        
 
         <br><br>
         <!-- Tabla para mostrar los productos agregados -->
@@ -111,7 +110,6 @@
                                 <input type="hidden" name="Cantidad" value="-1" />
                                 <button type="submit" class="btn btn-success">-</button>
                             </form>
-                            <!-- otro metodo en el controllado-->
                            <form asp-action="EliminarProducto" method="POST">
                                 <input type="hidden" name="IdProducto" value="@producto.IdProducto" />
                                 <button type="submit" class="btn btn-danger">Eliminar</button>
@@ -130,15 +128,5 @@
 
 @section Scripts {
     <script src="~/js/Venta/Venta.js"></script>
-@*    <script>
-        $(document).ready(function () {
-            $('#IdProducto').select2({
-                theme: "bootstrap-5",
-                selectionCssClass: "select2--small",
-                dropdownCssClass: "select2--small",
-            });
-        });
-
-    </script>*@
     <script src="~/js/Producto/Producto.js"></script>
 }

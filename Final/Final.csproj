@@ -17,8 +17,22 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\js\Localidad\" />
-    <Folder Include="wwwroot\js\Venta\" />
+    <None Include="Views\Compra\ConsultarCompra.cshtml" />
+    <None Include="Views\Compra\Index.cshtml" />
+    <None Include="Views\Compra\RegistrarCompra.cshtml" />
+    <None Include="Views\Venta\ConsultarVenta.cshtml" />
+    <None Include="Views\Venta\Index.cshtml" />
+    <None Include="Views\Venta\RegistrarVenta.cshtml" />
+    <None Include="wwwroot\js\generics.js" />
+    <None Include="wwwroot\js\Localidad\Localidad.js" />
+    <None Include="wwwroot\js\Producto\Producto.js" />
+    <None Include="wwwroot\js\site.js" />
+    <None Include="wwwroot\js\Validaciones\CrearCategoria.js" />
+    <None Include="wwwroot\js\Validaciones\CrearCliente.js" />
+    <None Include="wwwroot\js\Validaciones\CrearMarca.js" />
+    <None Include="wwwroot\js\Validaciones\CrearProducto.js" />
+    <None Include="wwwroot\js\Validaciones\CrearProveedor.js" />
+    <None Include="wwwroot\js\Validaciones\CrearUsuario.js" />
   </ItemGroup>
 
 </Project>

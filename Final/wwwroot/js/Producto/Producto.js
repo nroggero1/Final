@@ -4,7 +4,7 @@ function calcularPrecioVentaSugerido() {
     var porcentajeGanancia = parseFloat(document.getElementById('porcentajeGanancia').value);
 
     if (!isNaN(precioCompra) && !isNaN(porcentajeGanancia)) {
-        var precioVentaSugerido = (precioCompra * (porcentajeGanancia / 100) + precioCompra);
+        var precioVentaSugerido = precioCompra * (porcentajeGanancia / 100) + precioCompra;
         document.getElementById('PrecioVentaSugerido').value = precioVentaSugerido.toFixed(2);
     }
 }

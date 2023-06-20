@@ -3,4 +3,39 @@
     ViewData["Title"] = "Lista de ventas";
 }
 
-<h1> Pantalla INDEX de ventas</h1>
+<div class="container-lg col-4">
+    <h1>Todas las ventas</h1>
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-bordered" id="" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Fecha</th>
+                    <th>Usuario</th>
+                    <th>Cliente</th>
+                    <th>Importe</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var venta in Model)
+                {
+                    <tr>
+                        <td>@venta.Id</td>
+                        <td>@venta.Fecha</td>
+                        <td>@venta.IdUsuario</td>
+                        <td>@venta.IdCliente</td>
+                        <td>@venta.Importe</td>
+                        <td>
+                            <a asp-action="ConsultarVenta" asp-route-id="@venta.Id">Detalles</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No hay registros</p>
+    }
+</div>

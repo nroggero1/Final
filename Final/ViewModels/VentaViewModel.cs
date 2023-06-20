@@ -13,7 +13,6 @@ namespace Final.ViewModels
         public int IdCategoria { get; set; }
         public int IdProducto { get; set; }
         public int Cantidad { get; set; }
-        public List<DetalleVenta> DetallesVenta { get; set; }
-
+        public List<DetalleVentaViewModel> DetallesVenta { get; set; }
     }
 }

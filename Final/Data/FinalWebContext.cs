@@ -1,5 +1,4 @@
-﻿using Final.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace Final.Data
 {
@@ -21,7 +20,7 @@ namespace Final.Data
         public DbSet<Final.Models.Usuario> Usuario { get; set; } = default!;
         public DbSet<Final.Models.Venta> Venta { get; set; } = default!;
         public DbSet<Final.Models.DetalleVenta> DetalleVenta { get; set; } = default!;
-        //public DbSet<Final.Models.DetalleCompra> DetalleCompra { get; set; } = default!;
+        public DbSet<Final.Models.DetalleCompra> DetalleCompra { get; set; } = default!;
 
 
     }

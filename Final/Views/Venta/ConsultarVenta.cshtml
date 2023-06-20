@@ -1,6 +1,40 @@
-﻿@model Final.Models.Venta
+﻿@model Final.Models.DetalleVenta
 @{
-    ViewData["Title"] = "Consultar Venta";
+    ViewData["Title"] = "Detalle de venta";
 }
 
-<h1>consultar una venta</h1>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IdVenta)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IdVenta)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IdProducto)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IdProducto)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Cantidad)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Cantidad)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PrecioUnitario)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PrecioUnitario)
+        </dd>
+    </dl>
+</div>

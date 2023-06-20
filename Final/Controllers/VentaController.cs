@@ -62,15 +62,12 @@ namespace Final.Controllers
             ViewBag.Productos = listProductos;
 
             var usuarios = _context.Usuario.ToList();
-            ViewBag.Usuarios = usuarios;
-
-            var proveedores = _context.Proveedor.ToList();
-            ViewBag.Proveedores = proveedores;
+            ViewBag.Usuarios = usuarios;;
 
             var clientes = _context.Cliente.ToList();
             ViewBag.Clientes = clientes;
 
-            ViewBag.ImporteTotal = 0;
+            var ImporteTotal = 0;
 
             return Task.FromResult<IActionResult>(View());
         }
@@ -94,7 +91,7 @@ namespace Final.Controllers
             {
                 producto.Cantidad += Cantidad;
                 var importe = Convert.ToDecimal(ViewBag.ImporteTotal);
-                ViewBag.ImporteTotal = importe + producto.PrecioUnitario;
+                var ImporteTotal = importe + (producto.PrecioUnitario * Cantidad);
             }
             else
             {
@@ -111,7 +108,7 @@ namespace Final.Controllers
                 productos.Add(productoAux);
 
                 var importe = Convert.ToDecimal(ViewBag.ImporteTotal);
-                ViewBag.ImporteTotal = importe + productoTable.PrecioVenta * Cantidad;
+                var ImporteTotal = importe + (productoTable.PrecioVenta * Cantidad);
             }
 
             productos.RemoveAll(p => p.Cantidad == 0);
@@ -148,50 +145,70 @@ namespace Final.Controllers
 
         // Registrar Venta
         [HttpPost]
-        public IActionResult RegistrarVentaFinal()
+        public IActionResult RegistrarVentaFinal(VentaViewModel ventaViewModel)
         {
-            var productosString = HttpContext.Session.GetString("CarritoDeVenta");
-
-            var ventaViewModel = new List<DetalleVentaViewModel>();
-
-            if (!string.IsNullOrEmpty(productosString))
+            if (ModelState.IsValid)
             {
-                ventaViewModel = System.Text.Json.JsonSerializer.Deserialize<List<DetalleVentaViewModel>>(productosString);
-            }
-
-            // Crear una instancia de Venta y asignar los valores correspondientes
-            var venta = new Venta
-            {
-                Fecha = DateTime.Now,
-                Importe = Convert.ToDecimal(ViewBag.ImporteTotal)
-
-            };
-
-            // Guardar la venta en la base de datos
-            _context.Venta.Add(venta);
-            _context.SaveChanges();
-
-            // Recorrer la lista de DetalleVenta y guardar los datos en la base de datos
-            foreach (var detalleVenta in ventaViewModel)
-            {
-                var detalle = new DetalleVenta
+                // Crear una instancia de Venta y asignar los valores correspondientes
+                var venta = new Venta
                 {
-                    IdVenta = venta.Id,
-                    IdProducto = detalleVenta.IdProducto,
-                    Cantidad = detalleVenta.Cantidad,
-                    PrecioUnitario = detalleVenta.PrecioUnitario
-                    
+                    Fecha = DateTime.Now,
+                    IdUsuario = ventaViewModel.IdUsuario,
+                    IdCliente = ventaViewModel.IdCliente,
+                    Importe = ventaViewModel.Importe
                 };
-                var productoTable = _context.Producto.FirstOrDefault(x => x.Id == detalleVenta.IdProducto);
-                productoTable.Stock = productoTable.Stock - detalleVenta.Cantidad;
 
-                _context.Producto.Update(productoTable);
-                _context.DetalleVenta.Add(detalle);
-            }
+                // Guardar la venta en la base de datos
+                _context.Venta.Add(venta);
+                _context.SaveChanges();
 
-            _context.SaveChanges();
+                // Recorrer la lista de DetalleVenta y guardar los datos en la base de datos
+                foreach (var detalleVenta in ventaViewModel.DetallesVenta)
+                {
+                    var detalle = new DetalleVenta
+                    {
+                        IdVenta = venta.Id,
+                        IdProducto = detalleVenta.IdProducto,
+                        Cantidad = detalleVenta.Cantidad,
+                        PrecioUnitario = detalleVenta.PrecioUnitario
+                    };
+
+                    // Actualizar el stock del producto
+                    var productoTable = _context.Producto.FirstOrDefault(x => x.Id == detalleVenta.IdProducto);
+                    if (productoTable != null)
+                    {
+                        productoTable.Stock -= detalleVenta.Cantidad;
+                        _context.Producto.Update(productoTable);
+                    }
+
+                    _context.DetalleVenta.Add(detalle);
+                }
+
+                _context.SaveChanges();
 
                 return RedirectToAction("Index");
+            }
+
+            // Si el modelo no es válido, vuelve a la vista con los errores de validación
+            var marcas = _context.Marca.ToList();
+            var categorias = _context.Categoria.ToList();
+            var productos = _context.Producto.ToList();
+
+            var listProductos = new Dictionary<int, string>();
+            foreach (var x in productos)
+            {
+                var nombreCategoria = categorias.FirstOrDefault(y => y.Id == x.IdCategoria)?.Nombre;
+                var nombreMarca = marcas.FirstOrDefault(y => y.Id == x.IdMarca)?.Nombre;
+                var nombreCategoriaYmarca = $"codBar: {x.CodigoBarras} Cod: {x.Id} -> {nombreCategoria} -> {nombreMarca} -> {x.Nombre}";
+                listProductos.Add(x.Id, nombreCategoriaYmarca);
+            }
+
+            ViewBag.Productos = listProductos;
+            ViewBag.Usuarios = _context.Usuario.ToList();
+            ViewBag.Clientes = _context.Cliente.ToList();
+            ViewBag.ImporteTotal = 0;
+
+            return View("RegistrarVenta", ventaViewModel);
         }
     }
 }

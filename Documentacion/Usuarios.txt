@@ -1,0 +1,4 @@
+usuarios / passwords: 
+
+admin / administrador
+Estandar / estandar

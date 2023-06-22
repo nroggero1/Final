@@ -60,11 +60,8 @@ namespace Final.Controllers
 
             ViewBag.Productos = listProductos;
 
-            var usuarios = _context.Usuario.ToList();
-            ViewBag.Usuarios = usuarios; ;
-
             var clientes = _context.Cliente.ToList();
-            ViewBag.Clientes = clientes;
+            ViewBag.Clientes = clientes; ;
 
             ViewBag.ImporteTotal = 0;
 
@@ -148,13 +145,23 @@ namespace Final.Controllers
         {
             if (ModelState.IsValid)
             {
+                var productosString = HttpContext.Session.GetString("CarritoDeVenta");
+                var idUsuario = HttpContext.Session.GetInt32("idUsuario");
+
+                var DetallesVenta = new List<DetalleVentaViewModel>();
+
+                if (!string.IsNullOrEmpty(productosString))
+                {
+                    DetallesVenta = System.Text.Json.JsonSerializer.Deserialize<List<DetalleVentaViewModel>>(productosString);
+                }
+
                 // Crear una instancia de Venta y asignar los valores correspondientes
                 var venta = new Venta
                 {
                     Fecha = DateTime.Now,
-                    IdUsuario = Convert.ToInt32(ventaViewModel.IdUsuario),
+                    IdUsuario = (int)idUsuario,
                     IdCliente = Convert.ToInt32(ventaViewModel.IdCliente),
-                    Importe = ventaViewModel.Importe
+                    Importe = DetallesVenta.Sum (x=> x.Total())
                 };
 
                 // Guardar la venta en la base de datos
@@ -162,7 +169,10 @@ namespace Final.Controllers
                 _context.SaveChanges();
 
                 // Recorrer la lista de DetalleVenta y guardar los datos en la base de datos
-                foreach (var detalleVenta in ventaViewModel.DetallesVenta)
+
+               
+
+                foreach (var detalleVenta in DetallesVenta)
                 {
                     var detalle = new DetalleVenta
                     {
@@ -185,6 +195,10 @@ namespace Final.Controllers
 
                 _context.SaveChanges();
 
+                DetallesVenta.Clear();
+
+                HttpContext.Session.SetString("CarritoDeVenta", System.Text.Json.JsonSerializer.Serialize(DetallesVenta));
+
                 return RedirectToAction("Index");
             }
 
@@ -203,7 +217,6 @@ namespace Final.Controllers
             }
 
             ViewBag.Productos = listProductos;
-            ViewBag.Usuarios = _context.Usuario.ToList();
             ViewBag.Clientes = _context.Cliente.ToList();
             ViewBag.ImporteTotal = 0;
 

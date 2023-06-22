@@ -51,17 +51,6 @@
     <form asp-action="RegistrarVenta" method="POST">
         <input type="hidden" name="numFilas" id="numFilas" value="@productos.Count" />
         <div class="DatosFijos">
-            <!-- Usuario -->
-            <div class="input-group mb-3">
-                <label asp-for="IdUsuario" class="input-group-text">Usuario</label>
-                <select asp-for="IdUsuario" class="form-control" id="usuario">
-                    <option value="">Seleccione el usuario</option>
-                    @foreach (var usuario in ViewBag.Usuarios)
-                    {
-                        <option value="@usuario.Id">@usuario.Nombre</option>
-                    }
-                </select>
-            </div>
 
             <!-- Cliente -->
             <div class="input-group mb-3">

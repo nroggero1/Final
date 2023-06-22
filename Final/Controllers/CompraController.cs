@@ -4,21 +4,18 @@ using Final.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Data;
-using System.Runtime.InteropServices;
 
 namespace Final.Controllers
 {
     public class CompraController : Controller
     {
         private readonly FinalWebContext _context;
-
         public CompraController(FinalWebContext context)
         {
             _context = context;
         }
 
         // URL: /Compra
-
         [HttpGet]
         public async Task<IActionResult> Index()
         {
@@ -45,7 +42,6 @@ namespace Final.Controllers
 
 
         // URL: /compra/RegistrarCompra
-
         [HttpGet]
         public Task<IActionResult> RegistrarCompra()
         {
@@ -63,9 +59,6 @@ namespace Final.Controllers
             }
 
             ViewBag.Productos = listProductos;
-
-            var usuarios = _context.Usuario.ToList();
-            ViewBag.Usuarios = usuarios;
 
             var proveedores = _context.Proveedor.ToList();
             ViewBag.Proveedores = proveedores;
@@ -127,11 +120,11 @@ namespace Final.Controllers
         {
             var productosString = HttpContext.Session.GetString("CarritoDeCompra");
 
-            var productos = new List<DetalleVentaViewModel>();
+            var productos = new List<DetalleCompraViewModel>();
 
             if (!string.IsNullOrEmpty(productosString))
             {
-                productos = System.Text.Json.JsonSerializer.Deserialize<List<DetalleVentaViewModel>>(productosString);
+                productos = System.Text.Json.JsonSerializer.Deserialize<List<DetalleCompraViewModel>>(productosString);
             }
 
             var producto = productos?.FirstOrDefault(x => x.IdProducto == IdProducto);
@@ -152,28 +145,39 @@ namespace Final.Controllers
         {
             if (ModelState.IsValid)
             {
+                var productosString = HttpContext.Session.GetString("CarritoDeCompra");
+                var idUsuario = HttpContext.Session.GetInt32("idUsuario");
+
+                var DetallesCompra = new List<DetalleCompraViewModel>();
+
+                if (!string.IsNullOrEmpty(productosString))
+                {
+                    DetallesCompra = System.Text.Json.JsonSerializer.Deserialize<List<DetalleCompraViewModel>>(productosString);
+                }
+
                 // Crear una instancia de Compra y asignar los valores correspondientes
-                var venta = new Venta
+                var compra = new Compra
                 {
                     Fecha = DateTime.Now,
-                    IdUsuario = Convert.ToInt32(compraViewModel.IdUsuario),
-                    IdCliente = Convert.ToInt32(compraViewModel.IdProveedor)
-                   
+                    IdUsuario = (int)idUsuario,
+                    IdProveedor = Convert.ToInt32(compraViewModel.IdProveedor)
+                    Importe = DetallesCompra.Sum(x => x.Total())
                 };
 
                 // Guardar la venta en la base de datos
-                _context.Venta.Add(venta);
+                _context.Compra.Add(compra);
                 _context.SaveChanges();
 
                 // Recorrer la lista de DetalleVenta y guardar los datos en la base de datos
-                foreach (var detalleVenta in compraViewModel.DetallesCompra)
+                
+                foreach (var detalleCompra in DetallesCompra)
                 {
                     var detalle = new DetalleCompra
                     {
-                        IdCompra = compraViewModel.Id,
-                        IdProducto = detalleVenta.IdProducto,
-                        Cantidad = detalleVenta.Cantidad,
-                        PrecioUnitario = detalleVenta.PrecioUnitario,
+                        IdCompra = compra.Id,
+                        IdProducto = detalleCompra.IdProducto,
+                        Cantidad = detalleCompra.Cantidad,
+                        PrecioUnitario = detalleCompra.PrecioUnitario,
                     };
 
                     // Actualizar el stock del producto
@@ -188,6 +192,10 @@ namespace Final.Controllers
                 }
 
                 _context.SaveChanges();
+
+                DetallesCompra.Clear();
+
+                HttpContext.Session.SetString("CarritoDeCompra", System.Text.Json.JsonSerializer.Serialize(DetallesCompra));
 
                 return RedirectToAction("Index");
             }
@@ -207,7 +215,6 @@ namespace Final.Controllers
             }
 
             ViewBag.Productos = listProductos;
-            ViewBag.Usuarios = _context.Usuario.ToList();
             ViewBag.Clientes = _context.Cliente.ToList();
             ViewBag.ImporteTotal = 0;
 

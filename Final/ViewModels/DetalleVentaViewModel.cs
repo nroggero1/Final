@@ -8,7 +8,6 @@
         public decimal PrecioUnitario { get; set; }
         public int Cantidad { get; set; }
         public int IdVenta { get; internal set; }
-
         public decimal Total()
         {
             return Cantidad * PrecioUnitario;

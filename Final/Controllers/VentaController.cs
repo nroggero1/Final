@@ -170,8 +170,6 @@ namespace Final.Controllers
 
                 // Recorrer la lista de DetalleVenta y guardar los datos en la base de datos
 
-               
-
                 foreach (var detalleVenta in DetallesVenta)
                 {
                     var detalle = new DetalleVenta

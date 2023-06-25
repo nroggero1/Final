@@ -160,7 +160,7 @@ namespace Final.Controllers
                 {
                     Fecha = DateTime.Now,
                     IdUsuario = (int)idUsuario,
-                    IdProveedor = Convert.ToInt32(compraViewModel.IdProveedor)
+                    IdProveedor = Convert.ToInt32(compraViewModel.IdProveedor),
                     Importe = DetallesCompra.Sum(x => x.Total())
                 };
 

@@ -1,28 +1,26 @@
-$(document).ready(function () {
-    $('#provincia').change(function () {
-        var provinciaId = $(this).val();
+<script>
+    function filtrarLocalidades() {
+        var provinciaId = document.getElementById("provincia").value;
 
-        if (provinciaId) {
-            $.ajax({
-                url: '/Cliente/CargarLocalidades',
-                type: 'POST',
-                data: { provinciaId: provinciaId },
-                success: function (response) {
-                    // Ordenar las opciones alfabéticamente
-                    var sortedOptions = $(response).sort(function (a, b) {
-                        return $(a).text().localeCompare($(b).text());
-                    });
+    var localidadesSelect = document.getElementById("localidad");
 
-                    $('#localidad').html(sortedOptions);
-                    $('#localidad').prop('disabled', false);
-                },
-                error: function (xhr, status, error) {
-                    console.error(xhr.responseText);
-                }
-            });
-        } else {
-            $('#localidad').html('<option value="">Seleccione una localidad</option>');
-            $('#localidad').prop('disabled', true);
+    localidadesSelect.innerHTML = "";
+
+    var option = document.createElement("option");
+    option.value = "";
+    option.text = "Seleccione una localidad";
+    localidadesSelect.appendChild(option);
+
+    // Filtrar las localidades según la provincia seleccionada
+    var localidades = @Json.Serialize(ViewBag.Localidades);
+
+    for (var i = 0; i < localidades.length; i++) {
+            if (localidades[i].IdProvincia == provinciaId) {
+                var option = document.createElement("option");
+    option.value = localidades[i].Id;
+    option.text = localidades[i].Nombre;
+    localidadesSelect.appendChild(option);
+            }
         }
-    });
-});
+    }
+</script>

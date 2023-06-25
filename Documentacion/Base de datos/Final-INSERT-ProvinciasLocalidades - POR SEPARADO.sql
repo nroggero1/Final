@@ -23163,7 +23163,8 @@ DBCC CHECKIDENT ('Usuario', RESEED, 1);
 DBCC CHECKIDENT ('Compra', RESEED, 1);
 DBCC CHECKIDENT ('Venta', RESEED, 1);
 
-
+INSERT INTO Usuario (NombreUsuario, Nombre, Apellido, Mail, FechaNacimiento, Clave, Administrador, FechaAlta, Activo)
+VALUES ('NROGGERO', 'NICOLAS', 'ROGGERO', 'roggero.n@gmail.com', '1992-04-03', '1234', 1, GETDATE(), 1);
 INSERT INTO Usuario (NombreUsuario, Nombre, Apellido, Mail, FechaNacimiento, Clave, Administrador, FechaAlta, Activo)
 VALUES ('Admin', 'nombreUsuario1', 'apellidoUsuario1', 'mail@usuario1@mail.com', '2000-01-01', 'administrador', 1, GETDATE(), 1);
 INSERT INTO Usuario (NombreUsuario, Nombre, Apellido, Mail, FechaNacimiento, Clave, Administrador, FechaAlta, Activo)

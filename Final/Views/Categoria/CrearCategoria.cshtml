@@ -6,11 +6,11 @@
 <div class="container-lg col-4">
     <h1>Registrar Categoria</h1>
     <form asp-action="CrearCategoria" method="POST" onsubmit="return validarCampos();">
-        
+
         <!-- Nombre -->
         <div class="input-group mb-3">
             <label asp-for="Nombre" class="input-group-text">Nombre</label>
-            <input asp-for="Nombre" type="text" class="form-control" placeholder="Ingresar Nombre" id="nombre">
+            <input asp-for="Nombre" type="text" class="form-control" placeholder="Ingresar Nombre" id="nombre" onblur="convertirAMayusculas()">
         </div>
 
         <!-- Fecha Alta -->
@@ -33,4 +33,4 @@
     </form>
 </div>
 
-<script src="~/js/Validaciones/CrearCategoria.js"></script>
+<script src="~/js/generics.js"></script>

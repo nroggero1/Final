@@ -34,13 +34,13 @@
         <!-- Nombre -->
         <div class="input-group mb-3">
             <label asp-for="Nombre" class="input-group-text">Nombre</label>
-            <input asp-for="Nombre" type="text" class="form-control" placeholder="Ingresar Nombre" id="nombre">
+            <input asp-for="Nombre" type="text" class="form-control" placeholder="Ingresar Nombre" id="nombre" onblur="convertirAMayusculas()">
         </div>
 
         <!-- Descripción -->
         <div class="input-group mb-3">
             <label asp-for="Descripcion" class="input-group-text">Descripción</label>
-            <input asp-for="Descripcion" type="text" class="form-control" placeholder="Ingresar Descripción" id="descripcion">
+            <input asp-for="Descripcion" type="text" class="form-control" placeholder="Ingresar Descripción" id="descripcion" onblur="convertirAMayusculas()">
         </div>
 
         <!-- Precio de Compra -->
@@ -107,6 +107,5 @@
 
 </div>
 
-
+<script src="~/js/generics.js"></script>
 <script src="~/js/Producto/Producto.js"></script>
-<script src="~/js/Validaciones/CrearProducto.js"></script>

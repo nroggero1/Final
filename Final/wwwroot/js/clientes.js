@@ -1,3 +1,27 @@
+function filtrarLocalidades() {
+
+    var provinciaId = document.getElementById("provincia").value;
+    var localidadesSelect = document.getElementById("localidad");
+
+    localidadesSelect.innerHTML = "";
+
+    var option = document.createElement("option");
+    option.value = "";
+    option.text = "Seleccione una localidad";
+    localidadesSelect.appendChild(option);
+
+    var localidades = @Json.Serialize(ViewBag.Localidades);
+
+    for (var i = 0; i < localidades.length; i++) {
+        if (localidades[i].IdProvincia == provinciaId) {
+            var option = document.createElement("option");
+            option.value = localidades[i].Id;
+            option.text = localidades[i].Nombre;
+            localidadesSelect.appendChild(option);
+        }
+    }
+}
+
 function validarCampos() {
     // Obtener los valores de los campos
     var codigoTributario = document.getElementById('codigoTributario').value;
@@ -52,4 +76,21 @@ function validarCampos() {
 
     // Si todos los campos son válidos, se puede enviar el formulario
     return true;
+}
+
+function convertirAMayusculas() {
+    var codigoTributarioInput = document.getElementById("codigoTributario");
+    codigoTributarioInput.value = codigoTributarioInput.value.toUpperCase();
+
+    var direccionInput = document.getElementById("direccion");
+    direccionInput.value = direccionInput.value.toUpperCase();
+
+    var telefonoInput = document.getElementById("telefono");
+    telefonoInput.value = telefonoInput.value.toUpperCase();
+
+    var mailInput = document.getElementById("mail");
+    mailInput.value = mailInput.value.toUpperCase();
+
+    var denominacionInput = document.getElementById("denominacion");
+    denominacionInput.value = denominacionInput.value.toUpperCase();
 }

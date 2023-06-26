@@ -31,6 +31,30 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Importe)
         </dd>
-
+        
     </dl>
 </div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Linea</th>
+            <th>Producto</th>
+            <th>Precio Unitario</th>
+            <th>Cantidad</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var detalle in Model.DetallesVenta)
+        {
+            <tr>
+                <td>@detalle.Linea</td>
+                <td>@detalle.NombreProducto</td>
+                <td>@detalle.PrecioUnitario</td>
+                <td>@detalle.Cantidad</td>
+                <td>@detalle.Total()</td>
+            </tr>
+        }
+    </tbody>
+</table>

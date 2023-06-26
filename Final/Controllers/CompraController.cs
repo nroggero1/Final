@@ -37,7 +37,32 @@ namespace Final.Controllers
                 return NotFound();
             }
 
-            return View(compra);
+            var detallesCompra = await _context.DetalleCompra.Where(c => c.IdCompra == id).ToListAsync();
+            var compraViewModel = new CompraViewModel()
+            {
+                IdProveedor = compra.IdProveedor,
+                Fecha = compra.Fecha,
+                Importe = compra.Importe
+            };
+
+            var detallesCompraViewModel = new List<DetalleCompraViewModel>();
+            foreach (var detalleCompra in detallesCompra)
+            {
+                var detalleCompraViewModel = new DetalleCompraViewModel()
+                {
+                    IdVenta = detalleCompra.IdCompra,
+                    IdProducto = detalleCompra.IdProducto,
+                    Cantidad = detalleCompra.Cantidad,
+                    PrecioUnitario = detalleCompra.PrecioUnitario
+                };
+
+                detallesCompraViewModel.Add(detalleCompraViewModel);
+
+            }
+
+            compraViewModel.DetallesCompra = detallesCompraViewModel;
+
+            return View(compraViewModel);
         }
 
 

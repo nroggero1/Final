@@ -12,6 +12,7 @@ namespace Final.ViewModels
         public decimal PrecioCompra { get; set; }
         public int IdMarca { get; set; }
         public int IdCategoria { get; set; }
+        public decimal Importe { get; set; }
         public List<DetalleCompraViewModel>? DetallesCompra { get; set; }
     }
 }

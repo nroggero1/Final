@@ -1,4 +1,5 @@
-﻿@model Final.Models.DetalleCompra
+﻿@model Final.ViewModels.CompraViewModel
+
 @{
     ViewData["Title"] = "Detalle de compra";
 }
@@ -13,28 +14,47 @@
             @Html.DisplayFor(model => model.Id)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.IdCompra)
+            @Html.DisplayNameFor(model => model.IdProveedor)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.IdCompra)
+            @Html.DisplayFor(model => model.IdProveedor)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.IdProducto)
+            @Html.DisplayNameFor(model => model.Fecha)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.IdProducto)
+            @Html.DisplayFor(model => model.Fecha)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Cantidad)
+            @Html.DisplayNameFor(model => model.Importe)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Cantidad)
+            @Html.DisplayFor(model => model.Importe)
         </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.PrecioUnitario)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.PrecioUnitario)
-        </dd>
+
     </dl>
 </div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Linea</th>
+            <th>Producto</th>
+            <th>Precio Unitario</th>
+            <th>Cantidad</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var detalle in Model.DetallesCompra)
+        {
+            <tr>
+                <td>@detalle.Linea</td>
+                <td>@detalle.NombreProducto</td>
+                <td>@detalle.PrecioUnitario</td>
+                <td>@detalle.Cantidad</td>
+                <td>@detalle.Total()</td>
+            </tr>
+        }
+    </tbody>
+</table>

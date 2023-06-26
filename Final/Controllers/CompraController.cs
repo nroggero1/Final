@@ -24,7 +24,7 @@ namespace Final.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Consultar(int? id)
+        public async Task<IActionResult> ConsultarCompra(int? id)
         {
             if (id == null || _context.Compra == null)
             {

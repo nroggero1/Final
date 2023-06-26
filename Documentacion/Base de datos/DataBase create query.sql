@@ -135,3 +135,4 @@ CREATE TABLE DetalleVenta
 	PrecioUnitario DECIMAL(10,2) NOT NULL,
 ) 
 GO
+

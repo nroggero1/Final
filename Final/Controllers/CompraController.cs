@@ -240,7 +240,7 @@ namespace Final.Controllers
             }
 
             ViewBag.Productos = listProductos;
-            ViewBag.Clientes = _context.Cliente.ToList();
+            ViewBag.Proveedores = _context.Proveedor.ToList();
             ViewBag.ImporteTotal = 0;
 
             return View("RegistrarCompra", compraViewModel);

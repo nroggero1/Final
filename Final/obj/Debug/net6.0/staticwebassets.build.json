@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "A60f65ocsC7fUOPhyf6GRegrCBpNfs4qeMsgqkOGoZI=",
+  "Hash": "RMdTZChFWD0u5BHJsVYCS4KtvXye7UzGjjpKy5WXqzM=",
   "Source": "Final",
   "BasePath": "_content/Final",
   "Mode": "Default",
@@ -119,12 +119,12 @@
       "OriginalItemSpec": "wwwroot\\js\\generics.js"
     },
     {
-      "Identity": "C:\\Users\\Nicolas Roggero\\Desktop\\FINAL\\FInal\\wwwroot\\js\\Localidad\\Localidad.js",
+      "Identity": "C:\\Users\\Nicolas Roggero\\Desktop\\FINAL\\FInal\\wwwroot\\js\\Localidades.js",
       "SourceId": "Final",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Nicolas Roggero\\Desktop\\FINAL\\FInal\\wwwroot\\",
       "BasePath": "_content/Final",
-      "RelativePath": "js/Localidad/Localidad.js",
+      "RelativePath": "js/Localidades.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -133,15 +133,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\Localidad\\Localidad.js"
+      "OriginalItemSpec": "wwwroot\\js\\Localidades.js"
     },
     {
-      "Identity": "C:\\Users\\Nicolas Roggero\\Desktop\\FINAL\\FInal\\wwwroot\\js\\Producto\\Producto.js",
+      "Identity": "C:\\Users\\Nicolas Roggero\\Desktop\\FINAL\\FInal\\wwwroot\\js\\Producto.js",
       "SourceId": "Final",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Nicolas Roggero\\Desktop\\FINAL\\FInal\\wwwroot\\",
       "BasePath": "_content/Final",
-      "RelativePath": "js/Producto/Producto.js",
+      "RelativePath": "js/Producto.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -150,7 +150,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\Producto\\Producto.js"
+      "OriginalItemSpec": "wwwroot\\js\\Producto.js"
     },
     {
       "Identity": "C:\\Users\\Nicolas Roggero\\Desktop\\FINAL\\FInal\\wwwroot\\js\\site.js",
@@ -168,23 +168,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
-    },
-    {
-      "Identity": "C:\\Users\\Nicolas Roggero\\Desktop\\FINAL\\FInal\\wwwroot\\js\\Venta\\Venta.js",
-      "SourceId": "Final",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Nicolas Roggero\\Desktop\\FINAL\\FInal\\wwwroot\\",
-      "BasePath": "_content/Final",
-      "RelativePath": "js/Venta/Venta.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\Venta\\Venta.js"
     },
     {
       "Identity": "C:\\Users\\Nicolas Roggero\\Desktop\\FINAL\\FInal\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",

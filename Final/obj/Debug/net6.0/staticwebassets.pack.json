@@ -13,16 +13,12 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\Users\\Nicolas Roggero\\Desktop\\FINAL\\FInal\\wwwroot\\js\\Localidad\\Localidad.js",
-      "PackagePath": "staticwebassets\\js\\Localidad\\Localidad.js"
+      "Id": "C:\\Users\\Nicolas Roggero\\Desktop\\FINAL\\FInal\\wwwroot\\js\\Localidades.js",
+      "PackagePath": "staticwebassets\\js\\Localidades.js"
     },
     {
-      "Id": "C:\\Users\\Nicolas Roggero\\Desktop\\FINAL\\FInal\\wwwroot\\js\\Producto\\Producto.js",
-      "PackagePath": "staticwebassets\\js\\Producto\\Producto.js"
-    },
-    {
-      "Id": "C:\\Users\\Nicolas Roggero\\Desktop\\FINAL\\FInal\\wwwroot\\js\\Venta\\Venta.js",
-      "PackagePath": "staticwebassets\\js\\Venta\\Venta.js"
+      "Id": "C:\\Users\\Nicolas Roggero\\Desktop\\FINAL\\FInal\\wwwroot\\js\\Producto.js",
+      "PackagePath": "staticwebassets\\js\\Producto.js"
     },
     {
       "Id": "C:\\Users\\Nicolas Roggero\\Desktop\\FINAL\\FInal\\wwwroot\\js\\clientes.js",

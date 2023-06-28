@@ -21,7 +21,7 @@
         <!-- Provincia -->
         <div class="input-group mb-3">
             <label asp-for="IdProvincia" class="input-group-text">Provincia</label>
-            <select asp-for="IdProvincia" class=" form-control" id="provincia">
+            <select asp-for="IdProvincia" class="form-control" id="provincia" onchange="filtrarLocalidades()">
                 <option value="">Seleccione una provincia</option>
                 @foreach (var provincia in ViewBag.Provincias)
                 {
@@ -76,3 +76,4 @@
 
 <script src="~/js/generics.js"></script>
 <script src="~/js/clientes.js"></script>
+<script src="~/js/Localidades.js"></script>

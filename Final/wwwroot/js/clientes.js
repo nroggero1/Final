@@ -22,7 +22,7 @@ function filtrarLocalidades() {
     }
 }
 
-function validarCampos() {
+function validarCamposCliPro() {
     // Obtener los valores de los campos
     var codigoTributario = document.getElementById('codigoTributario').value;
     var direccion = document.getElementById('direccion').value;
@@ -78,19 +78,3 @@ function validarCampos() {
     return true;
 }
 
-function convertirAMayusculas() {
-    var codigoTributarioInput = document.getElementById("codigoTributario");
-    codigoTributarioInput.value = codigoTributarioInput.value.toUpperCase();
-
-    var direccionInput = document.getElementById("direccion");
-    direccionInput.value = direccionInput.value.toUpperCase();
-
-    var telefonoInput = document.getElementById("telefono");
-    telefonoInput.value = telefonoInput.value.toUpperCase();
-
-    var mailInput = document.getElementById("mail");
-    mailInput.value = mailInput.value.toUpperCase();
-
-    var denominacionInput = document.getElementById("denominacion");
-    denominacionInput.value = denominacionInput.value.toUpperCase();
-}

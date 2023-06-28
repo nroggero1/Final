@@ -10,7 +10,7 @@
         <!-- Nombre de usuario -->
         <div class="input-group mb-3">
             <label asp-for="NombreUsuario" class="input-group-text">Nombre de usuario</label>
-            <input asp-for="NombreUsuario" type="text" class="form-control" placeholder="Ingresar nombre de usuario" id="nombreUsuario">
+            <input asp-for="NombreUsuario" type="text" class="form-control" placeholder="Ingresar nombre de usuario" id="nombreUsuario" >
         </div>
 
         <!-- Clave -->
@@ -22,19 +22,19 @@
         <!-- Nombre -->
         <div class="input-group mb-3">
             <label asp-for="Nombre" class="input-group-text">Nombre</label>
-            <input asp-for="Nombre" type="text" class="form-control" placeholder="Ingresar Nombre" id="nombre">
+            <input asp-for="Nombre" type="text" class="form-control" placeholder="Ingresar Nombre" id="nombre" onblur="convertirAMayusculas()">
         </div>
 
         <!-- Apellido -->
         <div class="input-group mb-3">
             <label asp-for="Apellido" class="input-group-text">Apellido</label>
-            <input asp-for="Apellido" type="tel" class="form-control" placeholder="Ingrese el apellido" id="apellido">
+            <input asp-for="Apellido" type="tel" class="form-control" placeholder="Ingrese el apellido" id="apellido" onblur="convertirAMayusculas()">
         </div>
 
         <!-- Correo -->
         <div class="input-group mb-3">
             <label asp-for="Mail" class="input-group-text">Mail</label>
-            <input asp-for="Mail" type="email" class="form-control" placeholder="Ingrese el mail" id="mail">
+            <input asp-for="Mail" type="email" class="form-control" placeholder="Ingrese el mail" id="mail" onblur="convertirAMayusculas()">
         </div>
 
         <!-- Fecha de nacimiento -->

@@ -5,17 +5,17 @@
 
 <div class="container-lg col-4">
     <h1>Editar cliente</h1>
-    <form asp-action="EditarCliente" method="POST">
+    <form asp-action="EditarCliente" method="POST" onsubmit="return validarCamposCliPro();">
 
         <!-- Codigo Tributario -->
         <div class="input-group mb-3">
             <label asp-for="CodigoTributario" class="input-group-text">Codigo Tributario</label>
-            <input asp-for="CodigoTributario" type="text" class="form-control" placeholder="Ingresar codigo tributario" id="codigoTributario">
+            <input asp-for="CodigoTributario" type="text" class="form-control" placeholder="Ingresar codigo tributario" id="codigoTributario" onblur="convertirAMayusculas()">
         </div>
         <!-- Direccion -->
         <div class="input-group mb-3">
             <label asp-for="Direccion" class="input-group-text">Direccion</label>
-            <input asp-for="Direccion" type="text" class="form-control" placeholder="Ingresar direccion tributario" id="direccion">
+            <input asp-for="Direccion" type="text" class="form-control" placeholder="Ingresar direccion tributario" id="direccion" onblur="convertirAMayusculas()">
         </div>
 
         <!-- Provincia -->
@@ -49,12 +49,12 @@
         <!-- Mail -->
         <div class="input-group mb-3">
             <label asp-for="Mail" class="input-group-text">Mail</label>
-            <input asp-for="Mail" type="email" class="form-control" placeholder="Ingrese el mail" id="mail">
+            <input asp-for="Mail" type="email" class="form-control" placeholder="Ingrese el mail" id="mail" onblur="convertirAMayusculas()">
         </div>
         <!-- Denominacion -->
         <div class="input-group mb-3">
             <label asp-for="Denominacion" class="input-group-text">Denominacion</label>
-            <input asp-for="Denominacion" type="text" class="form-control" placeholder="Denominacion" id="denominacion">
+            <input asp-for="Denominacion" type="text" class="form-control" placeholder="Denominacion" id="denominacion" onblur="convertirAMayusculas()">
         </div>
         <!-- Fecha Alta -->
         <div class="form-group">
@@ -74,6 +74,5 @@
     </form>
 </div>
 
-@section Scripts {
-    <script src="~/js/Localidad/Localidad.js"></script>
-}
+<script src="~/js/generics.js"></script>
+<script src="~/js/clientes.js"></script>

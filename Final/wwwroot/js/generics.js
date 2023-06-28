@@ -6,6 +6,19 @@ function limpiarCampos() {
   });
 }
 
+function validarCampos() {
+    var inputs = document.getElementsByTagName("input");
+
+    for (var i = 0; i < inputs.length; i++) {
+        if (inputs[i].value === "") {
+            alert("Por favor, complete todos los campos.");
+            return false;
+        }
+    }
+
+    return true;
+}
+
 function convertirAMayusculas() {
     var camposDeTexto = document.querySelectorAll('input[type="text"]');
 
@@ -13,4 +26,3 @@ function convertirAMayusculas() {
         camposDeTexto[i].value = camposDeTexto[i].value.toUpperCase();
     }
 }
-

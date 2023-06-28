@@ -5,7 +5,7 @@
 
 <div class="container-lg col-4">
     <h1>Editar proveedor</h1>
-    <form asp-action="EditarProveedor" method="POST">
+    <form asp-action="EditarProveedor" method="POST" onsubmit="return validarCamposCliPro();">
 
         <div class="input-group mb-3">
             <label asp-for="CodigoTributario" class="input-group-text">Codigo Tributario</label>

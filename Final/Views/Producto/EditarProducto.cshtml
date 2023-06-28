@@ -34,19 +34,19 @@
         <!-- Nombre -->
         <div class="input-group mb-3">
             <label asp-for="Nombre" class="input-group-text">Nombre</label>
-            <input asp-for="Nombre" type="text" class="form-control" placeholder="Ingresar Nombre" id="nombre">
+            <input asp-for="Nombre" type="text" class="form-control" placeholder="Ingresar Nombre" id="nombre" onblur="convertirAMayusculas()">
         </div>
 
         <!-- Descripción -->
         <div class="input-group mb-3">
             <label asp-for="Descripcion" class="input-group-text">Descripción</label>
-            <input asp-for="Descripcion" type="text" class="form-control" placeholder="Ingresar Descripción" id="descripcion">
+            <input asp-for="Descripcion" type="text" class="form-control" placeholder="Ingresar Descripción" id="descripcion" onblur="convertirAMayusculas()">
         </div>
 
         <!-- Código de Barras -->
         <div class="input-group mb-3">
             <label asp-for="CodigoBarras" class="input-group-text">Código de Barras</label>
-            <input asp-for="CodigoBarras" type="text" class="form-control" placeholder="Ingresar Código de Barras" id="codigoBarras">
+            <input asp-for="CodigoBarras" type="text" class="form-control" placeholder="Ingresar Código de Barras" id="codigoBarras" onblur="convertirAMayusculas()">
         </div>
 
         <!-- Precio de Compra -->

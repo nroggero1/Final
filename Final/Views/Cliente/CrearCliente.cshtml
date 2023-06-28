@@ -5,7 +5,7 @@
 
 <div class="container-lg col-4">
     <h1>Registrar cliente</h1>
-    <form asp-action="CrearCliente" method="POST" onsubmit="return validarCampos();">
+    <form asp-action="CrearCliente" method="POST" onsubmit="return validarCamposCliPro();">
 
         <div class="input-group mb-3">
             <label asp-for="CodigoTributario" class="input-group-text">Codigo Tributario</label>
@@ -70,5 +70,5 @@
     </form>
 </div>
 
+<script src="~/js/clientes.js"></script>
 <script src="~/js/generics.js"></script>
-<script src="~/js/localidad.js"></script>

@@ -9,7 +9,7 @@
 <form asp-action="EditarMarca" method="post">
     <div class="form-group">
         <label asp-for="Nombre">Nombre</label>
-        <input asp-for="Nombre" class="form-control" />
+        <input asp-for="Nombre" class="form-control" onblur="convertirAMayusculas()" />
         <span asp-validation-for="Nombre" class="text-danger"></span>
     </div>
     <!-- Fecha Alta -->

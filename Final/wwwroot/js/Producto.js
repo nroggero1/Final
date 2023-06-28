@@ -8,4 +8,3 @@ function calcularPrecioVentaSugerido() {
     // Mostrar el resultado en el campo de texto de precio de venta sugerido
     document.getElementById("precioVentaSugerido").value = precioVentaSugerido.toFixed(2);
 }
-

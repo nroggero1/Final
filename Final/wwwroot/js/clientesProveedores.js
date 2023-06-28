@@ -1,5 +1,4 @@
 
-
 function validarCamposCliPro() {
     // Obtener los valores de los campos
     var codigoTributario = document.getElementById('codigoTributario').value;

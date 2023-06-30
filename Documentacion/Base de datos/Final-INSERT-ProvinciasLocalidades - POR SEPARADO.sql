@@ -66,7 +66,7 @@ CREATE TABLE Producto
 (
 	Id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	Nombre nvarchar(50) NOT NULL,
-	Descripcion nvarchar(50) NOT NULL,
+	Descripcion nvarchar(100) NOT NULL,
 	CodigoBarras nvarchar(30) NOT NULL,
 	IdCategoria int NOT NULL REFERENCES Categoria(Id),
 	IdMarca int NOT NULL REFERENCES Marca(Id),
